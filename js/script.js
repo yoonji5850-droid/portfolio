@@ -20,6 +20,40 @@ const CONFIG = {
     ],
   },
 
+  resume: {
+    name: "이윤지",
+    birth: "2004.10.11",
+    education: [
+      { date: "2025.03 ~ 재학중", school: "명지대학교(인문)", detail: "미디어앤아트테크놀로지학과" },
+      { date: "2023.03 ~ 2024.08", school: "명지전문대학교", detail: "뮤직콘텐츠기획과 음악전문학사" },
+    ],
+    certificates: [
+      { date: "2025.09", name: "멀티미디어콘텐츠제작전문가", note: "" },
+      { date: "2023.07", name: "자동차운전면허증", note: "2종보통" },
+      { date: "2016.03", name: "ITQ 한글파워포인트(한쇼)", note: "A등급" },
+    ],
+    toolGroups: [
+      {
+        icons: [{ cls: "figma", label: "F" }],
+        items: ["앱 프로토타입 기획 및 UI 설계", "제품 상세페이지 기획·디자인", "콘텐츠 제작 협업"],
+      },
+      {
+        icons: [
+          { cls: "ai", label: "Ai" },
+          { cls: "ps", label: "Ps" },
+          { cls: "ae", label: "Ae" },
+          { cls: "pr", label: "Pr" },
+        ],
+        items: [
+          "콘텐츠 디자인 및 영상 편집",
+          "Photoshop을 활용한 콘텐츠 디자인 및 이미지 보정",
+          "Illustrator를 활용한 상품 패키지 제작",
+          "Premiere Pro를 활용한 영상 편집 및 콘텐츠 제작",
+        ],
+      },
+    ],
+  },
+
   skills: [
     {
       title: "콘텐츠 기획",
@@ -139,6 +173,44 @@ function renderContent() {
     .map(
       (s) =>
         `<li><span class="stat-num">${escapeHtml(s.num)}</span><span class="stat-label">${escapeHtml(s.label)}</span></li>`
+    )
+    .join("");
+
+  $("resumeName").textContent = CONFIG.resume.name;
+  $("resumeBirth").textContent = CONFIG.resume.birth;
+
+  $("eduList").innerHTML = CONFIG.resume.education
+    .map(
+      (e) => `
+      <li>
+        <span class="r-date">${escapeHtml(e.date)}</span>
+        <span class="r-main"><strong>${escapeHtml(e.school)}</strong> | <span>${escapeHtml(e.detail)}</span></span>
+      </li>`
+    )
+    .join("");
+
+  $("certList").innerHTML = CONFIG.resume.certificates
+    .map(
+      (c) => `
+      <li>
+        <span class="r-date">${escapeHtml(c.date)}</span>
+        <span class="r-main"><strong>${escapeHtml(c.name)}</strong></span>
+        <span class="r-note">${escapeHtml(c.note)}</span>
+      </li>`
+    )
+    .join("");
+
+  $("toolGroups").innerHTML = CONFIG.resume.toolGroups
+    .map(
+      (g) => `
+      <div class="tool-group">
+        <div class="tool-group-icons">
+          ${g.icons.map((i) => `<span class="tool-badge ${i.cls}">${escapeHtml(i.label)}</span>`).join("")}
+        </div>
+        <ul class="tool-group-list">
+          ${g.items.map((it) => `<li>${escapeHtml(it)}</li>`).join("")}
+        </ul>
+      </div>`
     )
     .join("");
 
