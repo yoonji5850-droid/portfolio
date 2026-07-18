@@ -90,8 +90,7 @@ const CONFIG = {
   ],
 
   contact: {
-    title: "프로젝트를 함께 만들어요",
-    desc: "협업 문의나 궁금한 점이 있다면 언제든 편하게 연락 주세요.",
+    title: "CONTACT",
     email: "yoonji5850@naver.com",
   },
 
@@ -169,9 +168,8 @@ function renderContent() {
             ${(s.skillItems || []).map((it) => `<li>${escapeHtml(it)}</li>`).join("")}
           </ul>
         </div>
-        <div class="skill-sub">
-          <h4 class="skill-sub-title">태그</h4>
-          <p class="skill-tags-line">${(s.tags || []).map(escapeHtml).join(" · ")}</p>
+        <div class="skill-tags">
+          ${(s.tags || []).map((t) => `<span class="skill-tag">${escapeHtml(t)}</span>`).join("")}
         </div>
       </div>`
     )
@@ -213,7 +211,7 @@ function renderContent() {
   });
 
   $("contactTitle").textContent = CONFIG.contact.title;
-  $("contactDesc").textContent = CONFIG.contact.desc;
+  $("contactDesc").textContent = CONFIG.contact.email;
   $("formNote").textContent = "";
 
   $("footerText").textContent = CONFIG.footerText;
