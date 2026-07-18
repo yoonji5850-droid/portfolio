@@ -344,6 +344,7 @@ button{ font-family:inherit; }
 
 /* ---------- About ---------- */
 .about{ background:var(--off-white); }
+.about .section-eyebrow{ margin-bottom:48px; }
 .about-grid{
   display:grid;
   grid-template-columns:340px 1fr;
@@ -388,7 +389,7 @@ button{ font-family:inherit; }
 }
 .resume-name{
   font-size:70px;
-  font-weight:800;
+  font-weight:700;
   color:var(--navy-900);
   line-height:1;
 }
