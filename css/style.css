@@ -660,6 +660,15 @@ button{ font-family:inherit; }
   margin:0 auto 40px;
   line-height:1.8;
 }
+.contact-email-label{
+  display:inline-block;
+  font-size:11px;
+  font-weight:700;
+  letter-spacing:.14em;
+  color:rgba(255,255,255,.5);
+  margin-right:10px;
+  vertical-align:middle;
+}
 .contact-wrap{
   display:flex;
   justify-content:center;
