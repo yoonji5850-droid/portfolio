@@ -30,7 +30,7 @@ const CONFIG = {
       desc: "브랜드와 타깃에 맞는 콘텐츠 전략을 기획합니다.",
       icon: "target",
       skillItems: ["콘텐츠 전략", "트렌드 리서치", "카피라이팅"],
-      tags: ["PowerPoint", "Word", "Figma"],
+      tags: ["PowerPoint", "Word", "Figma", "Claude"],
     },
     {
       title: "콘텐츠 제작",
