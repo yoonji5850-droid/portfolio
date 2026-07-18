@@ -109,7 +109,7 @@ const CONFIG = {
   contact: {
     title: "프로젝트를 함께 만들어요",
     desc: "협업 문의나 궁금한 점이 있다면 언제든 편하게 연락 주세요.",
-    email: "hello@example.com",
+    email: "yoonji5850@naver.com",
     phone: "010-1234-5678",
     sns: [
       { label: "IG", url: "https://instagram.com" },
@@ -265,7 +265,7 @@ function renderContent() {
   $("contactSns").innerHTML = CONFIG.contact.sns
     .map((s) => `<a href="${escapeHtml(s.url)}" target="_blank" rel="noopener">${escapeHtml(s.label)}</a>`)
     .join("");
-  $("formNote").textContent = "※ 실제 접수를 원하시면 폼 연동 서비스(Formspree 등) 연결이 필요합니다.";
+  $("formNote").textContent = "";
 
   $("footerText").textContent = CONFIG.footerText;
 }
@@ -394,15 +394,35 @@ function initFab() {
   observer.observe(contact);
 }
 
-/* ---------- Contact form (front-end only demo) ---------- */
+/* ---------- Contact form (submits via FormSubmit) ---------- */
 function initContactForm() {
   const form = document.getElementById("contactForm");
   const toast = document.getElementById("toast");
+  const submitBtn = form.querySelector('button[type="submit"]');
+  const submitBtnDefaultText = submitBtn.textContent;
+  const endpoint = `https://formsubmit.co/ajax/${encodeURIComponent(CONFIG.contact.email)}`;
 
-  form.addEventListener("submit", (e) => {
+  form.addEventListener("submit", async (e) => {
     e.preventDefault();
-    showToast("문의가 접수되었습니다. 빠르게 연락드릴게요!");
-    form.reset();
+    submitBtn.disabled = true;
+    submitBtn.textContent = "전송 중...";
+
+    try {
+      const res = await fetch(endpoint, {
+        method: "POST",
+        headers: { Accept: "application/json" },
+        body: new FormData(form),
+      });
+      if (!res.ok) throw new Error("request failed");
+
+      showToast("문의가 접수되었습니다. 빠르게 연락드릴게요!");
+      form.reset();
+    } catch (err) {
+      showToast("전송에 실패했어요. 잠시 후 다시 시도해 주세요.");
+    } finally {
+      submitBtn.disabled = false;
+      submitBtn.textContent = submitBtnDefaultText;
+    }
   });
 
   function showToast(message) {
