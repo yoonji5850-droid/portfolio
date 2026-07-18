@@ -437,9 +437,10 @@ button{ font-family:inherit; }
 }
 
 /* ---------- Skills ---------- */
+.skills .section-eyebrow{ margin-bottom:48px; }
 .skills-grid{
   display:grid;
-  grid-template-columns:repeat(4, 1fr);
+  grid-template-columns:repeat(3, 1fr);
   gap:24px;
 }
 .skill-card{
@@ -476,7 +477,20 @@ button{ font-family:inherit; }
   font-size:14px;
   color:var(--gray-500);
   line-height:1.75;
-  margin:0;
+  margin:0 0 18px;
+}
+.skill-tags{
+  display:flex;
+  flex-wrap:wrap;
+  gap:8px;
+}
+.skill-tag{
+  font-size:12px;
+  font-weight:600;
+  color:var(--navy-600);
+  background:var(--navy-100);
+  padding:4px 11px;
+  border-radius:999px;
 }
 
 /* ---------- Portfolio ---------- */

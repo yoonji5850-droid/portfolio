@@ -27,23 +27,21 @@ const CONFIG = {
   skills: [
     {
       title: "콘텐츠 기획",
-      desc: "타겟과 목적에 맞는 콘텐츠 전략을 설계합니다.",
+      desc: "브랜드와 타깃에 맞는 콘텐츠 전략을 설계합니다.",
       icon: "target",
+      tags: ["PowerPoint", "Word", "Figma"],
+    },
+    {
+      title: "콘텐츠 제작",
+      desc: "브랜드 메시지를 시각적으로 구현합니다.",
+      icon: "pen",
+      tags: ["Figma", "Photoshop", "Illustrator", "Premiere Pro", "After Effects"],
     },
     {
       title: "SNS 마케팅",
-      desc: "인스타그램, 유튜브 등 채널별 최적화 콘텐츠를 제작합니다.",
+      desc: "채널별 콘텐츠를 기획하고 성과를 분석합니다.",
       icon: "share",
-    },
-    {
-      title: "브랜드 카피라이팅",
-      desc: "브랜드 톤앤매너에 맞는 메시지를 씁니다.",
-      icon: "pen",
-    },
-    {
-      title: "퍼포먼스 분석",
-      desc: "데이터를 기반으로 콘텐츠 성과를 분석하고 개선합니다.",
-      icon: "chart",
+      tags: ["GA4", "Instagram Insights"],
     },
   ],
 
@@ -168,6 +166,9 @@ function renderContent() {
         <div class="skill-icon">${ICONS[s.icon] || ICONS.target}</div>
         <h3 class="skill-title">${escapeHtml(s.title)}</h3>
         <p class="skill-desc">${escapeHtml(s.desc)}</p>
+        <div class="skill-tags">
+          ${(s.tags || []).map((t) => `<span class="skill-tag">${escapeHtml(t)}</span>`).join("")}
+        </div>
       </div>`
     )
     .join("");
