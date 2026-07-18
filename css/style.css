@@ -344,7 +344,11 @@ button{ font-family:inherit; }
 
 /* ---------- About ---------- */
 .about{ background:var(--off-white); }
-.about .section-eyebrow{ margin-bottom:48px; }
+.about .section-eyebrow{
+  font-size:clamp(26px, 3.6vw, 38px);
+  font-weight:800;
+  margin-bottom:48px;
+}
 .about-grid{
   display:grid;
   grid-template-columns:340px 1fr;
