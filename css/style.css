@@ -343,7 +343,7 @@ button{ font-family:inherit; }
 .section-title.light{ color:var(--white); }
 
 /* ---------- About ---------- */
-.about{ background:var(--off-white); }
+.about{ background:var(--off-white); padding-top:96px; }
 .about .section-eyebrow{
   font-size:clamp(26px, 3.6vw, 38px);
   font-weight:800;
@@ -396,14 +396,6 @@ button{ font-family:inherit; }
   font-weight:700;
   color:var(--navy-900);
   line-height:1;
-}
-.resume-meta{
-  display:flex;
-  flex-direction:column;
-  gap:5px;
-  font-size:12.5px;
-  font-weight:600;
-  color:var(--gray-500);
 }
 .skill-section{
   margin-top:56px;
