@@ -13,6 +13,7 @@ const CONFIG = {
 
   resume: {
     name: "이윤지",
+    birth: "2004.10.11",
     education: [
       { date: "2025.03 ~ 재학중", school: "명지대학교(인문)", detail: "미디어앤아트테크놀로지학과" },
       { date: "2023.03 ~ 2024.08", school: "명지전문대학교", detail: "뮤직콘텐츠기획과 음악전문학사" },
@@ -133,6 +134,10 @@ function renderContent() {
   $("heroSubtitle").innerHTML = formatRichText(CONFIG.hero.subtitle);
 
   $("resumeName").textContent = CONFIG.resume.name;
+  $("resumeMeta").innerHTML = `
+    <li>생년월일 ${escapeHtml(CONFIG.resume.birth)}</li>
+    <li>이메일 ${escapeHtml(CONFIG.contact.email)}</li>
+  `;
 
   $("eduList").innerHTML = CONFIG.resume.education
     .map(
