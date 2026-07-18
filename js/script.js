@@ -27,21 +27,24 @@ const CONFIG = {
   skills: [
     {
       title: "콘텐츠 기획",
-      desc: "브랜드와 타깃에 맞는 콘텐츠 전략을 설계합니다.",
+      desc: "브랜드와 타깃에 맞는 콘텐츠 전략을 기획합니다.",
       icon: "target",
+      skillItems: ["콘텐츠 전략", "트렌드 리서치", "카피라이팅"],
       tags: ["PowerPoint", "Word", "Figma"],
     },
     {
       title: "콘텐츠 제작",
-      desc: "브랜드 메시지를 시각적으로 구현합니다.",
+      desc: "기획 의도를 시각적으로 전달하는 콘텐츠를 제작합니다.",
       icon: "pen",
-      tags: ["Figma", "Photoshop", "Illustrator", "Premiere Pro", "After Effects"],
+      skillItems: ["숏폼 / 롱폼 제작", "카드뉴스 제작", "상세페이지 제작"],
+      tags: ["Photoshop", "Illustrator", "Premiere Pro", "After Effects", "Figma"],
     },
     {
       title: "SNS 마케팅",
-      desc: "채널별 콘텐츠를 기획하고 성과를 분석합니다.",
+      desc: "채널 특성에 맞는 콘텐츠를 기획하고 운영합니다.",
       icon: "share",
-      tags: ["GA4", "Instagram Insights"],
+      skillItems: ["SNS 채널 운영", "콘텐츠 캘린더", "콘텐츠 성과 분석"],
+      tags: ["Instagram Insights", "GA4"],
     },
   ],
 
@@ -160,8 +163,15 @@ function renderContent() {
         <div class="skill-icon">${ICONS[s.icon] || ICONS.target}</div>
         <h3 class="skill-title">${escapeHtml(s.title)}</h3>
         <p class="skill-desc">${escapeHtml(s.desc)}</p>
-        <div class="skill-tags">
-          ${(s.tags || []).map((t) => `<span class="skill-tag">${escapeHtml(t)}</span>`).join("")}
+        <div class="skill-sub">
+          <h4 class="skill-sub-title">Skills</h4>
+          <ul class="skill-bullets">
+            ${(s.skillItems || []).map((it) => `<li>${escapeHtml(it)}</li>`).join("")}
+          </ul>
+        </div>
+        <div class="skill-sub">
+          <h4 class="skill-sub-title">태그</h4>
+          <p class="skill-tags-line">${(s.tags || []).map(escapeHtml).join(" · ")}</p>
         </div>
       </div>`
     )
@@ -204,7 +214,6 @@ function renderContent() {
 
   $("contactTitle").textContent = CONFIG.contact.title;
   $("contactDesc").textContent = CONFIG.contact.desc;
-  $("contactEmail").textContent = CONFIG.contact.email;
   $("formNote").textContent = "";
 
   $("footerText").textContent = CONFIG.footerText;

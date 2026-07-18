@@ -477,20 +477,49 @@ button{ font-family:inherit; }
   font-size:14px;
   color:var(--gray-500);
   line-height:1.75;
-  margin:0 0 18px;
+  margin:0 0 22px;
 }
-.skill-tags{
+.skill-sub{
+  margin-bottom:18px;
+}
+.skill-sub:last-child{
+  margin-bottom:0;
+}
+.skill-sub-title{
+  font-size:11px;
+  font-weight:700;
+  letter-spacing:.1em;
+  color:var(--navy-500);
+  margin:0 0 10px;
+}
+.skill-bullets{
   display:flex;
-  flex-wrap:wrap;
+  flex-direction:column;
   gap:8px;
 }
-.skill-tag{
-  font-size:12px;
+.skill-bullets li{
+  font-size:13.5px;
+  color:var(--gray-500);
+  line-height:1.6;
+  padding-left:14px;
+  position:relative;
+}
+.skill-bullets li::before{
+  content:"";
+  position:absolute;
+  left:0;
+  top:8px;
+  width:4px;
+  height:4px;
+  border-radius:50%;
+  background:var(--navy-400);
+}
+.skill-tags-line{
+  font-size:13px;
   font-weight:600;
   color:var(--navy-600);
-  background:var(--navy-100);
-  padding:4px 11px;
-  border-radius:999px;
+  margin:0;
+  line-height:1.6;
 }
 
 /* ---------- Portfolio ---------- */
@@ -618,12 +647,12 @@ button{ font-family:inherit; }
   line-height:1.8;
 }
 .contact-wrap{
-  display:grid;
-  grid-template-columns:1.4fr 1fr;
-  gap:48px;
-  align-items:start;
+  display:flex;
+  justify-content:center;
 }
 .contact-form{
+  width:100%;
+  max-width:640px;
   background:rgba(255,255,255,.05);
   border:1px solid rgba(255,255,255,.14);
   border-radius:var(--border-radius);
@@ -666,27 +695,6 @@ button{ font-family:inherit; }
   margin:4px 0 0;
 }
 
-.contact-info{
-  display:flex;
-  flex-direction:column;
-  gap:22px;
-  padding-top:8px;
-}
-.contact-info-item{
-  display:flex;
-  flex-direction:column;
-  gap:6px;
-  padding-bottom:20px;
-  border-bottom:1px solid rgba(255,255,255,.14);
-  font-size:16px;
-  font-weight:600;
-}
-.contact-info-label{
-  font-size:12px;
-  font-weight:700;
-  letter-spacing:.14em;
-  color:rgba(255,255,255,.5);
-}
 /* ---------- Footer ---------- */
 .footer{
   background:var(--navy-900);
@@ -765,7 +773,6 @@ button{ font-family:inherit; }
   .resume-heading{ justify-content:center; text-align:center; }
   .skills-grid{ grid-template-columns:repeat(2, 1fr); }
   .portfolio-grid{ grid-template-columns:repeat(2, 1fr); }
-  .contact-wrap{ grid-template-columns:1fr; }
 }
 
 @media (max-width: 768px){
