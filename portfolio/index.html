@@ -1,0 +1,142 @@
+<!doctype html>
+<html lang="ko">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>Marketing Portfolio</title>
+<meta name="description" content="마케팅 콘텐츠 포트폴리오" />
+<link rel="preconnect" href="https://fonts.googleapis.com" />
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Pretendard:wght@400;500;600;700;800&family=Noto+Sans+KR:wght@400;500;700;900&display=swap" />
+<link rel="stylesheet" href="./css/style.css" />
+</head>
+<body>
+
+  <!-- ================= Header ================= -->
+  <header class="header" id="header">
+    <div class="header-inner">
+      <a href="#hero" class="logo" id="logoText">PORTFOLIO</a>
+
+      <nav class="nav" id="nav">
+        <a href="#about" class="nav-link">소개</a>
+        <a href="#skills" class="nav-link">핵심 역량</a>
+        <a href="#portfolio" class="nav-link">포트폴리오</a>
+        <a href="#contact" class="nav-link btn-contact-nav">문의하기</a>
+      </nav>
+
+      <button class="menu-toggle" id="menuToggle" aria-label="메뉴 열기">
+        <span></span><span></span><span></span>
+      </button>
+    </div>
+  </header>
+
+  <!-- ================= Hero ================= -->
+  <section class="hero" id="hero">
+    <div class="hero-bg"></div>
+    <div class="hero-content reveal">
+      <p class="hero-eyebrow" id="heroEyebrow">MARKETING CONTENT PORTFOLIO</p>
+      <h1 class="hero-title" id="heroTitle"></h1>
+      <p class="hero-subtitle" id="heroSubtitle"></p>
+      <div class="hero-actions">
+        <a href="#contact" class="btn btn-primary">문의하기</a>
+        <a href="#portfolio" class="btn btn-outline">작업물 보기</a>
+      </div>
+    </div>
+    <a href="#about" class="scroll-down" aria-label="아래로 스크롤">
+      <span class="scroll-down-mouse"><span class="scroll-down-dot"></span></span>
+    </a>
+  </section>
+
+  <!-- ================= About ================= -->
+  <section class="section about" id="about">
+    <div class="container">
+      <p class="section-eyebrow reveal">ABOUT</p>
+      <h2 class="section-title reveal">소개</h2>
+
+      <div class="about-grid">
+        <div class="about-photo reveal">
+          <div class="about-photo-box" id="aboutPhoto"></div>
+        </div>
+        <div class="about-text reveal">
+          <p class="about-desc" id="aboutDesc"></p>
+          <ul class="about-stats" id="aboutStats"></ul>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ================= Skills ================= -->
+  <section class="section skills" id="skills">
+    <div class="container">
+      <p class="section-eyebrow reveal">SKILLS</p>
+      <h2 class="section-title reveal">핵심 역량</h2>
+      <div class="skills-grid" id="skillsGrid"></div>
+    </div>
+  </section>
+
+  <!-- ================= Portfolio ================= -->
+  <section class="section portfolio" id="portfolio">
+    <div class="container">
+      <p class="section-eyebrow reveal">WORKS</p>
+      <h2 class="section-title reveal">포트폴리오</h2>
+
+      <div class="filter-bar reveal" id="filterBar"></div>
+
+      <div class="portfolio-grid" id="portfolioGrid"></div>
+    </div>
+  </section>
+
+  <!-- ================= Contact ================= -->
+  <section class="section contact" id="contact">
+    <div class="contact-bg"></div>
+    <div class="container">
+      <p class="section-eyebrow light reveal">CONTACT</p>
+      <h2 class="section-title light reveal" id="contactTitle"></h2>
+      <p class="contact-desc reveal" id="contactDesc"></p>
+
+      <div class="contact-wrap reveal">
+        <form class="contact-form" id="contactForm">
+          <div class="form-row">
+            <input type="text" name="name" placeholder="이름" required />
+            <input type="email" name="email" placeholder="이메일" required />
+          </div>
+          <input type="text" name="subject" placeholder="제목" required />
+          <textarea name="message" placeholder="문의 내용을 입력해 주세요" rows="5" required></textarea>
+          <button type="submit" class="btn btn-primary btn-full">문의하기</button>
+          <p class="form-note" id="formNote"></p>
+        </form>
+
+        <div class="contact-info">
+          <div class="contact-info-item">
+            <span class="contact-info-label">Email</span>
+            <span id="contactEmail"></span>
+          </div>
+          <div class="contact-info-item">
+            <span class="contact-info-label">Phone</span>
+            <span id="contactPhone"></span>
+          </div>
+          <div class="contact-info-item" id="contactSnsWrap">
+            <span class="contact-info-label">SNS</span>
+            <div class="contact-sns" id="contactSns"></div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ================= Footer ================= -->
+  <footer class="footer">
+    <div class="container footer-inner">
+      <p id="footerText"></p>
+      <a href="#hero" class="footer-top">TOP ↑</a>
+    </div>
+  </footer>
+
+  <!-- Floating CTA -->
+  <a href="#contact" class="fab-contact" id="fabContact" aria-label="문의하기">문의하기</a>
+
+  <!-- Toast -->
+  <div class="toast" id="toast"></div>
+
+<script src="./js/script.js"></script>
+</body>
+</html>
