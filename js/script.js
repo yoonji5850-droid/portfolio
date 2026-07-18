@@ -8,15 +8,14 @@ const CONFIG = {
     eyebrow: "PORTFOLIO",
     title: "생각을 콘텐츠로,\n콘텐츠를 경험으로",
     subtitle:
-      "콘텐츠 기획부터 카피라이팅, 디자인, 영상 제작까지 폭넓게 다룰 수 있으며,\n트렌드와 데이터를 바탕으로 브랜드의 메시지를 효과적으로 전달하는 방법을 끊임없이 배우고 고민하며 성장하고 있습니다.",
-  },
-
-  about: {
-    desc:
-      "**생각을 콘텐츠로, 콘텐츠를 경험으로.**\n브랜드의 이야기를 콘텐츠로 풀어내는 마케터 **이윤지**입니다.\n콘텐츠 기획부터 카피라이팅, 디자인, 영상 제작까지 폭넓게 다룰 수 있으며, 트렌드와 데이터를 바탕으로 브랜드의 메시지를 효과적으로 전달하는 방법을 끊임없이 배우고 고민하며 성장하고 있습니다.",
+      "콘텐츠 기획부터 카피라이팅, 디자인, 영상 제작까지 폭넓게 다룰 수 있으며,\n트렌드와 데이터를 바탕으로 브랜드의 메시지를 효과적으로 전달하는 방법을\n끊임없이 배우고 고민하며 성장하는 마케터 **이윤지**입니다",
   },
 
   resume: {
+    name: "이윤지",
+    birth: "2004.10.11",
+    phone: "010.0000.0000",
+    email: "0000@naver.com",
     education: [
       { date: "2025.03 ~ 재학중", school: "명지대학교(인문)", detail: "미디어앤아트테크놀로지학과" },
       { date: "2023.03 ~ 2024.08", school: "명지전문대학교", detail: "뮤직콘텐츠기획과 음악전문학사" },
@@ -169,9 +168,14 @@ function renderContent() {
 
   $("heroEyebrow").textContent = CONFIG.hero.eyebrow;
   $("heroTitle").innerHTML = escapeHtml(CONFIG.hero.title).replace(/\n/g, "<br>");
-  $("heroSubtitle").innerHTML = escapeHtml(CONFIG.hero.subtitle).replace(/\n/g, "<br>");
+  $("heroSubtitle").innerHTML = formatRichText(CONFIG.hero.subtitle);
 
-  $("aboutDesc").innerHTML = formatRichText(CONFIG.about.desc);
+  $("resumeName").textContent = CONFIG.resume.name;
+  $("resumeMeta").innerHTML = `
+    <li>생년월일 ${escapeHtml(CONFIG.resume.birth)}</li>
+    <li>전화번호 ${escapeHtml(CONFIG.resume.phone)}</li>
+    <li>이메일 ${escapeHtml(CONFIG.resume.email)}</li>
+  `;
 
   $("eduList").innerHTML = CONFIG.resume.education
     .map(

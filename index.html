@@ -16,10 +16,10 @@
       <a href="#hero" class="logo" id="logoText">PORTFOLIO</a>
 
       <nav class="nav" id="nav">
-        <a href="#about" class="nav-link">소개</a>
-        <a href="#skills" class="nav-link">핵심 역량</a>
-        <a href="#portfolio" class="nav-link">포트폴리오</a>
-        <a href="#contact" class="nav-link btn-contact-nav">문의하기</a>
+        <a href="#about" class="nav-link">ABOUT</a>
+        <a href="#skills" class="nav-link">SKILL</a>
+        <a href="#portfolio" class="nav-link">PROJECT</a>
+        <a href="#contact" class="nav-link btn-contact-nav">CONTACT</a>
       </nav>
 
       <button class="menu-toggle" id="menuToggle" aria-label="메뉴 열기">
@@ -53,15 +53,23 @@
 
       <div class="about-grid">
         <div class="about-photo reveal">
-          <div class="about-photo-box" id="aboutPhoto"></div>
+          <div class="about-photo-box" id="aboutPhotoBox">
+            <img
+              class="about-photo-img"
+              id="aboutPhoto"
+              src="./images/profile.jpg"
+              alt="이윤지 프로필 사진"
+              onload="this.parentElement.classList.add('photo-loaded')"
+              onerror="this.style.display='none'"
+            />
+          </div>
         </div>
         <div class="about-text reveal">
-          <p class="about-desc" id="aboutDesc"></p>
-        </div>
-      </div>
+          <div class="resume-heading">
+            <span class="resume-name" id="resumeName"></span>
+            <ul class="resume-meta" id="resumeMeta"></ul>
+          </div>
 
-      <div class="resume-grid">
-        <div class="resume-col reveal">
           <div class="resume-block">
             <h3 class="resume-block-title">🎓 학력</h3>
             <ul class="resume-list" id="eduList"></ul>
@@ -72,11 +80,11 @@
             <ul class="resume-list" id="certList"></ul>
           </div>
         </div>
+      </div>
 
-        <div class="resume-col reveal">
-          <h3 class="resume-block-title">✏️ 스킬</h3>
-          <div class="tool-groups" id="toolGroups"></div>
-        </div>
+      <div class="skill-section reveal">
+        <h3 class="resume-block-title">✏️ 스킬</h3>
+        <div class="tool-groups" id="toolGroups"></div>
       </div>
     </div>
   </section>
