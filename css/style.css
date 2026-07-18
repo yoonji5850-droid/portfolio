@@ -345,7 +345,7 @@ button{ font-family:inherit; }
 /* ---------- About ---------- */
 .about{ background:var(--off-white); padding-top:96px; }
 .about .section-eyebrow{
-  font-size:clamp(26px, 3.6vw, 38px);
+  font-size:clamp(16px, 3vw, 28px);
   font-weight:800;
   margin-bottom:48px;
 }
