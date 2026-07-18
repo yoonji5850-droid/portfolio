@@ -12,7 +12,7 @@ const CONFIG = {
 
   about: {
     desc:
-      "안녕하세요, 마케팅 콘텐츠를 기획하고 만드는 OOO입니다.\n브랜드가 전하고 싶은 메시지를 명확하고 매력적인 콘텐츠로 풀어내는 일을 합니다.\n데이터에 기반한 기획과 감각적인 비주얼을 함께 고민합니다.",
+      "**생각을 콘텐츠로, 콘텐츠를 경험으로.**\n브랜드의 이야기를 콘텐츠로 풀어내는 마케터 **이윤지**입니다.\n콘텐츠 기획부터 카피라이팅, 디자인, 영상 제작까지 폭넓게 다룰 수 있으며, 트렌드와 데이터를 바탕으로 브랜드의 메시지를 효과적으로 전달하는 방법을 끊임없이 배우고 고민하며 성장하고 있습니다.",
     stats: [
       { num: "3+", label: "년 경력" },
       { num: "50+", label: "프로젝트" },
@@ -168,7 +168,7 @@ function renderContent() {
   $("heroTitle").innerHTML = escapeHtml(CONFIG.hero.title).replace(/\n/g, "<br>");
   $("heroSubtitle").innerHTML = escapeHtml(CONFIG.hero.subtitle).replace(/\n/g, "<br>");
 
-  $("aboutDesc").textContent = CONFIG.about.desc;
+  $("aboutDesc").innerHTML = formatRichText(CONFIG.about.desc);
   $("aboutStats").innerHTML = CONFIG.about.stats
     .map(
       (s) =>
@@ -280,6 +280,13 @@ function escapeHtml(str) {
     '"': "&quot;",
     "'": "&#39;",
   }[c]));
+}
+
+// "**bold**" + "\n" -> <strong>/<br>. Input is escaped first, so this is safe for plain-text config strings.
+function formatRichText(str) {
+  return escapeHtml(str)
+    .replace(/\*\*(.+?)\*\*/g, "<strong>$1</strong>")
+    .replace(/\n/g, "<br>");
 }
 
 /* ---------- Header background on scroll ---------- */

@@ -324,7 +324,10 @@ button{ font-family:inherit; }
   color:var(--gray-500);
   line-height:1.9;
   margin:0 0 36px;
-  white-space:pre-line;
+}
+.about-desc strong{
+  color:var(--navy-900);
+  font-weight:800;
 }
 .about-stats{
   display:grid;
@@ -355,6 +358,9 @@ button{ font-family:inherit; }
   display:grid;
   grid-template-columns:1fr 1fr;
   gap:64px;
+  margin-top:80px;
+  padding-top:64px;
+  border-top:1px solid var(--gray-200);
 }
 .resume-heading{
   display:flex;
