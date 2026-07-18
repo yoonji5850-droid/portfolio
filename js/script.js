@@ -5,45 +5,34 @@ const CONFIG = {
   logoText: "PORTFOLIO",
 
   hero: {
-    eyebrow: "MARKETING CONTENT PORTFOLIO",
-    title: "브랜드의 이야기를\n콘텐츠로 완성합니다",
-    subtitle: "SNS 콘텐츠 기획부터 브랜딩, 카피라이팅까지\n마케팅 콘텐츠 작업물을 소개합니다.",
+    eyebrow: "PORTFOLIO",
+    title: "생각을 콘텐츠로,\n콘텐츠를 경험으로",
+    subtitle:
+      "콘텐츠 기획부터 카피라이팅, 디자인, 영상 제작까지 폭넓게 다룰 수 있으며,\n트렌드와 데이터를 바탕으로 브랜드의 메시지를 효과적으로 전달하는 방법을 끊임없이 배우고 고민하며 성장하고 있습니다.",
   },
 
   about: {
     desc:
       "**생각을 콘텐츠로, 콘텐츠를 경험으로.**\n브랜드의 이야기를 콘텐츠로 풀어내는 마케터 **이윤지**입니다.\n콘텐츠 기획부터 카피라이팅, 디자인, 영상 제작까지 폭넓게 다룰 수 있으며, 트렌드와 데이터를 바탕으로 브랜드의 메시지를 효과적으로 전달하는 방법을 끊임없이 배우고 고민하며 성장하고 있습니다.",
-    stats: [
-      { num: "3+", label: "년 경력" },
-      { num: "50+", label: "프로젝트" },
-      { num: "20+", label: "협업 브랜드" },
-    ],
   },
 
   resume: {
-    name: "이윤지",
-    birth: "2004.10.11",
     education: [
       { date: "2025.03 ~ 재학중", school: "명지대학교(인문)", detail: "미디어앤아트테크놀로지학과" },
       { date: "2023.03 ~ 2024.08", school: "명지전문대학교", detail: "뮤직콘텐츠기획과 음악전문학사" },
     ],
     certificates: [
       { date: "2025.09", name: "멀티미디어콘텐츠제작전문가", note: "" },
-      { date: "2023.07", name: "자동차운전면허증", note: "2종보통" },
+      { date: "2023.07", name: "자동차운전면허", note: "2종보통" },
       { date: "2016.03", name: "ITQ 한글파워포인트(한쇼)", note: "A등급" },
     ],
     toolGroups: [
       {
-        icons: [{ cls: "figma", label: "F" }],
+        icons: ["figma"],
         items: ["앱 프로토타입 기획 및 UI 설계", "제품 상세페이지 기획·디자인", "콘텐츠 제작 협업"],
       },
       {
-        icons: [
-          { cls: "ai", label: "Ai" },
-          { cls: "ps", label: "Ps" },
-          { cls: "ae", label: "Ae" },
-          { cls: "pr", label: "Pr" },
-        ],
+        icons: ["ai", "ps", "ae", "pr"],
         items: [
           "콘텐츠 디자인 및 영상 편집",
           "Photoshop을 활용한 콘텐츠 디자인 및 이미지 보정",
@@ -158,6 +147,20 @@ const ICONS = {
     '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M4 20V10M12 20V4M20 20v-7"/></svg>',
 };
 
+/* ---------- Tool badge icons (SVG) ---------- */
+const TOOL_ICONS = {
+  figma:
+    '<svg viewBox="0 0 40 40" xmlns="http://www.w3.org/2000/svg"><rect width="40" height="40" rx="10" fill="url(#g-figma)"/><defs><linearGradient id="g-figma" x1="0" y1="0" x2="40" y2="40"><stop offset="0%" stop-color="#1abcfe"/><stop offset="50%" stop-color="#0acf83"/><stop offset="100%" stop-color="#a259ff"/></linearGradient></defs><text x="20" y="26" text-anchor="middle" font-family="Arial, sans-serif" font-size="14" font-weight="800" fill="#fff">Fi</text></svg>',
+  ai:
+    '<svg viewBox="0 0 40 40" xmlns="http://www.w3.org/2000/svg"><rect width="40" height="40" rx="10" fill="#330000"/><text x="20" y="26" text-anchor="middle" font-family="Arial, sans-serif" font-size="14" font-weight="800" fill="#ff9a00">Ai</text></svg>',
+  ps:
+    '<svg viewBox="0 0 40 40" xmlns="http://www.w3.org/2000/svg"><rect width="40" height="40" rx="10" fill="#001e36"/><text x="20" y="26" text-anchor="middle" font-family="Arial, sans-serif" font-size="14" font-weight="800" fill="#31a8ff">Ps</text></svg>',
+  ae:
+    '<svg viewBox="0 0 40 40" xmlns="http://www.w3.org/2000/svg"><rect width="40" height="40" rx="10" fill="#00005b"/><text x="20" y="26" text-anchor="middle" font-family="Arial, sans-serif" font-size="14" font-weight="800" fill="#9999ff">Ae</text></svg>',
+  pr:
+    '<svg viewBox="0 0 40 40" xmlns="http://www.w3.org/2000/svg"><rect width="40" height="40" rx="10" fill="#00005b"/><text x="20" y="26" text-anchor="middle" font-family="Arial, sans-serif" font-size="14" font-weight="800" fill="#ea77ff">Pr</text></svg>',
+};
+
 /* ---------- Render content from CONFIG ---------- */
 function renderContent() {
   const $ = (id) => document.getElementById(id);
@@ -169,15 +172,6 @@ function renderContent() {
   $("heroSubtitle").innerHTML = escapeHtml(CONFIG.hero.subtitle).replace(/\n/g, "<br>");
 
   $("aboutDesc").innerHTML = formatRichText(CONFIG.about.desc);
-  $("aboutStats").innerHTML = CONFIG.about.stats
-    .map(
-      (s) =>
-        `<li><span class="stat-num">${escapeHtml(s.num)}</span><span class="stat-label">${escapeHtml(s.label)}</span></li>`
-    )
-    .join("");
-
-  $("resumeName").textContent = CONFIG.resume.name;
-  $("resumeBirth").textContent = CONFIG.resume.birth;
 
   $("eduList").innerHTML = CONFIG.resume.education
     .map(
@@ -205,7 +199,7 @@ function renderContent() {
       (g) => `
       <div class="tool-group">
         <div class="tool-group-icons">
-          ${g.icons.map((i) => `<span class="tool-badge ${i.cls}">${escapeHtml(i.label)}</span>`).join("")}
+          ${g.icons.map((key) => `<span class="tool-badge">${TOOL_ICONS[key] || ""}</span>`).join("")}
         </div>
         <ul class="tool-group-list">
           ${g.items.map((it) => `<li>${escapeHtml(it)}</li>`).join("")}
