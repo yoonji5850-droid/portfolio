@@ -90,12 +90,6 @@ const CONFIG = {
     title: "프로젝트를 함께 만들어요",
     desc: "협업 문의나 궁금한 점이 있다면 언제든 편하게 연락 주세요.",
     email: "yoonji5850@naver.com",
-    phone: "010-1234-5678",
-    sns: [
-      { label: "IG", url: "https://instagram.com" },
-      { label: "IN", url: "https://linkedin.com" },
-      { label: "BL", url: "https://blog.naver.com" },
-    ],
   },
 
   footerText: "© 2026 Portfolio. All rights reserved.",
@@ -211,10 +205,6 @@ function renderContent() {
   $("contactTitle").textContent = CONFIG.contact.title;
   $("contactDesc").textContent = CONFIG.contact.desc;
   $("contactEmail").textContent = CONFIG.contact.email;
-  $("contactPhone").textContent = CONFIG.contact.phone;
-  $("contactSns").innerHTML = CONFIG.contact.sns
-    .map((s) => `<a href="${escapeHtml(s.url)}" target="_blank" rel="noopener">${escapeHtml(s.label)}</a>`)
-    .join("");
   $("formNote").textContent = "";
 
   $("footerText").textContent = CONFIG.footerText;
