@@ -345,8 +345,6 @@ button{ font-family:inherit; }
 /* ---------- About ---------- */
 .about{ background:var(--off-white); padding-top:96px; }
 .about .section-eyebrow{
-  font-size:clamp(16px, 3vw, 28px);
-  font-weight:800;
   margin-bottom:48px;
 }
 .about-grid{
@@ -397,11 +395,6 @@ button{ font-family:inherit; }
   color:var(--navy-900);
   line-height:1;
 }
-.skill-section{
-  margin-top:56px;
-  padding-top:56px;
-  border-top:1px solid var(--gray-200);
-}
 .resume-block{
   margin-bottom:24px;
 }
@@ -441,60 +434,6 @@ button{ font-family:inherit; }
   color:var(--gray-500);
   text-align:right;
   white-space:nowrap;
-}
-
-.tool-groups{
-  display:grid;
-  grid-template-columns:repeat(auto-fit, minmax(260px, 1fr));
-  gap:24px;
-}
-.tool-group{
-  background:var(--off-white);
-  border-radius:var(--border-radius);
-  padding:26px;
-}
-.tool-group-icons{
-  display:flex;
-  gap:10px;
-  margin-bottom:18px;
-  flex-wrap:wrap;
-}
-.tool-badge{
-  width:44px;
-  height:44px;
-  border-radius:11px;
-  display:flex;
-  align-items:center;
-  justify-content:center;
-  overflow:hidden;
-  box-shadow:var(--shadow-sm);
-}
-.tool-badge svg{
-  width:100%;
-  height:100%;
-  display:block;
-}
-.tool-group-list{
-  display:flex;
-  flex-direction:column;
-  gap:10px;
-}
-.tool-group-list li{
-  font-size:14px;
-  color:var(--gray-500);
-  line-height:1.6;
-  padding-left:16px;
-  position:relative;
-}
-.tool-group-list li::before{
-  content:"";
-  position:absolute;
-  left:0;
-  top:9px;
-  width:5px;
-  height:5px;
-  border-radius:50%;
-  background:var(--navy-400);
 }
 
 /* ---------- Skills ---------- */
