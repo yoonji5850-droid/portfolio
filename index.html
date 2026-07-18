@@ -1,210 +1,142 @@
 <!doctype html>
-<html lang="en">
+<html lang="ko">
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Valentine</title>
-
-  <!-- ============================= -->
-  <!-- 💗💗 여기만 수정하세요 💗💗 -->
-  <!-- ============================= -->
-  <script>
-    const MAIN_TITLE   = "평생 나를 사랑해 주겟서?!";
-    const HINT_TEXT    = "아니요 눌러보등가 ㅋ";
-    const SUCCESS_TEXT = "헤헤 나도 너 평생 사랑할겡";
-  </script>
-  <!-- ============================= -->
-  <!-- ⬆️ 위 3줄만 수정하면 됩니다 ⬆️ -->
-  <!-- ============================= -->
-
-  <script defer src="https://cdn.jsdelivr.net/npm/canvas-confetti@1.9.2/dist/confetti.browser.min.js"></script>
-
-  <style>
-    :root{
-      --bg:#F8D7DA;
-      --card:#fff;
-      --pink:#E84B7C;
-      --pink-dark:#CC2F63;
-      --gray:#E9ECEF;
-      --text:#111;
-      --muted:#9AA0A6;
-      --radius:22px;
-    }
-    *{box-sizing:border-box;}
-    html,body{height:100%;margin:0;}
-    body{
-      background:var(--bg);
-      display:grid;
-      place-items:center;
-      padding:20px;
-      font-family:system-ui,-apple-system,Segoe UI,Roboto,Arial,sans-serif;
-    }
-    .card{
-      width:min(560px,92vw);
-      background:var(--card);
-      border-radius:var(--radius);
-      padding:36px;
-      box-shadow:0 18px 60px rgba(0,0,0,.12);
-      position:relative;
-      overflow:hidden;
-    }
-    .content{
-      display:flex;
-      flex-direction:column;
-      align-items:center;
-      gap:16px;
-      transition:opacity .3s ease;
-    }
-    .character{
-      width:150px;
-      height:auto;
-    }
-    .title{
-      margin:0;
-      text-align:center;
-      font-size:28px;
-      font-weight:900;
-    }
-    .button-zone{
-      width:100%;
-      position:relative;
-      height:100px;
-    }
-    .btn{
-      position:absolute;
-      left:50%;
-      top:50%;
-      transform:translate(-50%,-50%);
-      width:96px;
-      height:44px;
-      border-radius:999px;
-      border:0;
-      font-weight:800;
-      cursor:pointer;
-      display:flex;
-      align-items:center;
-      justify-content:center;
-      transition:transform .2s ease;
-    }
-    #yesBtn{background:#E84B7C;color:#fff;}
-    #noBtn{background:#E9ECEF;color:#333;}
-    .hint{
-      font-size:13px;
-      color:#9AA0A6;
-    }
-    .success-message{
-      position:absolute;
-      inset:0;
-      display:grid;
-      place-items:center;
-      opacity:0;
-      transition:opacity .3s ease;
-      pointer-events:none;
-    }
-    .success-message .text{
-      font-size:40px;
-      font-weight:900;
-      color:#E84B7C;
-      text-align:center;
-    }
-    .card.success .content{opacity:.15;}
-    .card.success .success-message{opacity:1;}
-  </style>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>Marketing Portfolio</title>
+<meta name="description" content="마케팅 콘텐츠 포트폴리오" />
+<link rel="preconnect" href="https://fonts.googleapis.com" />
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Pretendard:wght@400;500;600;700;800&family=Noto+Sans+KR:wght@400;500;700;900&display=swap" />
+<link rel="stylesheet" href="./css/style.css" />
 </head>
-
 <body>
-  <main class="card" id="card">
-    <div class="content">
-      <img class="character" src="./character.png" alt="character" />
-      <h1 class="title" id="mainTitle"></h1>
 
-      <div class="button-zone" id="zone">
-        <button class="btn" id="yesBtn">Yes</button>
-        <button class="btn" id="noBtn">No</button>
+  <!-- ================= Header ================= -->
+  <header class="header" id="header">
+    <div class="header-inner">
+      <a href="#hero" class="logo" id="logoText">PORTFOLIO</a>
+
+      <nav class="nav" id="nav">
+        <a href="#about" class="nav-link">소개</a>
+        <a href="#skills" class="nav-link">핵심 역량</a>
+        <a href="#portfolio" class="nav-link">포트폴리오</a>
+        <a href="#contact" class="nav-link btn-contact-nav">문의하기</a>
+      </nav>
+
+      <button class="menu-toggle" id="menuToggle" aria-label="메뉴 열기">
+        <span></span><span></span><span></span>
+      </button>
+    </div>
+  </header>
+
+  <!-- ================= Hero ================= -->
+  <section class="hero" id="hero">
+    <div class="hero-bg"></div>
+    <div class="hero-content reveal">
+      <p class="hero-eyebrow" id="heroEyebrow">MARKETING CONTENT PORTFOLIO</p>
+      <h1 class="hero-title" id="heroTitle"></h1>
+      <p class="hero-subtitle" id="heroSubtitle"></p>
+      <div class="hero-actions">
+        <a href="#contact" class="btn btn-primary">문의하기</a>
+        <a href="#portfolio" class="btn btn-outline">작업물 보기</a>
       </div>
-
-      <p class="hint" id="hintText"></p>
     </div>
+    <a href="#about" class="scroll-down" aria-label="아래로 스크롤">
+      <span class="scroll-down-mouse"><span class="scroll-down-dot"></span></span>
+    </a>
+  </section>
 
-    <div class="success-message">
-      <div class="text" id="successText"></div>
+  <!-- ================= About ================= -->
+  <section class="section about" id="about">
+    <div class="container">
+      <p class="section-eyebrow reveal">ABOUT</p>
+      <h2 class="section-title reveal">소개</h2>
+
+      <div class="about-grid">
+        <div class="about-photo reveal">
+          <div class="about-photo-box" id="aboutPhoto"></div>
+        </div>
+        <div class="about-text reveal">
+          <p class="about-desc" id="aboutDesc"></p>
+          <ul class="about-stats" id="aboutStats"></ul>
+        </div>
+      </div>
     </div>
-  </main>
+  </section>
 
-<script>
-  // 텍스트 자동 적용
-  document.getElementById("mainTitle").innerText = MAIN_TITLE;
-  document.getElementById("hintText").innerText = HINT_TEXT;
-  document.getElementById("successText").innerText = SUCCESS_TEXT;
+  <!-- ================= Skills ================= -->
+  <section class="section skills" id="skills">
+    <div class="container">
+      <p class="section-eyebrow reveal">SKILLS</p>
+      <h2 class="section-title reveal">핵심 역량</h2>
+      <div class="skills-grid" id="skillsGrid"></div>
+    </div>
+  </section>
 
-  const card = document.getElementById("card");
-  const zone = document.getElementById("zone");
-  const yesBtn = document.getElementById("yesBtn");
-  const noBtn  = document.getElementById("noBtn");
+  <!-- ================= Portfolio ================= -->
+  <section class="section portfolio" id="portfolio">
+    <div class="container">
+      <p class="section-eyebrow reveal">WORKS</p>
+      <h2 class="section-title reveal">포트폴리오</h2>
 
-  let success = false;
-  let hoverCount = 0;
-  let noHasFled = false;
+      <div class="filter-bar reveal" id="filterBar"></div>
 
-  function positionButtons(){
-    const zoneW = zone.clientWidth;
-    const zoneH = zone.clientHeight;
-    yesBtn.style.left = zoneW/3 + "px";
-    yesBtn.style.top  = zoneH/2 + "px";
-    if(!noHasFled){
-      noBtn.style.left = zoneW*2/3 + "px";
-      noBtn.style.top  = zoneH/2 + "px";
-    }
-  }
+      <div class="portfolio-grid" id="portfolioGrid"></div>
+    </div>
+  </section>
 
-  function growYes(){
-    const scale = Math.min(2, 1.4 + hoverCount*0.2);
-    yesBtn.style.transform = `translate(-50%,-50%) scale(${scale})`;
-  }
+  <!-- ================= Contact ================= -->
+  <section class="section contact" id="contact">
+    <div class="contact-bg"></div>
+    <div class="container">
+      <p class="section-eyebrow light reveal">CONTACT</p>
+      <h2 class="section-title light reveal" id="contactTitle"></h2>
+      <p class="contact-desc reveal" id="contactDesc"></p>
 
-  function fleeNo(){
-    noHasFled = true;
-    const zoneW = zone.clientWidth;
-    const zoneH = zone.clientHeight;
-    const x = Math.random()*zoneW;
-    const y = Math.random()*zoneH;
-    noBtn.style.left = x + "px";
-    noBtn.style.top  = y + "px";
-  }
+      <div class="contact-wrap reveal">
+        <form class="contact-form" id="contactForm">
+          <div class="form-row">
+            <input type="text" name="name" placeholder="이름" required />
+            <input type="email" name="email" placeholder="이메일" required />
+          </div>
+          <input type="text" name="subject" placeholder="제목" required />
+          <textarea name="message" placeholder="문의 내용을 입력해 주세요" rows="5" required></textarea>
+          <button type="submit" class="btn btn-primary btn-full">문의하기</button>
+          <p class="form-note" id="formNote"></p>
+        </form>
 
-  noBtn.addEventListener("mouseenter",()=>{
-    hoverCount++;
-    growYes();
-    fleeNo();
-  });
+        <div class="contact-info">
+          <div class="contact-info-item">
+            <span class="contact-info-label">Email</span>
+            <span id="contactEmail"></span>
+          </div>
+          <div class="contact-info-item">
+            <span class="contact-info-label">Phone</span>
+            <span id="contactPhone"></span>
+          </div>
+          <div class="contact-info-item" id="contactSnsWrap">
+            <span class="contact-info-label">SNS</span>
+            <div class="contact-sns" id="contactSns"></div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
 
-  yesBtn.addEventListener("click",()=>{
-    if(success) return;
-    success = true;
-    card.classList.add("success");
+  <!-- ================= Footer ================= -->
+  <footer class="footer">
+    <div class="container footer-inner">
+      <p id="footerText"></p>
+      <a href="#hero" class="footer-top">TOP ↑</a>
+    </div>
+  </footer>
 
-    // 하트 40개 진핑크
-    try{
-      const heart = confetti.shapeFromPath({
-        path:"M0.5 0.91 C0.22 0.74 0.06 0.56 0.06 0.36 C0.06 0.17 0.20 0.04 0.37 0.04 C0.44 0.04 0.50 0.07 0.55 0.12 C0.60 0.07 0.66 0.04 0.73 0.04 C0.90 0.04 1.04 0.17 1.04 0.36 C1.04 0.56 0.88 0.74 0.60 0.91 L0.55 0.94 Z",
-        matrix:[20,0,0,20,0,0]
-      });
+  <!-- Floating CTA -->
+  <a href="#contact" class="fab-contact" id="fabContact" aria-label="문의하기">문의하기</a>
 
-      confetti({
-        particleCount:40,
-        spread:120,
-        startVelocity:45,
-        scalar:1.2,
-        origin:{x:0.5,y:0.5},
-        shapes:[heart],
-        colors:["#E84B7C"]
-      });
-    }catch(e){}
-  });
+  <!-- Toast -->
+  <div class="toast" id="toast"></div>
 
-  window.onload = positionButtons;
-  window.onresize = positionButtons;
-</script>
+<script src="./js/script.js"></script>
 </body>
 </html>
-
