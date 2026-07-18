@@ -536,34 +536,6 @@ button{ font-family:inherit; }
 }
 
 /* ---------- Portfolio ---------- */
-.filter-bar{
-  display:flex;
-  justify-content:center;
-  gap:10px;
-  flex-wrap:wrap;
-  margin:-32px 0 44px;
-}
-.filter-btn{
-  padding:9px 20px;
-  border-radius:999px;
-  border:1.5px solid var(--gray-200);
-  background:var(--white);
-  color:var(--gray-500);
-  font-size:14px;
-  font-weight:600;
-  cursor:pointer;
-  transition:all .25s var(--ease);
-}
-.filter-btn:hover{
-  border-color:var(--navy-500);
-  color:var(--navy-700);
-}
-.filter-btn.active{
-  background:var(--navy-800);
-  border-color:var(--navy-800);
-  color:var(--white);
-}
-
 .portfolio-grid{
   display:grid;
   grid-template-columns:repeat(3, 1fr);
@@ -580,9 +552,6 @@ button{ font-family:inherit; }
 .p-card:hover{
   transform:translateY(-8px);
   box-shadow:var(--shadow-lg);
-}
-.p-card.hidden{
-  display:none;
 }
 .p-thumb{
   aspect-ratio:4/3;

@@ -106,7 +106,6 @@ document.addEventListener("DOMContentLoaded", () => {
   initMobileMenu();
   initSmoothScroll();
   initReveal();
-  initPortfolioFilter();
   initFab();
   initContactForm();
 });
@@ -180,20 +179,11 @@ function renderContent() {
     )
     .join("");
 
-  // Portfolio filter buttons
-  const categories = ["전체", ...new Set(CONFIG.portfolio.map((p) => p.category))];
-  $("filterBar").innerHTML = categories
-    .map(
-      (c, i) =>
-        `<button class="filter-btn${i === 0 ? " active" : ""}" data-filter="${escapeHtml(c)}">${escapeHtml(c)}</button>`
-    )
-    .join("");
-
   // Portfolio grid
   $("portfolioGrid").innerHTML = CONFIG.portfolio
     .map(
       (p) => `
-      <div class="p-card reveal" data-category="${escapeHtml(p.category)}">
+      <div class="p-card reveal">
         <div class="p-thumb">
           <img src="${escapeHtml(p.image)}" alt="${escapeHtml(p.title)}"
                onerror="this.style.display='none'; this.nextElementSibling.style.display='flex';" />
@@ -301,25 +291,6 @@ function initReveal() {
     { threshold: 0.15, rootMargin: "0px 0px -60px 0px" }
   );
   items.forEach((el) => observer.observe(el));
-}
-
-/* ---------- Portfolio category filter ---------- */
-function initPortfolioFilter() {
-  const buttons = document.querySelectorAll(".filter-btn");
-  const cards = document.querySelectorAll(".p-card");
-
-  buttons.forEach((btn) => {
-    btn.addEventListener("click", () => {
-      buttons.forEach((b) => b.classList.remove("active"));
-      btn.classList.add("active");
-
-      const filter = btn.dataset.filter;
-      cards.forEach((card) => {
-        const match = filter === "전체" || card.dataset.category === filter;
-        card.classList.toggle("hidden", !match);
-      });
-    });
-  });
 }
 
 /* ---------- Floating contact button visibility ---------- */
