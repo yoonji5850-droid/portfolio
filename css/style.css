@@ -986,11 +986,13 @@ body.modal-open{
 .pmodal-thumb-item.active{
   border-color:var(--navy-600);
 }
-.pmodal-thumb-item img{
+.pmodal-thumb-item img,
+.pmodal-thumb-item video{
   width:100%;
   height:100%;
   object-fit:cover;
   display:block;
+  pointer-events:none;
 }
 .pmodal-thumb-play{
   position:absolute;

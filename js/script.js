@@ -411,7 +411,11 @@ function initPortfolioModal() {
         <button class="pmodal-thumb-item${idx === 0 ? " active" : ""}" data-idx="${idx}" aria-label="${idx + 1}번째 콘텐츠 보기">
           ${
             m.type === "video"
-              ? `<span class="pmodal-thumb-play">▶</span>${m.poster ? `<img src="${escapeHtml(m.poster)}" alt="" />` : ""}`
+              ? `<span class="pmodal-thumb-play">▶</span>${
+                  m.poster
+                    ? `<img src="${escapeHtml(m.poster)}" alt="" />`
+                    : `<video src="${escapeHtml(m.src)}#t=0.1" muted preload="auto" playsinline></video>`
+                }`
               : `<img src="${escapeHtml(m.src)}" alt="" />`
           }
         </button>`
@@ -419,6 +423,17 @@ function initPortfolioModal() {
             .join("")
         : "";
     thumbsWrap.style.display = mediaList.length > 1 ? "flex" : "none";
+
+    // Force a frame to paint for video thumbnails that have no poster image.
+    thumbsWrap.querySelectorAll(".pmodal-thumb-item video").forEach((v) => {
+      const showFrame = () => {
+        try {
+          v.currentTime = 0.1;
+        } catch (e) {}
+      };
+      v.addEventListener("loadedmetadata", showFrame, { once: true });
+      if (v.readyState >= 1) showFrame();
+    });
 
     renderMedia();
 
