@@ -202,7 +202,7 @@ function renderContent() {
       (p, i) => `
       <div class="p-card reveal" data-index="${i}" tabindex="0" role="button" aria-label="${escapeHtml(p.title)} 자세히 보기">
         <div class="p-thumb">
-          <img src="${escapeHtml(p.image)}" alt="${escapeHtml(p.title)}"
+          <img src="${escapeHtml(assetUrl(p.image))}" alt="${escapeHtml(p.title)}"
                onerror="this.style.display='none'; this.nextElementSibling.style.display='flex';" />
           <div class="p-thumb-fallback" style="display:none;">${escapeHtml(p.title)}</div>
           ${p.video ? `<div class="p-play-badge">▶</div>` : ""}
@@ -247,6 +247,15 @@ function escapeHtml(str) {
     '"': "&quot;",
     "'": "&#39;",
   }[c]));
+}
+
+// macOS decomposes Hangul (and other accented/composed Unicode) filenames into NFD
+// when uploaded via Finder or a browser file picker, and GitHub stores that exact
+// byte sequence. A path typed into this file (normal NFC text) then 404s even though
+// it looks identical to the real filename. Normalizing every asset path to NFD before
+// it becomes a URL matches how these uploads actually land.
+function assetUrl(path) {
+  return path ? path.normalize("NFD") : path;
 }
 
 // Normalizes a portfolio item's media into a list of { type, src, poster }.
@@ -380,14 +389,14 @@ function initPortfolioModal() {
       img.style.display = "none";
       video.style.display = "block";
       video.pause();
-      video.src = m.src;
-      if (m.poster) video.poster = m.poster;
+      video.src = assetUrl(m.src);
+      if (m.poster) video.poster = assetUrl(m.poster);
     } else {
       video.style.display = "none";
       video.removeAttribute("src");
       video.load();
       img.style.display = "block";
-      img.src = m.src;
+      img.src = assetUrl(m.src);
       img.alt = title.textContent;
     }
 
@@ -422,10 +431,10 @@ function initPortfolioModal() {
             m.type === "video"
               ? `<span class="pmodal-thumb-play">▶</span>${
                   m.poster
-                    ? `<img src="${escapeHtml(m.poster)}" alt="" />`
-                    : `<video src="${escapeHtml(m.src)}#t=0.1" muted preload="auto" playsinline></video>`
+                    ? `<img src="${escapeHtml(assetUrl(m.poster))}" alt="" />`
+                    : `<video src="${escapeHtml(assetUrl(m.src))}#t=0.1" muted preload="auto" playsinline></video>`
                 }`
-              : `<img src="${escapeHtml(m.src)}" alt="" />`
+              : `<img src="${escapeHtml(assetUrl(m.src))}" alt="" />`
           }
         </button>`
             )
