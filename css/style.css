@@ -929,10 +929,23 @@ body.modal-open{
   overflow-y:auto;
   cursor:grab;
   -webkit-overflow-scrolling:touch;
-  scrollbar-width:none;
+  padding:20px;
+  box-sizing:border-box;
+  scrollbar-width:thin;
+  scrollbar-color:rgba(255,255,255,.4) transparent;
 }
 .pmodal-thumb.is-scroll::-webkit-scrollbar{
-  display:none;
+  width:8px;
+}
+.pmodal-thumb.is-scroll::-webkit-scrollbar-track{
+  background:transparent;
+}
+.pmodal-thumb.is-scroll::-webkit-scrollbar-thumb{
+  background:rgba(255,255,255,.4);
+  border-radius:4px;
+}
+.pmodal-thumb.is-scroll::-webkit-scrollbar-thumb:hover{
+  background:rgba(255,255,255,.6);
 }
 .pmodal-thumb.is-scroll.dragging{
   cursor:grabbing;
@@ -943,6 +956,7 @@ body.modal-open{
   max-width:100%;
   max-height:none;
   object-fit:unset;
+  border-radius:8px;
   -webkit-user-drag:none;
   user-select:none;
 }
