@@ -97,10 +97,14 @@ const CONFIG = {
       ],
     },
     {
-      categories: ["SNS"],
-      title: "이벤트 프로모션 콘텐츠",
-      desc: "시즌 프로모션 SNS 캠페인",
-      image: "./images/work4.jpg",
+      categories: ["콘텐츠 제작"],
+      title: "Color Grading (2026)",
+      desc: "장면의 분위기에 맞춰 색감, 노출, 대비를 조정하여 영상의 분위기를 개선하였습니다.",
+      tools: ["DaVinci Resolve", "Premiere Pro"],
+      media: [
+        { type: "video", src: "./images/Timeline 1.mp4" },
+        { type: "video", src: "./images/Timeline 1_1.mp4" },
+      ],
     },
     {
       categories: ["카피라이팅"],
