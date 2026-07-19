@@ -47,41 +47,43 @@ const CONFIG = {
     },
   ],
 
-  // category: 필터 버튼에 사용될 카테고리명
+  // categories: 카드 상단에 뜨는 작은 태그들 (여러 개 가능)
+  // tools: 사용한 툴 태그 (선택, 없으면 표시 안 됨)
   // image: 이미지 경로 (없으면 자동으로 플레이스홀더가 표시됩니다)
   portfolio: [
     {
-      category: "SNS",
-      title: "브랜드 인스타그램 콘텐츠",
-      desc: "제품 런칭 캠페인 SNS 콘텐츠 시리즈",
+      categories: ["콘텐츠 기획", "콘텐츠 제작"],
+      title: "부동산 홍보 콘텐츠 (2026)",
+      desc: "타겟 퍼소나를 설정하고, 이에 맞는 마케팅 카피를 기획하여 부동산 홍보 릴스 콘텐츠를 제작하였습니다.",
+      tools: ["Figma", "Premiere Pro"],
       image: "./images/work1.jpg",
     },
     {
-      category: "브랜딩",
+      categories: ["브랜딩"],
       title: "브랜드 아이덴티티 콘텐츠",
       desc: "브랜드 스토리텔링 콘텐츠 기획 및 제작",
       image: "./images/work2.jpg",
     },
     {
-      category: "영상",
+      categories: ["영상"],
       title: "숏폼 광고 영상",
       desc: "유튜브 쇼츠 / 릴스용 숏폼 콘텐츠",
       image: "./images/work3.jpg",
     },
     {
-      category: "SNS",
+      categories: ["SNS"],
       title: "이벤트 프로모션 콘텐츠",
       desc: "시즌 프로모션 SNS 캠페인",
       image: "./images/work4.jpg",
     },
     {
-      category: "카피라이팅",
+      categories: ["카피라이팅"],
       title: "상세페이지 카피라이팅",
       desc: "전환율 개선을 위한 상세페이지 카피",
       image: "./images/work5.jpg",
     },
     {
-      category: "브랜딩",
+      categories: ["브랜딩"],
       title: "브랜드 매거진 콘텐츠",
       desc: "브랜드 매거진 기획 및 에디토리얼 콘텐츠",
       image: "./images/work6.jpg",
@@ -187,9 +189,16 @@ function renderContent() {
           <div class="p-thumb-fallback" style="display:none;">${escapeHtml(p.title)}</div>
         </div>
         <div class="p-body">
-          <span class="p-tag">${escapeHtml(p.category)}</span>
+          <div class="p-tags">
+            ${(p.categories || []).map((c) => `<span class="p-tag">${escapeHtml(c)}</span>`).join("")}
+          </div>
           <h3 class="p-title">${escapeHtml(p.title)}</h3>
           <p class="p-desc">${escapeHtml(p.desc)}</p>
+          ${
+            p.tools && p.tools.length
+              ? `<div class="p-tools">${p.tools.map((t) => `<span class="p-tool-tag">${escapeHtml(t)}</span>`).join("")}</div>`
+              : ""
+          }
         </div>
       </div>`
     )
