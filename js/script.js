@@ -89,7 +89,7 @@ const CONFIG = {
       image: "./images/본문 10.png",
       thumbFit: "contain",
       media: [
-        { type: "image", src: "./images/본문 10.png", fit: "cover" },
+        { type: "image", src: "./images/본문 10.png" },
         { type: "image", src: "./images/1안_수정.png", scroll: true },
       ],
     },
