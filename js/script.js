@@ -108,6 +108,7 @@ document.addEventListener("DOMContentLoaded", () => {
   initReveal();
   initFab();
   initContactForm();
+  initPortfolioModal();
 });
 
 /* ---------- Icons ---------- */
@@ -181,12 +182,13 @@ function renderContent() {
   // Portfolio grid
   $("portfolioGrid").innerHTML = CONFIG.portfolio
     .map(
-      (p) => `
-      <div class="p-card reveal">
+      (p, i) => `
+      <div class="p-card reveal" data-index="${i}" tabindex="0" role="button" aria-label="${escapeHtml(p.title)} 자세히 보기">
         <div class="p-thumb">
           <img src="${escapeHtml(p.image)}" alt="${escapeHtml(p.title)}"
                onerror="this.style.display='none'; this.nextElementSibling.style.display='flex';" />
           <div class="p-thumb-fallback" style="display:none;">${escapeHtml(p.title)}</div>
+          <div class="p-thumb-overlay"><span>자세히 보기</span></div>
         </div>
         <div class="p-body">
           <div class="p-tags">
@@ -314,6 +316,70 @@ function initFab() {
 
   observer.observe(hero);
   observer.observe(contact);
+}
+
+/* ---------- Portfolio detail modal ---------- */
+function initPortfolioModal() {
+  const modal = document.getElementById("pmodal");
+  const overlay = document.getElementById("pmodalOverlay");
+  const closeBtn = document.getElementById("pmodalClose");
+  const img = document.getElementById("pmodalImg");
+  const imgFallback = document.getElementById("pmodalImgFallback");
+  const tags = document.getElementById("pmodalTags");
+  const title = document.getElementById("pmodalTitle");
+  const desc = document.getElementById("pmodalDesc");
+  const tools = document.getElementById("pmodalTools");
+
+  function openModal(item) {
+    img.style.display = "block";
+    img.src = item.image || "";
+    img.alt = item.title;
+    imgFallback.style.display = "none";
+    imgFallback.textContent = item.title;
+
+    tags.innerHTML = (item.categories || [])
+      .map((c) => `<span class="p-tag">${escapeHtml(c)}</span>`)
+      .join("");
+    title.textContent = item.title;
+    desc.textContent = item.detail || item.desc;
+    tools.innerHTML =
+      item.tools && item.tools.length
+        ? item.tools.map((t) => `<span class="p-tool-tag">${escapeHtml(t)}</span>`).join("")
+        : "";
+
+    modal.classList.add("open");
+    modal.setAttribute("aria-hidden", "false");
+    document.body.classList.add("modal-open");
+  }
+
+  function closeModal() {
+    modal.classList.remove("open");
+    modal.setAttribute("aria-hidden", "true");
+    document.body.classList.remove("modal-open");
+  }
+
+  document.querySelectorAll(".p-card").forEach((card) => {
+    const item = CONFIG.portfolio[Number(card.dataset.index)];
+    if (!item) return;
+    card.addEventListener("click", () => openModal(item));
+    card.addEventListener("keydown", (e) => {
+      if (e.key === "Enter" || e.key === " ") {
+        e.preventDefault();
+        openModal(item);
+      }
+    });
+  });
+
+  img.onerror = () => {
+    img.style.display = "none";
+    imgFallback.style.display = "flex";
+  };
+
+  overlay.addEventListener("click", closeModal);
+  closeBtn.addEventListener("click", closeModal);
+  document.addEventListener("keydown", (e) => {
+    if (e.key === "Escape" && modal.classList.contains("open")) closeModal();
+  });
 }
 
 /* ---------- Contact form (submits via FormSubmit) ---------- */
