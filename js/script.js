@@ -86,6 +86,7 @@ const CONFIG = {
       title: "건강기능식품 콘텐츠 제작 (2026)",
       desc: "브랜드 콘셉트를 반영하여 홈페이지 배너와 AI 모델 이미지, \n제품 상세페이지를 기획·제작하였습니다.",
       tools: ["Figma", "Photoshop", "Gemini", "ChatGPT"],
+      image: "./images/본문 10.png",
       media: [
         { type: "image", src: "./images/본문 10.png", fit: "cover" },
         { type: "image", src: "./images/1안_수정.png", scroll: true },
