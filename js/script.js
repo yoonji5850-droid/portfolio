@@ -73,11 +73,11 @@ const CONFIG = {
       link: { label: "인스타그램에서 보기", url: "https://www.instagram.com/mju.mna/" },
       image: "./images/work2-1.png",
       media: [
-        { type: "image", src: "./images/work2-1.png" },
-        { type: "image", src: "./images/work2-2.png" },
-        { type: "image", src: "./images/work2-3.png" },
-        { type: "image", src: "./images/work2-4.png" },
-        { type: "image", src: "./images/work2-5.png" },
+        { type: "image", src: "./images/MT 1.png" },
+        { type: "image", src: "./images/MT 2.png" },
+        { type: "image", src: "./images/MT 3.png" },
+        { type: "image", src: "./images/MT 4.png" },
+        { type: "image", src: "./images/MT 5.png" },
       ],
     },
     {
