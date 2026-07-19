@@ -89,10 +89,10 @@ const CONFIG = {
       image: "./images/본문 10.png",
       thumbFit: "contain",
       media: [
-        { type: "image", src: "./images/본문 10.png" },
-        { type: "image", src: "./images/1안_수정.png", scroll: true },
-        { type: "image", src: "./images/배너_모바일ㅊ.png" },
-        { type: "image", src: "./images/배너_모바일b.png" },
+        { type: "image", src: "./images/본문 10.png", caption: "SNS 콘텐츠 (이미지는 AI를 활용해 제작하였습니다.)" },
+        { type: "image", src: "./images/1안_수정.png", scroll: true, caption: "제품 상세페이지 (모델과 제품 이미지는 AI를 활용해 제작하였습니다.)" },
+        { type: "image", src: "./images/배너_모바일ㅊ.png", caption: "홈페이지 모바일 배너" },
+        { type: "image", src: "./images/배너_모바일b.png", caption: "홈페이지 모바일 배너" },
         { type: "image", src: "./images/image 150.png" },
       ],
     },
@@ -383,6 +383,7 @@ function initPortfolioModal() {
   const desc = document.getElementById("pmodalDesc");
   const linkEl = document.getElementById("pmodalLink");
   const tools = document.getElementById("pmodalTools");
+  const mediaCaption = document.getElementById("pmodalMediaCaption");
 
   let mediaList = [];
   let mediaIndex = 0;
@@ -413,6 +414,9 @@ function initPortfolioModal() {
     img.classList.toggle("is-cover", !!m && m.fit === "cover");
     thumbInner.classList.toggle("is-scroll", !!m && m.type !== "video" && m.scroll === true);
     thumbInner.scrollTop = 0;
+
+    mediaCaption.textContent = m && m.caption ? m.caption : "";
+    mediaCaption.style.display = m && m.caption ? "block" : "none";
 
     const multiple = mediaList.length > 1;
     prevBtn.style.display = multiple ? "flex" : "none";

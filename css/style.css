@@ -1109,6 +1109,12 @@ body.modal-open{
 .pmodal-tools:empty{
   display:none;
 }
+.pmodal-media-caption{
+  margin-top:14px;
+  font-size:13px;
+  line-height:1.6;
+  color:var(--gray-500);
+}
 @media (min-width: 769px){
   .pmodal-panel{
     flex-direction:row;
