@@ -407,6 +407,8 @@ function initPortfolioModal() {
       video.pause();
       video.src = assetUrl(m.src);
       if (m.poster) video.poster = assetUrl(m.poster);
+      video.muted = true;
+      video.play().catch(() => {});
     } else {
       video.style.display = "none";
       video.removeAttribute("src");
