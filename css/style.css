@@ -565,6 +565,11 @@ button{ font-family:inherit; }
   object-fit:cover;
   transition:transform .5s var(--ease);
 }
+.p-thumb img.is-contain{
+  object-fit:contain;
+  padding:24px;
+  box-sizing:border-box;
+}
 .p-card:hover .p-thumb img{
   transform:scale(1.08);
 }

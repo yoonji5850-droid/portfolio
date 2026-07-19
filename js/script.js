@@ -87,6 +87,7 @@ const CONFIG = {
       desc: "브랜드 콘셉트를 반영하여 홈페이지 배너와 AI 모델 이미지, \n제품 상세페이지를 기획·제작하였습니다.",
       tools: ["Figma", "Photoshop", "Gemini", "ChatGPT"],
       image: "./images/Group 110.png",
+      thumbFit: "contain",
       media: [
         { type: "image", src: "./images/1안_수정.png", scroll: true },
       ],
@@ -206,7 +207,7 @@ function renderContent() {
       (p, i) => `
       <div class="p-card reveal" data-index="${i}" tabindex="0" role="button" aria-label="${escapeHtml(p.title)} 자세히 보기">
         <div class="p-thumb">
-          <img src="${escapeHtml(assetUrl(p.image))}" alt="${escapeHtml(p.title)}"
+          <img src="${escapeHtml(assetUrl(p.image))}" alt="${escapeHtml(p.title)}" class="${p.thumbFit === "contain" ? "is-contain" : ""}"
                onerror="this.style.display='none'; this.nextElementSibling.style.display='flex';" />
           <div class="p-thumb-fallback" style="display:none;">${escapeHtml(p.title)}</div>
           ${p.video ? `<div class="p-play-badge">▶</div>` : ""}
