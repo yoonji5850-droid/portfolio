@@ -89,7 +89,6 @@ const CONFIG = {
       image: "./images/Group 110.png",
       media: [
         { type: "image", src: "./images/1안_수정.png", scroll: true },
-        { type: "image", src: "./images/2안_수정.png", scroll: true },
       ],
     },
     {
