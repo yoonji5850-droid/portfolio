@@ -188,6 +188,7 @@ function renderContent() {
           <img src="${escapeHtml(p.image)}" alt="${escapeHtml(p.title)}"
                onerror="this.style.display='none'; this.nextElementSibling.style.display='flex';" />
           <div class="p-thumb-fallback" style="display:none;">${escapeHtml(p.title)}</div>
+          ${p.video ? `<div class="p-play-badge">▶</div>` : ""}
           <div class="p-thumb-overlay"><span>자세히 보기</span></div>
         </div>
         <div class="p-body">
@@ -324,6 +325,7 @@ function initPortfolioModal() {
   const overlay = document.getElementById("pmodalOverlay");
   const closeBtn = document.getElementById("pmodalClose");
   const img = document.getElementById("pmodalImg");
+  const video = document.getElementById("pmodalVideo");
   const imgFallback = document.getElementById("pmodalImgFallback");
   const tags = document.getElementById("pmodalTags");
   const title = document.getElementById("pmodalTitle");
@@ -331,11 +333,22 @@ function initPortfolioModal() {
   const tools = document.getElementById("pmodalTools");
 
   function openModal(item) {
-    img.style.display = "block";
-    img.src = item.image || "";
-    img.alt = item.title;
     imgFallback.style.display = "none";
     imgFallback.textContent = item.title;
+
+    if (item.video) {
+      img.style.display = "none";
+      video.style.display = "block";
+      video.src = item.video;
+      if (item.image) video.poster = item.image;
+    } else {
+      video.style.display = "none";
+      video.removeAttribute("src");
+      video.load();
+      img.style.display = "block";
+      img.src = item.image || "";
+      img.alt = item.title;
+    }
 
     tags.innerHTML = (item.categories || [])
       .map((c) => `<span class="p-tag">${escapeHtml(c)}</span>`)
@@ -356,6 +369,7 @@ function initPortfolioModal() {
     modal.classList.remove("open");
     modal.setAttribute("aria-hidden", "true");
     document.body.classList.remove("modal-open");
+    video.pause();
   }
 
   document.querySelectorAll(".p-card").forEach((card) => {
