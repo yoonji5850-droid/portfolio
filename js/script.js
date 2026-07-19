@@ -54,7 +54,7 @@ const CONFIG = {
     {
       categories: ["콘텐츠 기획", "콘텐츠 제작"],
       title: "부동산 홍보 콘텐츠 (2026)",
-      desc: "타깃 페르소나를 기반으로 부동산 홍보 릴스를 기획·제작했습니다.",
+      desc: "타깃 페르소나를 기반으로 부동산 홍보 릴스를 \n기획·제작했습니다.",
       tools: ["Figma", "Premiere Pro", "Claude"],
       image: "./images/work1_jpg",
       // "자세히 보기"를 눌렀을 때 여기 나열한 이미지/영상을 전부 넘겨볼 수 있습니다.
@@ -68,7 +68,7 @@ const CONFIG = {
     {
       categories: ["콘텐츠 기획", "콘텐츠 제작", "SNS 운영"],
       title: "학과 SNS 운영 (2026)",
-      desc: "학과를 알리기 위한 공감형 콘텐츠를 기획·제작하고, 공식 인스타그램 계정을 관리하였습니다.",
+      desc: "학과를 알리기 위한 공감형 콘텐츠를 기획·제작하고, \n공식 인스타그램 계정을 관리하였습니다.",
       tools: ["Figma", "Premiere Pro"],
       link: { label: "인스타그램에서 보기", url: "https://www.instagram.com/mju.mna/" },
       image: "./images/로고.png",
@@ -214,7 +214,7 @@ function renderContent() {
             ${(p.categories || []).map((c) => `<span class="p-tag">${escapeHtml(c)}</span>`).join("")}
           </div>
           <h3 class="p-title">${escapeHtml(p.title)}</h3>
-          <p class="p-desc">${escapeHtml(p.desc)}</p>
+          <p class="p-desc">${escapeHtml(p.desc).replace(/\n/g, "<br>")}</p>
           ${
             p.tools && p.tools.length
               ? `<div class="p-tools">${p.tools.map((t) => `<span class="p-tool-tag">${escapeHtml(t)}</span>`).join("")}</div>`
@@ -461,7 +461,7 @@ function initPortfolioModal() {
       .map((c) => `<span class="p-tag">${escapeHtml(c)}</span>`)
       .join("");
     title.textContent = item.title;
-    desc.textContent = item.detail || item.desc;
+    desc.innerHTML = escapeHtml(item.detail || item.desc).replace(/\n/g, "<br>");
     if (item.link) {
       linkEl.href = item.link.url;
       linkEl.textContent = `${item.link.label || "링크 보기"} ↗`;
