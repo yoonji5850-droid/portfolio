@@ -82,10 +82,15 @@ const CONFIG = {
       ],
     },
     {
-      categories: ["영상"],
-      title: "숏폼 광고 영상",
-      desc: "유튜브 쇼츠 / 릴스용 숏폼 콘텐츠",
-      image: "./images/work3.jpg",
+      categories: ["콘텐츠 기획", "콘텐츠 제작"],
+      title: "건강기능식품 콘텐츠 제작 (2026)",
+      desc: "브랜드 콘셉트를 반영하여 홈페이지 배너와 AI 모델 이미지, 제품 상세페이지를 기획·제작하였습니다.",
+      tools: ["Figma", "Photoshop", "Gemini", "ChatGPT", "메이크샵"],
+      image: "./images/1안_수정.png",
+      media: [
+        { type: "image", src: "./images/1안_수정.png", scroll: true },
+        { type: "image", src: "./images/2안_수정.png", scroll: true },
+      ],
     },
     {
       categories: ["SNS"],
