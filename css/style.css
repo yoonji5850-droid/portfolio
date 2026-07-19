@@ -924,6 +924,28 @@ body.modal-open{
   height:100%;
   object-fit:cover;
 }
+.pmodal-thumb.is-scroll{
+  align-items:flex-start;
+  overflow-y:auto;
+  cursor:grab;
+  -webkit-overflow-scrolling:touch;
+  scrollbar-width:none;
+}
+.pmodal-thumb.is-scroll::-webkit-scrollbar{
+  display:none;
+}
+.pmodal-thumb.is-scroll.dragging{
+  cursor:grabbing;
+}
+.pmodal-thumb.is-scroll img{
+  width:100%;
+  height:auto;
+  max-width:100%;
+  max-height:none;
+  object-fit:unset;
+  -webkit-user-drag:none;
+  user-select:none;
+}
 .pmodal-thumb-fallback{
   position:absolute;
   inset:0;

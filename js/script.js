@@ -361,6 +361,7 @@ function initPortfolioModal() {
   const modal = document.getElementById("pmodal");
   const overlay = document.getElementById("pmodalOverlay");
   const closeBtn = document.getElementById("pmodalClose");
+  const thumbFrame = document.getElementById("pmodalThumbFrame");
   const img = document.getElementById("pmodalImg");
   const video = document.getElementById("pmodalVideo");
   const imgFallback = document.getElementById("pmodalImgFallback");
@@ -401,6 +402,8 @@ function initPortfolioModal() {
     }
 
     img.classList.toggle("is-cover", !!m && m.fit === "cover");
+    thumbFrame.classList.toggle("is-scroll", !!m && m.type !== "video" && m.scroll === true);
+    thumbFrame.scrollTop = 0;
 
     const multiple = mediaList.length > 1;
     prevBtn.style.display = multiple ? "flex" : "none";
@@ -417,6 +420,28 @@ function initPortfolioModal() {
     mediaIndex = (idx + mediaList.length) % mediaList.length;
     renderMedia();
   }
+
+  // Drag-to-scroll for tall "detail page"-style images (media item with scroll:true).
+  let isDragging = false;
+  let dragStartY = 0;
+  let dragStartScroll = 0;
+  thumbFrame.addEventListener("mousedown", (e) => {
+    if (!thumbFrame.classList.contains("is-scroll")) return;
+    isDragging = true;
+    dragStartY = e.clientY;
+    dragStartScroll = thumbFrame.scrollTop;
+    thumbFrame.classList.add("dragging");
+    e.preventDefault();
+  });
+  window.addEventListener("mousemove", (e) => {
+    if (!isDragging) return;
+    thumbFrame.scrollTop = dragStartScroll - (e.clientY - dragStartY);
+  });
+  window.addEventListener("mouseup", () => {
+    if (!isDragging) return;
+    isDragging = false;
+    thumbFrame.classList.remove("dragging");
+  });
 
   function openModal(item) {
     mediaList = getMediaList(item);
