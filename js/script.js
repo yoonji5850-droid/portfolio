@@ -60,6 +60,7 @@ const CONFIG = {
       // "자세히 보기"를 눌렀을 때 여기 나열한 이미지/영상을 전부 넘겨볼 수 있습니다.
       // 이미지를 더 올리면 아래에 { type: "image", src: "./images/파일명.jpg" }, 줄만 추가하세요.
       media: [{ type: "image", src: "./images/work1_jpg" }],
+       { type: "video", src: "./videos/work1-1.mp4" }
     },
     {
       categories: ["브랜딩"],
