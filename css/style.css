@@ -910,6 +910,14 @@ body.modal-open{
   overflow:hidden;
   background:linear-gradient(150deg, var(--navy-600), var(--navy-900));
 }
+.pmodal-thumb-inner{
+  position:relative;
+  width:100%;
+  height:100%;
+  display:flex;
+  align-items:center;
+  justify-content:center;
+}
 .pmodal-thumb img,
 .pmodal-thumb video{
   display:block;
@@ -924,7 +932,7 @@ body.modal-open{
   height:100%;
   object-fit:cover;
 }
-.pmodal-thumb.is-scroll{
+.pmodal-thumb-inner.is-scroll{
   align-items:flex-start;
   overflow-y:auto;
   cursor:grab;
@@ -934,23 +942,23 @@ body.modal-open{
   scrollbar-width:thin;
   scrollbar-color:rgba(255,255,255,.4) transparent;
 }
-.pmodal-thumb.is-scroll::-webkit-scrollbar{
+.pmodal-thumb-inner.is-scroll::-webkit-scrollbar{
   width:8px;
 }
-.pmodal-thumb.is-scroll::-webkit-scrollbar-track{
+.pmodal-thumb-inner.is-scroll::-webkit-scrollbar-track{
   background:transparent;
 }
-.pmodal-thumb.is-scroll::-webkit-scrollbar-thumb{
+.pmodal-thumb-inner.is-scroll::-webkit-scrollbar-thumb{
   background:rgba(255,255,255,.4);
   border-radius:4px;
 }
-.pmodal-thumb.is-scroll::-webkit-scrollbar-thumb:hover{
+.pmodal-thumb-inner.is-scroll::-webkit-scrollbar-thumb:hover{
   background:rgba(255,255,255,.6);
 }
-.pmodal-thumb.is-scroll.dragging{
+.pmodal-thumb-inner.is-scroll.dragging{
   cursor:grabbing;
 }
-.pmodal-thumb.is-scroll img{
+.pmodal-thumb-inner.is-scroll img{
   width:100%;
   height:auto;
   max-width:100%;

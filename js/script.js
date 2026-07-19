@@ -366,7 +366,7 @@ function initPortfolioModal() {
   const modal = document.getElementById("pmodal");
   const overlay = document.getElementById("pmodalOverlay");
   const closeBtn = document.getElementById("pmodalClose");
-  const thumbFrame = document.getElementById("pmodalThumbFrame");
+  const thumbInner = document.getElementById("pmodalThumbInner");
   const img = document.getElementById("pmodalImg");
   const video = document.getElementById("pmodalVideo");
   const imgFallback = document.getElementById("pmodalImgFallback");
@@ -407,8 +407,8 @@ function initPortfolioModal() {
     }
 
     img.classList.toggle("is-cover", !!m && m.fit === "cover");
-    thumbFrame.classList.toggle("is-scroll", !!m && m.type !== "video" && m.scroll === true);
-    thumbFrame.scrollTop = 0;
+    thumbInner.classList.toggle("is-scroll", !!m && m.type !== "video" && m.scroll === true);
+    thumbInner.scrollTop = 0;
 
     const multiple = mediaList.length > 1;
     prevBtn.style.display = multiple ? "flex" : "none";
@@ -430,22 +430,22 @@ function initPortfolioModal() {
   let isDragging = false;
   let dragStartY = 0;
   let dragStartScroll = 0;
-  thumbFrame.addEventListener("mousedown", (e) => {
-    if (!thumbFrame.classList.contains("is-scroll")) return;
+  thumbInner.addEventListener("mousedown", (e) => {
+    if (!thumbInner.classList.contains("is-scroll")) return;
     isDragging = true;
     dragStartY = e.clientY;
-    dragStartScroll = thumbFrame.scrollTop;
-    thumbFrame.classList.add("dragging");
+    dragStartScroll = thumbInner.scrollTop;
+    thumbInner.classList.add("dragging");
     e.preventDefault();
   });
   window.addEventListener("mousemove", (e) => {
     if (!isDragging) return;
-    thumbFrame.scrollTop = dragStartScroll - (e.clientY - dragStartY);
+    thumbInner.scrollTop = dragStartScroll - (e.clientY - dragStartY);
   });
   window.addEventListener("mouseup", () => {
     if (!isDragging) return;
     isDragging = false;
-    thumbFrame.classList.remove("dragging");
+    thumbInner.classList.remove("dragging");
   });
 
   function openModal(item) {
