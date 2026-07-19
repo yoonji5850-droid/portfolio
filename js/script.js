@@ -73,7 +73,7 @@ const CONFIG = {
       link: { label: "인스타그램에서 보기", url: "https://www.instagram.com/mju.mna/" },
       image: "./images/로고.png",
       media: [
-        { type: "image", src: "./images/로고.png" },
+        { type: "image", src: "./images/로고.png", fit: "cover" },
         { type: "image", src: "./images/릴스 1.png" },
         { type: "image", src: "./images/릴스 2.png" },
         { type: "image", src: "./images/MT 1.png" },
@@ -399,6 +399,8 @@ function initPortfolioModal() {
       img.src = assetUrl(m.src);
       img.alt = title.textContent;
     }
+
+    img.classList.toggle("is-cover", !!m && m.fit === "cover");
 
     const multiple = mediaList.length > 1;
     prevBtn.style.display = multiple ? "flex" : "none";
