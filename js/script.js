@@ -90,7 +90,7 @@ const CONFIG = {
       thumbFit: "contain",
       media: [
         { type: "image", src: "./images/본문 10.png", caption: "SNS 콘텐츠 (이미지는 AI를 활용해 제작하였습니다.)" },
-        { type: "image", src: "./images/1안_수정.png", scroll: true, caption: "제품 상세페이지 (모델과 제품 이미지는 AI를 활용해 제작하였습니다.)" },
+        { type: "image", src: "./images/1안_수정.png", scroll: true, caption: "제품 상세페이지 (이미지는 AI를 활용해 제작하였습니다.)" },
         { type: "image", src: "./images/배너_모바일ㅊ.png", caption: "홈페이지 모바일 배너" },
         { type: "image", src: "./images/배너_모바일b.png", caption: "홈페이지 모바일 배너" },
         { type: "image", src: "./images/image 150.png" },
