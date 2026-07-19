@@ -90,6 +90,9 @@ const CONFIG = {
       thumbFit: "contain",
       media: [
         { type: "image", src: "./images/본문 10.png" },
+        { type: "image", src: "./images/배너_모바일a.png" },
+        { type: "image", src: "./images/배너_모바일b.png" },
+        { type: "image", src: "./images/image 150.png" },
         { type: "image", src: "./images/1안_수정.png", scroll: true },
       ],
     },
