@@ -68,7 +68,7 @@ const CONFIG = {
     {
       categories: ["콘텐츠 기획", "콘텐츠 제작", "SNS 운영"],
       title: "학과 SNS 운영 (2026)",
-      desc: "학과를 알리기 위한 공감형 콘텐츠를 기획·제작하고, SNS를 운영하였습니다.",
+      desc: "학과를 알리기 위한 공감형 콘텐츠를 기획·제작하고, 공식 인스타그램 계정을 관리하였습니다.",
       tools: ["Figma", "Premiere Pro"],
       link: { label: "인스타그램에서 보기", url: "https://www.instagram.com/mju.mna/" },
       image: "./images/로고.png",
