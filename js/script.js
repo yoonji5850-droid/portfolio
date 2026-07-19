@@ -7,8 +7,6 @@ const CONFIG = {
   hero: {
     eyebrow: "PORTFOLIO",
     title: "생각을 콘텐츠로,\n콘텐츠를 경험으로",
-    subtitle:
-      "콘텐츠 기획부터 카피라이팅, 디자인, 영상 제작까지 폭넓게 다룰 수 있으며,\n트렌드와 데이터를 바탕으로 브랜드의 메시지를 효과적으로 전달하는 방법을\n끊임없이 배우고 고민하며 성장하는 마케터 **이윤지**입니다",
   },
 
   resume: {
@@ -130,7 +128,6 @@ function renderContent() {
 
   $("heroEyebrow").textContent = CONFIG.hero.eyebrow;
   $("heroTitle").innerHTML = escapeHtml(CONFIG.hero.title).replace(/\n/g, "<br>");
-  $("heroSubtitle").innerHTML = formatRichText(CONFIG.hero.subtitle);
 
   $("resumeName").textContent = CONFIG.resume.name;
   $("resumeMeta").innerHTML = `
@@ -220,13 +217,6 @@ function escapeHtml(str) {
     '"': "&quot;",
     "'": "&#39;",
   }[c]));
-}
-
-// "**bold**" + "\n" -> <strong>/<br>. Input is escaped first, so this is safe for plain-text config strings.
-function formatRichText(str) {
-  return escapeHtml(str)
-    .replace(/\*\*(.+?)\*\*/g, "<strong>$1</strong>")
-    .replace(/\n/g, "<br>");
 }
 
 /* ---------- Header background on scroll ---------- */
