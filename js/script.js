@@ -189,6 +189,7 @@ function renderContent() {
                onerror="this.style.display='none'; this.nextElementSibling.style.display='flex';" />
           <div class="p-thumb-fallback" style="display:none;">${escapeHtml(p.title)}</div>
           ${p.video ? `<div class="p-play-badge">▶</div>` : ""}
+          ${p.media && p.media.length > 1 ? `<div class="p-count-badge">${p.media.length}장</div>` : ""}
           <div class="p-thumb-overlay"><span>자세히 보기</span></div>
         </div>
         <div class="p-body">
@@ -229,6 +230,16 @@ function escapeHtml(str) {
     '"': "&quot;",
     "'": "&#39;",
   }[c]));
+}
+
+// Normalizes a portfolio item's media into a list of { type, src, poster }.
+// Falls back to the single image/video fields when `media` isn't set, so
+// existing single-item entries keep working unchanged.
+function getMediaList(item) {
+  if (item.media && item.media.length) return item.media;
+  if (item.video) return [{ type: "video", src: item.video, poster: item.image || "" }];
+  if (item.image) return [{ type: "image", src: item.image }];
+  return [];
 }
 
 /* ---------- Header background on scroll ---------- */
@@ -327,28 +338,80 @@ function initPortfolioModal() {
   const img = document.getElementById("pmodalImg");
   const video = document.getElementById("pmodalVideo");
   const imgFallback = document.getElementById("pmodalImgFallback");
+  const prevBtn = document.getElementById("pmodalPrev");
+  const nextBtn = document.getElementById("pmodalNext");
+  const counter = document.getElementById("pmodalCounter");
+  const thumbsWrap = document.getElementById("pmodalThumbs");
   const tags = document.getElementById("pmodalTags");
   const title = document.getElementById("pmodalTitle");
   const desc = document.getElementById("pmodalDesc");
   const tools = document.getElementById("pmodalTools");
 
-  function openModal(item) {
-    imgFallback.style.display = "none";
-    imgFallback.textContent = item.title;
+  let mediaList = [];
+  let mediaIndex = 0;
 
-    if (item.video) {
+  function renderMedia() {
+    const m = mediaList[mediaIndex];
+    imgFallback.style.display = "none";
+
+    if (!m) {
+      img.style.display = "none";
+      video.style.display = "none";
+      imgFallback.style.display = "flex";
+    } else if (m.type === "video") {
       img.style.display = "none";
       video.style.display = "block";
-      video.src = item.video;
-      if (item.image) video.poster = item.image;
+      video.pause();
+      video.src = m.src;
+      if (m.poster) video.poster = m.poster;
     } else {
       video.style.display = "none";
       video.removeAttribute("src");
       video.load();
       img.style.display = "block";
-      img.src = item.image || "";
-      img.alt = item.title;
+      img.src = m.src;
+      img.alt = title.textContent;
     }
+
+    const multiple = mediaList.length > 1;
+    prevBtn.style.display = multiple ? "flex" : "none";
+    nextBtn.style.display = multiple ? "flex" : "none";
+    counter.style.display = multiple ? "block" : "none";
+    counter.textContent = `${mediaIndex + 1} / ${mediaList.length}`;
+
+    thumbsWrap.querySelectorAll(".pmodal-thumb-item").forEach((el, idx) => {
+      el.classList.toggle("active", idx === mediaIndex);
+    });
+  }
+
+  function goTo(idx) {
+    mediaIndex = (idx + mediaList.length) % mediaList.length;
+    renderMedia();
+  }
+
+  function openModal(item) {
+    mediaList = getMediaList(item);
+    mediaIndex = 0;
+    imgFallback.textContent = item.title;
+
+    thumbsWrap.innerHTML =
+      mediaList.length > 1
+        ? mediaList
+            .map(
+              (m, idx) => `
+        <button class="pmodal-thumb-item${idx === 0 ? " active" : ""}" data-idx="${idx}" aria-label="${idx + 1}번째 콘텐츠 보기">
+          ${
+            m.type === "video"
+              ? `<span class="pmodal-thumb-play">▶</span>${m.poster ? `<img src="${escapeHtml(m.poster)}" alt="" />` : ""}`
+              : `<img src="${escapeHtml(m.src)}" alt="" />`
+          }
+        </button>`
+            )
+            .join("")
+        : "";
+    thumbsWrap.style.display = mediaList.length > 1 ? "flex" : "none";
+
+    renderMedia();
 
     tags.innerHTML = (item.categories || [])
       .map((c) => `<span class="p-tag">${escapeHtml(c)}</span>`)
@@ -389,10 +452,20 @@ function initPortfolioModal() {
     imgFallback.style.display = "flex";
   };
 
+  prevBtn.addEventListener("click", () => goTo(mediaIndex - 1));
+  nextBtn.addEventListener("click", () => goTo(mediaIndex + 1));
+  thumbsWrap.addEventListener("click", (e) => {
+    const btn = e.target.closest(".pmodal-thumb-item");
+    if (btn) goTo(Number(btn.dataset.idx));
+  });
+
   overlay.addEventListener("click", closeModal);
   closeBtn.addEventListener("click", closeModal);
   document.addEventListener("keydown", (e) => {
-    if (e.key === "Escape" && modal.classList.contains("open")) closeModal();
+    if (!modal.classList.contains("open")) return;
+    if (e.key === "Escape") closeModal();
+    if (e.key === "ArrowLeft" && mediaList.length > 1) goTo(mediaIndex - 1);
+    if (e.key === "ArrowRight" && mediaList.length > 1) goTo(mediaIndex + 1);
   });
 }
 
