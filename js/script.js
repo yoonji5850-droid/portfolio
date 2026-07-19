@@ -61,15 +61,24 @@ const CONFIG = {
       // 이미지를 더 올리면 아래에 { type: "image", src: "./images/파일명.jpg" }, 줄만 추가하세요.
       media: [
         { type: "video", src: "./images/work1-1.mp4" },
-        { type: "video", src: "./images/work1-2.mp4"},
+        { type: "video", src: "./images/work1-2.mp4", poster: "./images/work1-2-poster.jpg" },
         { type: "image", src: "./images/work1-3-1.jpg" },
       ],
     },
     {
-      categories: ["브랜딩"],
-      title: "브랜드 아이덴티티 콘텐츠",
-      desc: "브랜드 스토리텔링 콘텐츠 기획 및 제작",
-      image: "./images/work2.jpg",
+      categories: ["콘텐츠 기획", "콘텐츠 제작", "SNS 운영"],
+      title: "학과 SNS 운영 (2026)",
+      desc: "학과를 알리기 위한 공감형 콘텐츠를 기획·제작하고, SNS를 운영하였습니다.",
+      tools: ["Figma", "Premiere Pro"],
+      link: { label: "인스타그램에서 보기", url: "https://www.instagram.com/mju.mna/" },
+      image: "./images/work2-1.png",
+      media: [
+        { type: "image", src: "./images/work2-1.png" },
+        { type: "image", src: "./images/work2-2.png" },
+        { type: "image", src: "./images/work2-3.png" },
+        { type: "image", src: "./images/work2-4.png" },
+        { type: "image", src: "./images/work2-5.png" },
+      ],
     },
     {
       categories: ["영상"],
@@ -352,6 +361,7 @@ function initPortfolioModal() {
   const tags = document.getElementById("pmodalTags");
   const title = document.getElementById("pmodalTitle");
   const desc = document.getElementById("pmodalDesc");
+  const linkEl = document.getElementById("pmodalLink");
   const tools = document.getElementById("pmodalTools");
 
   let mediaList = [];
@@ -440,6 +450,13 @@ function initPortfolioModal() {
       .join("");
     title.textContent = item.title;
     desc.textContent = item.detail || item.desc;
+    if (item.link) {
+      linkEl.href = item.link.url;
+      linkEl.textContent = `${item.link.label || "링크 보기"} ↗`;
+      linkEl.style.display = "inline-flex";
+    } else {
+      linkEl.style.display = "none";
+    }
     tools.innerHTML =
       item.tools && item.tools.length
         ? item.tools.map((t) => `<span class="p-tool-tag">${escapeHtml(t)}</span>`).join("")

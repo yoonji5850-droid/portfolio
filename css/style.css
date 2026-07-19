@@ -1027,6 +1027,21 @@ body.modal-open{
   line-height:1.8;
   margin:0;
 }
+.pmodal-link{
+  display:inline-flex;
+  align-items:center;
+  gap:4px;
+  margin-top:16px;
+  font-size:13.5px;
+  font-weight:700;
+  color:var(--navy-700);
+  border-bottom:1.5px solid var(--navy-700);
+  padding-bottom:2px;
+  transition:opacity .2s var(--ease);
+}
+.pmodal-link:hover{
+  opacity:.7;
+}
 .pmodal-tools{
   display:flex;
   flex-wrap:wrap;
