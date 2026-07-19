@@ -929,7 +929,7 @@ body.modal-open{
   overflow-y:auto;
   cursor:grab;
   -webkit-overflow-scrolling:touch;
-  padding:20px;
+  padding:0 50px;
   box-sizing:border-box;
   scrollbar-width:thin;
   scrollbar-color:rgba(255,255,255,.4) transparent;
