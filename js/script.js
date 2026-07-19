@@ -61,7 +61,7 @@ const CONFIG = {
       // 이미지를 더 올리면 아래에 { type: "image", src: "./images/파일명.jpg" }, 줄만 추가하세요.
       media: [
         { type: "video", src: "./images/work1-1.mp4" },
-        { type: "video", src: "./images/work1-2.mp4", poster: "./images/work1-2-poster.jpg" },
+        { type: "video", src: "./images/work1-2.mp4"},
         { type: "image", src: "./images/work1-3-1.jpg" },
       ],
     },
