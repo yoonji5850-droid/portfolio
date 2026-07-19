@@ -55,7 +55,7 @@ const CONFIG = {
       categories: ["콘텐츠 기획", "콘텐츠 제작"],
       title: "부동산 홍보 콘텐츠 (2026)",
       desc: "타겟 퍼소나를 설정하고, 이에 맞는 마케팅 카피를 기획하여 부동산 홍보 릴스 콘텐츠를 제작하였습니다.",
-      tools: ["Figma", "Premiere Pro"],
+      tools: ["Figma", "Premiere Pro", "Claude"],
       image: "./images/work1_jpg",
       // "자세히 보기"를 눌렀을 때 여기 나열한 이미지/영상을 전부 넘겨볼 수 있습니다.
       // 이미지를 더 올리면 아래에 { type: "image", src: "./images/파일명.jpg" }, 줄만 추가하세요.
