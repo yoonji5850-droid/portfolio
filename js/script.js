@@ -84,7 +84,7 @@ const CONFIG = {
     {
       categories: ["콘텐츠 기획", "콘텐츠 제작"],
       title: "바이탈코어 (2026)",
-      desc: "브랜드 콘셉트를 반영하여 홈페이지 배너와 AI 모델 이미지, \n제품 상세페이지를 기획·제작하였습니다.",
+      desc: "브랜드 콘셉트를 반영하여 콘텐츠를 기획·제작하였습니다.",
       tools: ["Figma", "Photoshop", "Gemini", "ChatGPT"],
       image: "./images/본문 10.png",
       thumbFit: "contain",
