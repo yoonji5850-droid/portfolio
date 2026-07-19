@@ -63,6 +63,8 @@ const CONFIG = {
         { type: "image", src: "./images/work1_jpg" },
         { type: "video", src: "./images/work1-1.mp4" },
         { type: "video", src: "./images/work1-2.mp4" },
+        { type: "image", src: "./images/work1-3.jpg" },
+        { type: "image", src: "./images/work1-4.jpg" },
       ],
     },
     {
