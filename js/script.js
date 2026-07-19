@@ -56,7 +56,7 @@ const CONFIG = {
       title: "부동산 홍보 콘텐츠 (2026)",
       desc: "타겟 퍼소나를 설정하고, 이에 맞는 마케팅 카피를 기획하여 부동산 홍보 릴스 콘텐츠를 제작하였습니다.",
       tools: ["Figma", "Premiere Pro"],
-      image: "./images/work1.jpg",
+      image: "./images/work1_jpg",
     },
     {
       categories: ["브랜딩"],
