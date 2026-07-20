@@ -53,7 +53,7 @@ const CONFIG = {
   portfolio: [
     {
       categories: ["콘텐츠 기획", "콘텐츠 제작"],
-      title: "로얄캐슬 (2026)",
+      title: "부동산 홍보 콘텐츠 (2026)",
       desc: "타깃 페르소나를 기반으로 부동산 홍보 릴스를 \n기획·제작했습니다.",
       tools: ["Figma", "Premiere Pro", "Claude"],
       image: "./images/work1_jpg",
@@ -67,7 +67,7 @@ const CONFIG = {
     },
     {
       categories: ["콘텐츠 기획", "콘텐츠 제작", "SNS 운영"],
-      title: "MJU.MNA (2026)",
+      title: "학과 인스타그램 운영 (2026)",
       desc: "학과를 알리기 위한 공감형 콘텐츠를 기획·제작하고, \n공식 인스타그램 계정을 관리하였습니다.",
       tools: ["Figma", "Premiere Pro"],
       link: { label: "인스타그램에서 보기", url: "https://www.instagram.com/mju.mna/" },
@@ -83,7 +83,7 @@ const CONFIG = {
     },
     {
       categories: ["콘텐츠 기획", "콘텐츠 제작"],
-      title: "바이탈코어 (2026)",
+      title: "건강기능식품 브랜딩 (2026)",
       desc: "브랜드 콘셉트를 반영하여 콘텐츠를 기획·제작하였습니다.",
       tools: ["Figma", "Photoshop", "Gemini", "ChatGPT"],
       image: "./images/본문 10.png",
