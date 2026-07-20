@@ -118,10 +118,15 @@ const CONFIG = {
       ],
     },
     {
-      categories: ["브랜딩"],
-      title: "브랜드 매거진 콘텐츠",
-      desc: "브랜드 매거진 기획 및 에디토리얼 콘텐츠",
-      image: "./images/work6.jpg",
+      categories: ["콘텐츠 기획", "콘텐츠 제작"],
+      title: "가상 브랜드 콘텐츠",
+      desc: "가상의 브랜드 \"Green Pet\"의 콘텐츠 썸네일을 제작하였습니다.",
+      tools: ["Photoshop", "Figma"],
+      image: "./images/사료 유튜브.png",
+      media: [
+        { type: "image", src: "./images/사료 유튜브.png" },
+        { type: "image", src: "./images/사료 인스타그램.png" },
+      ],
     },
   ],
 
