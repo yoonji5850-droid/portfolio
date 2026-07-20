@@ -113,7 +113,7 @@ const CONFIG = {
       desc: "사용자 리서치를 기반으로 반려동물 보호자의 니즈를 분석하고, 서비스 기획부터 프로토타입 제작까지 진행하였습니다.",
       tools: ["Figma"],
       media: [
-        { type: "figma", src: "https://embed.figma.com/proto/9YZrFFFWeSISIOpFdqi1yk/%EC%9D%B4%EC%9C%A4%EC%A7%80_%EA%B8%B0%EB%A7%90%EA%B3%A0%EC%82%AC?node-id=1-39&p=f&viewport=148%2C379%2C0.04&scaling=scale-down&content-scaling=fixed&starting-point-node-id=1%3A2&page-id=0%3A1&embed-host=share" },
+        { type: "figma", src: "https://embed.figma.com/proto/hCcYih7N0PP3OPJallCBA6/HARU?node-id=1-39&viewport=158%2C269%2C0.2&scaling=scale-down&content-scaling=fixed&starting-point-node-id=1%3A2&page-id=0%3A1&embed-host=share" },
       ],
     },
     {
