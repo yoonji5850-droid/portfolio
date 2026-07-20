@@ -108,10 +108,13 @@ const CONFIG = {
       ],
     },
     {
-      categories: ["카피라이팅"],
-      title: "상세페이지 카피라이팅",
-      desc: "전환율 개선을 위한 상세페이지 카피",
-      image: "./images/work5.jpg",
+      categories: ["콘텐츠 기획", "콘텐츠 제작"],
+      title: "반려동물 서비스 HARU (2025)",
+      desc: "사용자 리서치를 기반으로 반려동물 보호자의 니즈를 분석하고, 서비스 기획부터 프로토타입 제작까지 진행하였습니다.",
+      tools: ["Figma"],
+      media: [
+        { type: "figma", src: "https://embed.figma.com/design/9YZrFFFWeSISIOpFdqi1yk/%EC%9D%B4%EC%9C%A4%EC%A7%80_%EA%B8%B0%EB%A7%90%EA%B3%A0%EC%82%AC?node-id=0-1&embed-host=share" },
+      ],
     },
     {
       categories: ["브랜딩"],
