@@ -378,6 +378,7 @@ function initPortfolioModal() {
   const thumbInner = document.getElementById("pmodalThumbInner");
   const img = document.getElementById("pmodalImg");
   const video = document.getElementById("pmodalVideo");
+  const figmaFrame = document.getElementById("pmodalFigma");
   const imgFallback = document.getElementById("pmodalImgFallback");
   const prevBtn = document.getElementById("pmodalPrev");
   const nextBtn = document.getElementById("pmodalNext");
@@ -400,26 +401,39 @@ function initPortfolioModal() {
     if (!m) {
       img.style.display = "none";
       video.style.display = "none";
+      figmaFrame.style.display = "none";
+      figmaFrame.src = "";
       imgFallback.style.display = "flex";
     } else if (m.type === "video") {
       img.style.display = "none";
+      figmaFrame.style.display = "none";
+      figmaFrame.src = "";
       video.style.display = "block";
       video.pause();
       video.src = assetUrl(m.src);
       if (m.poster) video.poster = assetUrl(m.poster);
       video.muted = true;
       video.play().catch(() => {});
+    } else if (m.type === "figma") {
+      img.style.display = "none";
+      video.style.display = "none";
+      video.removeAttribute("src");
+      video.load();
+      figmaFrame.style.display = "block";
+      figmaFrame.src = m.src;
     } else {
       video.style.display = "none";
       video.removeAttribute("src");
       video.load();
+      figmaFrame.style.display = "none";
+      figmaFrame.src = "";
       img.style.display = "block";
       img.src = assetUrl(m.src);
       img.alt = title.textContent;
     }
 
     img.classList.toggle("is-cover", !!m && m.fit === "cover");
-    thumbInner.classList.toggle("is-scroll", !!m && m.type !== "video" && m.scroll === true);
+    thumbInner.classList.toggle("is-scroll", !!m && m.type !== "video" && m.type !== "figma" && m.scroll === true);
     thumbInner.scrollTop = 0;
 
     mediaCaption.textContent = m && m.caption ? m.caption : "";
@@ -481,6 +495,8 @@ function initPortfolioModal() {
                     ? `<img src="${escapeHtml(assetUrl(m.poster))}" alt="" />`
                     : `<video src="${escapeHtml(assetUrl(m.src))}#t=0.1" muted preload="auto" playsinline></video>`
                 }`
+              : m.type === "figma"
+              ? `<span class="pmodal-thumb-figma">Figma</span>`
               : `<img src="${escapeHtml(assetUrl(m.src))}" alt="" />`
           }
         </button>`
