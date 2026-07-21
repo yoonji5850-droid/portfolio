@@ -420,7 +420,7 @@ function initPortfolioModal() {
       video.style.display = "block";
       video.pause();
       video.src = assetUrl(m.src);
-      if (m.poster) video.poster = assetUrl(m.poster);
+      video.poster = m.poster ? assetUrl(m.poster) : "";
       video.muted = true;
       video.play().catch(() => {});
     } else if (m.type === "figma") {
