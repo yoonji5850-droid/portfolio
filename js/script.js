@@ -119,8 +119,8 @@ const CONFIG = {
     },
     {
       categories: ["콘텐츠 기획", "콘텐츠 제작"],
-      title: "가상 브랜드 콘텐츠",
-      desc: "가상의 브랜드 \"Green Pet\"의 콘텐츠 썸네일을 제작하였습니다.",
+      title: " 사료 브랜드 콘텐츠 (2025)",
+      desc: "가상의 사료 브랜드 \"Green Pet\"의 콘텐츠 썸네일을 제작하였습니다.",
       tools: ["Photoshop", "Figma"],
       image: "./images/사료 유튜브.png",
       media: [
