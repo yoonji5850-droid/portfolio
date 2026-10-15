@@ -114,7 +114,7 @@ const CONFIG = {
       {
       categories: ["콘텐츠 기획 & 제작", "SNS 운영"],
       title: "학과 인스타그램 운영 (2026)",
-      desc: "명지대학교 \"미디어앤아트테크놀로지학과\"를 \n알리기 위한 공감형 콘텐츠를 기획·제작하고, \n공식 인스타그램 계정을 관리하였습니다.",
+      desc: "미디어앤아트테크놀로지학과를 알리기 위한 공감형 콘텐츠를 기획·제작하고, \n공식 인스타그램 계정을 관리하였습니다.",
       tools: ["Figma", "Premiere Pro"],
       link: { label: "인스타그램에서 보기", url: "https://www.instagram.com/mju.mna/" },
       image: "./images/로고.png",
