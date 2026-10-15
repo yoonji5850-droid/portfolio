@@ -40,7 +40,7 @@ const CONFIG = {
     },
     {
       title: "SNS 운영 & 콘텐츠 마케팅",
-      desc: "채널 특성에 맞는 콘텐츠를 기획하고 운영합니다.",
+      desc: "타깃과 시장 트렌드를 분석하고, 목적에 맞는 마케팅 콘텐츠를 제작합니다.",
       icon: "share",
       skillItems: ["타깃 분석 및 트렌드 리서치", "SNS 채널 운영 및 콘텐츠 발행", "성과 데이터 분석"],
       tags: ["Instagram Insights", "GA4", "Meta Ads Manager", "Google Trends"],
