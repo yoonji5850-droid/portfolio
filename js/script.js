@@ -65,10 +65,10 @@ const CONFIG = {
   portfolio: [
  {
       categories: ["콘텐츠 기획 & 제작"],
-      title: "우리의 BGM 공연 실황 숏폼 (2026)",
-      desc: "MUMW 소속 가수 임정희, 김보경(NEON)의 합동 콘서트 \n'우리의 BGM' 공연 실황 숏폼을 제작하였습니다.",
+      title: "우리의 BGM 공연 영상 (2026)",
+      desc: "MUMW 소속 가수 임정희, 김보경(NEON)의 \n합동 콘서트 '우리의 BGM' 공연 실황 숏폼을 제작하였습니다.",
       tools: ["Premiere Pro", "Photoshop", "ChatGPT"],
-      image: "https://i.ytimg.com/vi/-r9rc8EhD5g/hqdefault.jpg",
+      image: "https://i.ytimg.com/vi/jd2kx8eiHtg/hqdefault.jpg",
       media: [
         { type: "youtube", id: "jd2kx8eiHtg" },
         { type: "youtube", id: "UGxi691npO0" },
@@ -78,10 +78,10 @@ const CONFIG = {
     },
  {
       categories: ["콘텐츠 기획 & 제작"],
-      title: "우리의 BGM 합주 숏폼 (2026)",
-      desc: "MUMW 소속 가수 임정희, 김보경(NEON)의 합동 콘서트 \n'우리의 BGM' 합주 숏폼을 제작하였습니다.",
+      title: "우리의 BGM 합주 영상 (2026)",
+      desc: "MUMW 소속 가수 임정희, 김보경(NEON)의 \n합동 콘서트 '우리의 BGM' 합주 숏폼을 제작하였습니다.",
       tools: ["Premiere Pro", "Photoshop", "ChatGPT"],
-      image: "https://i.ytimg.com/vi/-r9rc8EhD5g/hqdefault.jpg",
+      image: "https://i.ytimg.com/vi/ZxlE-b_aISw/hqdefault.jpg",
       media: [
         { type: "youtube", id: "ZxlE-b_aISw" },
         { type: "youtube", id: "gajTdwqU4Xc" },
@@ -92,7 +92,7 @@ const CONFIG = {
     {
       categories: ["콘텐츠 기획 & 제작"],
       title: "우리의 BGM 콘서트 홍보 콘텐츠 (2026)",
-      desc: "MUMW 소속 가수 임정희, 김보경(NEON)의 합동 콘서트 \n'우리의 BGM' 홍보 콘텐츠를 제작하였습니다.",
+      desc: "MUMW 소속 가수 임정희, 김보경(NEON)의 \n합동 콘서트 '우리의 BGM' 홍보 콘텐츠를 제작하였습니다.",
       tools: ["Premiere Pro", "Photoshop", "ChatGPT"],
       image: "https://i.ytimg.com/vi/-r9rc8EhD5g/hqdefault.jpg",
       media: [
