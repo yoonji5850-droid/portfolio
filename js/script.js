@@ -70,8 +70,10 @@ const CONFIG = {
       tools: ["Premiere Pro", "Photoshop", "ChatGPT"],
       image: "https://i.ytimg.com/vi/-r9rc8EhD5g/hqdefault.jpg",
       media: [
-        { type: "youtube", id: "kXsO1tZE6Tw" },
+        { type: "youtube", id: "jd2kx8eiHtg" },
         { type: "youtube", id: "UGxi691npO0" },
+        { type: "youtube", id: "kXsO1tZE6Tw" },
+        { type: "youtube", id: "q8tfFXqK0HY" },
       ],
     },
  {
