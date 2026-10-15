@@ -62,7 +62,7 @@ const CONFIG = {
     {
       categories: ["콘텐츠 제작"],
       title: "여진(L∞na) MV Behind (2026)",
-      desc: "MUMW 소속 가수 여진(L∞na)의 \n'Red Hot Chili Summer' MV Behind 영상 편집 및 \n썸네일 제작을 하였습니다.",
+      desc: "MUMW 소속 가수 여진(L∞na)의 \n'Red Hot Chili Summer' MV Behind \n영상 편집 및 썸네일 제작을 하였습니다.",
       tools: ["Premiere Pro", "Photoshop"],
       image: "https://i.ytimg.com/vi/GhnE6aFtwzU/hqdefault.jpg",
       media: [{ type: "youtube", id: "GhnE6aFtwzU" }],
@@ -70,7 +70,7 @@ const CONFIG = {
     {
       categories: ["콘텐츠 제작"],
       title: "김보경(NEON) MV Behind (2026)",
-      desc: "MUMW 소속 가수 김보경(NEON)의 \n'별의 요람(Twilight)' MV Behind 영상 편집 및 \n썸네일 제작을 하였습니다.",
+      desc: "MUMW 소속 가수 김보경(NEON)의 \n'별의 요람(Twilight)' MV Behind \n영상 편집 및 썸네일 제작을 하였습니다.",
       tools: ["Premiere Pro", "Photoshop"],
       image: "https://i.ytimg.com/vi/A08rukYNTh8/hqdefault.jpg",
       media: [{ type: "youtube", id: "A08rukYNTh8" }],
