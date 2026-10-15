@@ -74,22 +74,6 @@ const CONFIG = {
       ],
     },
     {
-      categories: ["콘텐츠 기획", "콘텐츠 제작", "SNS 운영"],
-      title: "학과 인스타그램 운영 (2026)",
-      desc: "명지대학교 \"미디어앤아트테크놀로지학과\"를 \n알리기 위한 공감형 콘텐츠를 기획·제작하고, \n공식 인스타그램 계정을 관리하였습니다.",
-      tools: ["Figma", "Premiere Pro"],
-      link: { label: "인스타그램에서 보기", url: "https://www.instagram.com/mju.mna/" },
-      image: "./images/로고.png",
-      media: [
-        { type: "image", src: "./images/로고.png", fit: "cover" },
-        { type: "image", src: "./images/릴스 1.png" },
-        { type: "image", src: "./images/릴스 2.png" },
-        { type: "image", src: "./images/MT 1.png" },
-        { type: "image", src: "./images/MT 2.png" },
-        { type: "image", src: "./images/MT 5.png" },
-      ],
-    },
-    {
       categories: ["콘텐츠 기획", "콘텐츠 제작"],
       title: "바이탈코어 상세페이지 제작 (2026)",
       desc: "건강기능식품 브랜드 \"바이탈코어\"의 \n제품 상세페이지 및 홈페이지 배너를 기획·제작하였습니다.",
@@ -113,6 +97,22 @@ const CONFIG = {
       media: [
         { type: "youtube", id: "nkpbxITAha4" },
         { type: "youtube", id: "KyxhXg5Vgxk" },
+      ],
+    },
+      {
+      categories: ["콘텐츠 기획", "콘텐츠 제작", "SNS 운영"],
+      title: "학과 인스타그램 운영 (2026)",
+      desc: "명지대학교 \"미디어앤아트테크놀로지학과\"를 \n알리기 위한 공감형 콘텐츠를 기획·제작하고, \n공식 인스타그램 계정을 관리하였습니다.",
+      tools: ["Figma", "Premiere Pro"],
+      link: { label: "인스타그램에서 보기", url: "https://www.instagram.com/mju.mna/" },
+      image: "./images/로고.png",
+      media: [
+        { type: "image", src: "./images/로고.png", fit: "cover" },
+        { type: "image", src: "./images/릴스 1.png" },
+        { type: "image", src: "./images/릴스 2.png" },
+        { type: "image", src: "./images/MT 1.png" },
+        { type: "image", src: "./images/MT 2.png" },
+        { type: "image", src: "./images/MT 5.png" },
       ],
     },
     {
