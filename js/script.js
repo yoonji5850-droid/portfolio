@@ -422,8 +422,16 @@ function initPortfolioModal() {
   const tools = document.getElementById("pmodalTools");
   const mediaCaption = document.getElementById("pmodalMediaCaption");
 
+  const modalBody = document.querySelector(".pmodal-body");
+  const projNav = document.getElementById("pmodalProjNav");
+  const projPrevBtn = document.getElementById("pmodalProjPrev");
+  const projNextBtn = document.getElementById("pmodalProjNext");
+  const projPrevTitle = document.getElementById("pmodalProjPrevTitle");
+  const projNextTitle = document.getElementById("pmodalProjNextTitle");
+
   let mediaList = [];
   let mediaIndex = 0;
+  let projectIndex = 0;
 
   function renderMedia() {
     const m = mediaList[mediaIndex];
@@ -512,6 +520,7 @@ function initPortfolioModal() {
   });
 
   function openModal(item) {
+    projectIndex = Math.max(0, CONFIG.portfolio.indexOf(item));
     mediaList = getMediaList(item);
     mediaIndex = 0;
     imgFallback.textContent = item.title;
@@ -571,9 +580,24 @@ function initPortfolioModal() {
         ? item.tools.map((t) => `<span class="p-tool-tag">${escapeHtml(t)}</span>`).join("")
         : "";
 
+    // Previous / next project buttons (wrap around at both ends)
+    const total = CONFIG.portfolio.length;
+    projNav.style.display = total > 1 ? "flex" : "none";
+    if (total > 1) {
+      projPrevTitle.textContent = CONFIG.portfolio[(projectIndex - 1 + total) % total].title.trim();
+      projNextTitle.textContent = CONFIG.portfolio[(projectIndex + 1) % total].title.trim();
+    }
+    modalBody.scrollTop = 0;
+
     modal.classList.add("open");
     modal.setAttribute("aria-hidden", "false");
     document.body.classList.add("modal-open");
+  }
+
+  function goProject(delta) {
+    const total = CONFIG.portfolio.length;
+    video.pause();
+    openModal(CONFIG.portfolio[(projectIndex + delta + total) % total]);
   }
 
   function closeModal() {
@@ -600,6 +624,8 @@ function initPortfolioModal() {
     imgFallback.style.display = "flex";
   };
 
+  projPrevBtn.addEventListener("click", () => goProject(-1));
+  projNextBtn.addEventListener("click", () => goProject(1));
   prevBtn.addEventListener("click", () => goTo(mediaIndex - 1));
   nextBtn.addEventListener("click", () => goTo(mediaIndex + 1));
   thumbsWrap.addEventListener("click", (e) => {
