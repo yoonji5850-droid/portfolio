@@ -33,9 +33,6 @@ const CONFIG = {
     { name: "Figma", icon: "figma", bg: "#1e1e1e" },
     { name: "PowerPoint", abbr: "P", bg: "#c43e1c", fg: "#ffffff" },
     { name: "Word", abbr: "W", bg: "#185abd", fg: "#ffffff" },
-    { name: "DaVinci Resolve", abbr: "Dv", bg: "#1b1b1f", fg: "#f2f2f2" },
-    { name: "Claude", abbr: "Cl", bg: "#d97757", fg: "#ffffff" },
-    { name: "ChatGPT", abbr: "GPT", bg: "#10a37f", fg: "#ffffff" },
   ],
 
   skills: [
