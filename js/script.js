@@ -76,7 +76,7 @@ const CONFIG = {
     {
       categories: ["콘텐츠 기획", "콘텐츠 제작", "SNS 운영"],
       title: "학과 인스타그램 운영 (2026)",
-      desc: "학과를 알리기 위한 공감형 콘텐츠를 기획·제작하고, \n공식 인스타그램 계정을 관리하였습니다.",
+      desc: "명지대학교 \"미디어앤아트테크놀로지학과\"를 알리기 위한 공감형 콘텐츠를 기획·제작하고, \n공식 인스타그램 계정을 관리하였습니다.",
       tools: ["Figma", "Premiere Pro"],
       link: { label: "인스타그램에서 보기", url: "https://www.instagram.com/mju.mna/" },
       image: "./images/로고.png",
@@ -92,7 +92,7 @@ const CONFIG = {
     {
       categories: ["콘텐츠 기획", "콘텐츠 제작"],
       title: "바이탈코어 상세페이지 제작 (2026)",
-      desc: "건강기능식품 브랜드 \"바이탈코어\"의 /n제품 상세페이지 및 홈페이지 배너를 기획·제작하였습니다.",
+      desc: "건강기능식품 브랜드 \"바이탈코어\"의 \n제품 상세페이지 및 홈페이지 배너를 기획·제작하였습니다.",
       tools: ["Figma", "Photoshop", "Gemini", "ChatGPT"],
       image: "./images/본문 10.png",
       thumbFit: "contain",
