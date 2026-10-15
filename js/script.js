@@ -25,25 +25,25 @@ const CONFIG = {
 
   skills: [
     {
-      title: "콘텐츠 기획",
-      desc: "브랜드와 타깃에 맞는 콘텐츠 전략을 기획합니다.",
-      icon: "target",
-      skillItems: ["콘텐츠 전략", "트렌드 리서치", "카피라이팅"],
-      tags: ["PowerPoint", "Word", "Figma", "Claude"],
-    },
-    {
-      title: "콘텐츠 제작",
-      desc: "기획 의도를 시각적으로 전달하는 콘텐츠를 제작합니다.",
+      title: "콘텐츠 기획 및 제작",
+      desc: "아이디어를 구체화하고, 영상과 디자인을 활용해 기획을 결과물로 구현합니다.",
       icon: "pen",
-      skillItems: ["숏폼 / 롱폼 제작", "카드뉴스 제작", "상세페이지 제작"],
-      tags: ["Photoshop", "Illustrator", "Premiere Pro", "After Effects", "Figma"],
+      skillItems: ["아이디어 발상 및 기획안 작성", "숏폼·롱폼 영상 편집", "카드뉴스·상세페이지 제작"],
+      tags: ["Premiere Pro", "After Effects", "Photoshop", "Illustrator", "Figma"],
     },
     {
-      title: "SNS 마케팅",
+      title: "AI 활용",
+      desc: "생성형 AI를 활용해 아이디어 구상부터 시각 자료 제작까지 다양한 업무를 효율적으로 수행합니다.",
+      icon: "sparkle",
+      skillItems: ["생성형 AI 기반 자료 및 이미지 제작", "AI 활용 기획·제작 보조", "반복 업무 효율화"],
+      tags: ["Claude", "ChatGPT", "Google Flow", "Adobe Firefly"],
+    },
+    {
+      title: "SNS 운영 & 콘텐츠 마케팅",
       desc: "채널 특성에 맞는 콘텐츠를 기획하고 운영합니다.",
       icon: "share",
-      skillItems: ["SNS 채널 운영", "콘텐츠 캘린더", "콘텐츠 성과 분석"],
-      tags: ["Instagram Insights", "GA4"],
+      skillItems: ["타깃 분석 및 트렌드 리서치", "SNS 채널 운영 및 콘텐츠 발행", "성과 데이터 분석"],
+      tags: ["Instagram Insights", "GA4", "Meta Ads Manager", "Google Trends"],
     },
   ],
 
@@ -179,6 +179,8 @@ const ICONS = {
     '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="6" cy="12" r="2.6"/><circle cx="18" cy="6" r="2.6"/><circle cx="18" cy="18" r="2.6"/><path d="M8.3 10.7l7.4-4.2M8.3 13.3l7.4 4.2"/></svg>',
   pen:
     '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M4 20l4-1 11-11-3-3L5 16l-1 4z"/></svg>',
+  sparkle:
+    '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 3l1.9 5.1L19 10l-5.1 1.9L12 17l-1.9-5.1L5 10l5.1-1.9L12 3z"/><path d="M19 16l.8 2.2L22 19l-2.2.8L19 22l-.8-2.2L16 19l2.2-.8L19 16z"/></svg>',
   chart:
     '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M4 20V10M12 20V4M20 20v-7"/></svg>',
 };
