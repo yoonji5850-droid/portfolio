@@ -60,6 +60,22 @@ const CONFIG = {
       media: [{ type: "youtube", id: "7mCcBHLVe9Q" }],
     },
     {
+      categories: ["콘텐츠 제작"],
+      title: "여진(L∞na) MV Behind (2026)",
+      desc: "MUMW 소속 가수 여진(L∞na)의 \n'Red Hot Chili Summer' MV Behind 영상 편집 및 \n썸네일 제작을 하였습니다.",
+      tools: ["Premiere Pro", "Photoshop"],
+      image: "https://i.ytimg.com/vi/GhnE6aFtwzU/hqdefault.jpg",
+      media: [{ type: "youtube", id: "GhnE6aFtwzU" }],
+    },
+    {
+      categories: ["콘텐츠 제작"],
+      title: "김보경(NEON) MV Behind (2026)",
+      desc: "MUMW 소속 가수 김보경(NEON)의 \n'별의 요람(Twilight)' MV Behind 영상 편집 및 \n썸네일 제작을 하였습니다.",
+      tools: ["Premiere Pro", "Photoshop"],
+      image: "https://i.ytimg.com/vi/A08rukYNTh8/hqdefault.jpg",
+      media: [{ type: "youtube", id: "A08rukYNTh8", start: 95 }],
+    },
+    {
       categories: ["콘텐츠 기획 & 제작"],
       title: "로얄캐슬 홍보 콘텐츠 (2026)",
       desc: "타깃 페르소나를 기반으로 부동산 홍보 릴스를 \n기획·제작했습니다.",
@@ -458,7 +474,7 @@ function initPortfolioModal() {
       figmaFrame.style.display = "block";
       figmaFrame.src =
         m.type === "youtube"
-          ? `https://www.youtube.com/embed/${m.id}?rel=0&playsinline=1&autoplay=1`
+          ? `https://www.youtube.com/embed/${m.id}?rel=0&playsinline=1&autoplay=1${m.start ? `&start=${m.start}` : ""}`
           : m.src;
     } else {
       video.style.display = "none";
