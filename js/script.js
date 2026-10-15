@@ -119,7 +119,7 @@ const CONFIG = {
       link: { label: "인스타그램에서 보기", url: "https://www.instagram.com/mju.mna/" },
       image: "./images/로고.png",
       media: [
-        { type: "image", src: "./images/로고.png", fit: "cover", caption: "1개월 간 총 조회수 약 214만 회, 프로필 방문 약 4만 7천 회 달성". },
+        { type: "image", src: "./images/로고.png", fit: "cover", caption: "1개월 간 총 조회수 약 214만 회, 프로필 방문 약 4만 7천 회 달성." },
         { type: "image", src: "./images/릴스 1.png" , caption: "1개월 간 총 조회수 약 214만 회, 프로필 방문 약 4만 7천 회 달성"},
         { type: "image", src: "./images/릴스 2.png" , caption: "1개월 간 총 조회수 약 214만 회, 프로필 방문 약 4만 7천 회 달성"},
         { type: "image", src: "./images/MT 1.png" , caption: "1개월 간 총 조회수 약 214만 회, 프로필 방문 약 4만 7천 회 달성" },
