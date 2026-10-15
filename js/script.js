@@ -53,7 +53,7 @@ const CONFIG = {
   portfolio: [
     {
       categories: ["콘텐츠 제작"],
-      title: "모루인형 만들기 콘텐츠 (2026)",
+      title: "여진(L∞na) 모루인형 콘텐츠 (2026)",
       desc: "MUMW 소속 가수 여진(L∞na)의 \n여진이의 행운 가득 거북이 모루인형 만들기🍀🐢 \n영상 편집 및 썸네일 제작을 하였습니다.",
       tools: ["Premiere Pro", "Photoshop"],
       image: "https://i.ytimg.com/vi/7mCcBHLVe9Q/hqdefault.jpg",
@@ -73,7 +73,7 @@ const CONFIG = {
       desc: "MUMW 소속 가수 김보경(NEON)의 \n'별의 요람(Twilight)' MV Behind 영상 편집 및 \n썸네일 제작을 하였습니다.",
       tools: ["Premiere Pro", "Photoshop"],
       image: "https://i.ytimg.com/vi/A08rukYNTh8/hqdefault.jpg",
-      media: [{ type: "youtube", id: "A08rukYNTh8", start: 95 }],
+      media: [{ type: "youtube", id: "A08rukYNTh8" }],
     },
     {
       categories: ["콘텐츠 기획 & 제작"],
