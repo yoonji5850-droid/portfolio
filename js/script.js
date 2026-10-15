@@ -91,20 +91,6 @@ const CONFIG = {
       media: [{ type: "youtube", id: "A08rukYNTh8" }],
     },
     {
-      categories: ["콘텐츠 기획 & 제작"],
-      title: "로얄캐슬 홍보 콘텐츠 (2026)",
-      desc: "타깃 페르소나를 기반으로 부동산 홍보 릴스를 \n기획·제작했습니다.",
-      tools: ["Figma", "Premiere Pro", "Claude"],
-      image: "./images/work1_jpg",
-      // "자세히 보기"를 눌렀을 때 여기 나열한 이미지/영상을 전부 넘겨볼 수 있습니다.
-      // 이미지를 더 올리면 아래에 { type: "image", src: "./images/파일명.jpg" }, 줄만 추가하세요.
-      media: [
-        { type: "youtube", id: "2TPFjxp0eOI" },
-        { type: "youtube", id: "Lt_mPA9vSyc" },
-        { type: "image", src: "./images/work1-3-1.jpg" },
-      ],
-    },
-    {
       categories: ["콘텐츠 기획 & 제작", "AI 활용"],
       title: "브이캔디 홍보 숏폼 제작 (2026)",
       desc: "바이탈코어의 브이캔디 제품 홍보를 위한 \n바이럴 숏폼 콘텐츠를 직접 기획하고 제작했습니다.",
@@ -129,6 +115,20 @@ const CONFIG = {
         { type: "image", src: "./images/1안_수정.png", scroll: true, caption: "인물 이미지는 AI를 활용해 제작하였습니다." },
         { type: "image", src: "./images/배너_모바일ㅊ.png" },
         { type: "image", src: "./images/배너_모바일b.png" },
+      ],
+    },
+      {
+      categories: ["콘텐츠 기획 & 제작"],
+      title: "로얄캐슬 홍보 콘텐츠 (2026)",
+      desc: "타깃 페르소나를 기반으로 부동산 홍보 릴스를 \n기획·제작했습니다.",
+      tools: ["Figma", "Premiere Pro", "Claude"],
+      image: "./images/work1_jpg",
+      // "자세히 보기"를 눌렀을 때 여기 나열한 이미지/영상을 전부 넘겨볼 수 있습니다.
+      // 이미지를 더 올리면 아래에 { type: "image", src: "./images/파일명.jpg" }, 줄만 추가하세요.
+      media: [
+        { type: "youtube", id: "2TPFjxp0eOI" },
+        { type: "youtube", id: "Lt_mPA9vSyc" },
+        { type: "image", src: "./images/work1-3-1.jpg" },
       ],
     },
     {
