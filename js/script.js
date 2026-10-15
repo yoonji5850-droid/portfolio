@@ -54,7 +54,7 @@ const CONFIG = {
     {
       categories: ["콘텐츠 제작"],
       title: "아이돌 콘텐츠 편집 (2026)",
-      desc: "MUMW 소속 가수 여진(L∞na)의 \n여진이의 행운 가득 거북이 모루인형 만들기🍀🐢 영상 편집 및 썸네일 제작을 하였습니다.",
+      desc: "MUMW 소속 가수 여진(L∞na)의 \n여진이의 행운 가득 거북이 모루인형 만들기🍀🐢 \n영상 편집 및 썸네일 제작을 하였습니다.",
       tools: ["Premiere Pro", "Photoshop"],
       image: "https://i.ytimg.com/vi/7mCcBHLVe9Q/hqdefault.jpg",
       media: [{ type: "youtube", id: "7mCcBHLVe9Q" }],
