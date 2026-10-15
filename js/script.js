@@ -23,6 +23,21 @@ const CONFIG = {
     ],
   },
 
+  // About 섹션 맨 아래에 표시되는 툴 아이콘 (순서대로 표시됩니다)
+  // abbr: 아이콘 안의 글자, bg: 배경색, fg: 글자색
+  aboutTools: [
+    { name: "Premiere Pro", abbr: "Pr", bg: "#00005b", fg: "#9999ff" },
+    { name: "After Effects", abbr: "Ae", bg: "#00005b", fg: "#d291ff" },
+    { name: "Photoshop", abbr: "Ps", bg: "#001e36", fg: "#31a8ff" },
+    { name: "Illustrator", abbr: "Ai", bg: "#330000", fg: "#ff9a00" },
+    { name: "Figma", icon: "figma", bg: "#1e1e1e" },
+    { name: "PowerPoint", abbr: "P", bg: "#c43e1c", fg: "#ffffff" },
+    { name: "Word", abbr: "W", bg: "#185abd", fg: "#ffffff" },
+    { name: "DaVinci Resolve", abbr: "Dv", bg: "#1b1b1f", fg: "#f2f2f2" },
+    { name: "Claude", abbr: "Cl", bg: "#d97757", fg: "#ffffff" },
+    { name: "ChatGPT", abbr: "GPT", bg: "#10a37f", fg: "#ffffff" },
+  ],
+
   skills: [
     {
       title: "콘텐츠 기획 & 제작",
@@ -201,6 +216,11 @@ const ICONS = {
     '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M4 20V10M12 20V4M20 20v-7"/></svg>',
 };
 
+const TOOL_ICONS = {
+  figma:
+    '<svg viewBox="0 0 24 36" width="16" height="24" aria-hidden="true"><path fill="#f24e1e" d="M0 6a6 6 0 0 1 6-6h6v12H6a6 6 0 0 1-6-6z"/><path fill="#ff7262" d="M12 0h6a6 6 0 0 1 0 12h-6z"/><path fill="#a259ff" d="M0 18a6 6 0 0 1 6-6h6v12H6a6 6 0 0 1-6-6z"/><circle fill="#1abcfe" cx="18" cy="18" r="6"/><path fill="#0acf83" d="M0 30a6 6 0 0 1 6-6h6v6a6 6 0 0 1-12 0z"/></svg>',
+};
+
 /* ---------- Render content from CONFIG ---------- */
 function renderContent() {
   const $ = (id) => document.getElementById(id);
@@ -233,6 +253,18 @@ function renderContent() {
         <span class="r-date">${escapeHtml(c.date)}</span>
         <span class="r-main"><strong>${escapeHtml(c.name)}</strong></span>
         <span class="r-note">${escapeHtml(c.note)}</span>
+      </li>`
+    )
+    .join("");
+
+  $("aboutTools").innerHTML = (CONFIG.aboutTools || [])
+    .map(
+      (t) => `
+      <li class="tool-item">
+        <span class="tool-badge" style="background:${escapeHtml(t.bg || "#1e1e1e")};color:${escapeHtml(t.fg || "#fff")}">${
+          t.icon === "figma" ? TOOL_ICONS.figma : escapeHtml(t.abbr || t.name.slice(0, 2))
+        }</span>
+        <span class="tool-name">${escapeHtml(t.name)}</span>
       </li>`
     )
     .join("");

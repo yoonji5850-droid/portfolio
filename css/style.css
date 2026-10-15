@@ -1254,3 +1254,60 @@ body.modal-open{
   .pmodal-proj-prev{ left:calc(50% - 52px); }
   .pmodal-proj-next{ right:calc(50% - 52px); }
 }
+
+/* About: tool icons */
+.about-tools{
+  margin-top:56px;
+  padding-top:32px;
+  border-top:1px solid var(--gray-200);
+}
+.about-tools-title{
+  font-size:13px;
+  font-weight:800;
+  letter-spacing:.14em;
+  color:var(--navy-500);
+  margin:0 0 20px;
+}
+.about-tools-list{
+  list-style:none;
+  margin:0;
+  padding:0;
+  display:flex;
+  flex-wrap:wrap;
+  gap:22px 26px;
+}
+.tool-item{
+  display:flex;
+  flex-direction:column;
+  align-items:center;
+  gap:9px;
+  width:76px;
+}
+.tool-badge{
+  width:56px;
+  height:56px;
+  border-radius:14px;
+  display:flex;
+  align-items:center;
+  justify-content:center;
+  font-size:21px;
+  font-weight:800;
+  letter-spacing:-.02em;
+  box-shadow:var(--shadow-sm);
+  transition:transform .25s var(--ease);
+}
+.tool-item:hover .tool-badge{ transform:translateY(-3px); }
+.tool-name{
+  font-size:12px;
+  font-weight:600;
+  color:var(--gray-500);
+  text-align:center;
+  line-height:1.3;
+}
+@media (max-width: 768px){
+  .about-tools{ margin-top:40px; }
+  .about-tools-list{ gap:18px 14px; justify-content:center; }
+  .about-tools-title{ text-align:center; }
+  .tool-item{ width:68px; }
+  .tool-badge{ width:50px; height:50px; font-size:18px; }
+}
