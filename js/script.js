@@ -65,6 +65,17 @@ const CONFIG = {
   portfolio: [
  {
       categories: ["콘텐츠 기획 & 제작"],
+      title: "우리의 BGM 공연 실황 숏폼 (2026)",
+      desc: "MUMW 소속 가수 임정희, 김보경(NEON)의 합동 콘서트 \n'우리의 BGM' 공연 실황 숏폼을 제작하였습니다.",
+      tools: ["Premiere Pro", "Photoshop", "ChatGPT"],
+      image: "https://i.ytimg.com/vi/-r9rc8EhD5g/hqdefault.jpg",
+      media: [
+        { type: "youtube", id: "kXsO1tZE6Tw" },
+        { type: "youtube", id: "UGxi691npO0" },
+      ],
+    },
+ {
+      categories: ["콘텐츠 기획 & 제작"],
       title: "우리의 BGM 합주 숏폼 (2026)",
       desc: "MUMW 소속 가수 임정희, 김보경(NEON)의 합동 콘서트 \n'우리의 BGM' 합주 숏폼을 제작하였습니다.",
       tools: ["Premiere Pro", "Photoshop", "ChatGPT"],
@@ -115,7 +126,7 @@ const CONFIG = {
     },
     {
       categories: ["콘텐츠 기획 & 제작", "AI 활용"],
-      title: "브이캔디 홍보 숏폼 제작 (2026)",
+      title: "브이캔디 홍보 숏폼 (2026)",
       desc: "바이탈코어의 브이캔디 제품 홍보를 위한 \n바이럴 숏폼 콘텐츠를 직접 기획하고 제작했습니다.",
       tools: ["Premiere Pro", "Photoshop", "Google Flow"],
       image: "https://i.ytimg.com/vi/SfWGY9rAX_g/hqdefault.jpg",
@@ -128,7 +139,7 @@ const CONFIG = {
     },
     {
       categories: ["콘텐츠 기획 & 제작", "AI 활용"],
-      title: "바이탈코어 상세페이지 제작 (2026)",
+      title: "바이탈코어 상세페이지 (2026)",
       desc: "건강기능식품 브랜드 \"바이탈코어\"의 \n제품 상세페이지 및 홈페이지 배너를 기획·제작하였습니다.",
       tools: ["Figma", "Photoshop", "Gemini", "ChatGPT"],
       image: "./images/본문 10.png",
@@ -167,7 +178,7 @@ const CONFIG = {
     },
       {
       categories: ["콘텐츠 기획 & 제작", "SNS 운영"],
-      title: "학과 인스타그램 운영 (2026)",
+      title: "학과 인스타그램 (2026)",
       desc: "미디어앤아트테크놀로지학과를 알리기 위한 \n공감형 콘텐츠를 기획·제작하고, \n공식 인스타그램 계정을 관리하였습니다.",
       tools: ["Figma", "Premiere Pro"],
       link: { label: "인스타그램에서 보기", url: "https://www.instagram.com/mju.mna/" },
@@ -183,7 +194,7 @@ const CONFIG = {
     },
     {
       categories: ["콘텐츠 기획 & 제작"],
-      title: "반려동물 서비스 기획 (2025)",
+      title: "반려동물 서비스 (2025)",
       desc: "사용자 리서치를 기반으로 반려동물 보호자의 니즈를 분석하고, 서비스 기획부터 프로토타입 제작까지 진행하였습니다.",
       tools: ["Figma"],
       image: "./images/하루.png",
@@ -193,7 +204,7 @@ const CONFIG = {
     },
     {
       categories: ["콘텐츠 기획 & 제작"],
-      title: " 가상 브랜드 콘텐츠 제작 (2025)",
+      title: " 가상 브랜드 콘텐츠 (2025)",
       desc: "가상의 사료 브랜드 \"Green Pet\"의 콘텐츠 썸네일을 제작하였습니다.",
       tools: ["Photoshop", "Figma"],
       image: "./images/사료 유튜브.png",
