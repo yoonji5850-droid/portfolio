@@ -64,6 +64,21 @@ const CONFIG = {
   // image: 이미지 경로 (없으면 자동으로 플레이스홀더가 표시됩니다)
   portfolio: [
     {
+      categories: ["콘텐츠 기획 & 제작"],
+      title: "우리의 BGM 홍보 숏폼 (2026)",
+      desc: "MUMW 소속 가수 임정희, 김보경(NEON)의 합동 콘서트 \n'우리의 BGM' 홍보 콘텐츠를 제작하였습니다.",
+      tools: ["Premiere Pro", "Photoshop", "ChatGPT"],
+      image: "https://i.ytimg.com/vi/-r9rc8EhD5g/hqdefault.jpg",
+      media: [
+        { type: "youtube", id: "-r9rc8EhD5g" },
+        { type: "youtube", id: "Knm8KZgunFw" },
+        { type: "youtube", id: "hwjyaEyIpMw" },
+        { type: "youtube", id: "k6v9tm-PqiA" },
+        { type: "youtube", id: "ZxlE-b_aISw" },
+        { type: "youtube", id: "gajTdwqU4Xc" },
+      ],
+    },
+    {
       categories: ["콘텐츠 제작"],
       title: "여진(L∞na) 모루인형 콘텐츠 (2026)",
       desc: "MUMW 소속 가수 여진(L∞na)의 \n여진이의 행운 가득 거북이 모루인형 만들기🍀🐢 \n영상 편집 및 썸네일 제작을 하였습니다.",
