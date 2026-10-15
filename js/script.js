@@ -75,6 +75,18 @@ const CONFIG = {
     },
     {
       categories: ["콘텐츠 기획", "콘텐츠 제작"],
+      title: "브이캔디 홍보 숏폼 제작 (2026)",
+      desc: "바이탈코어의 브이캔디 제품 홍보를 위한 \n바이럴 숏폼 콘텐츠를 직접 기획하고 제작했습니다.",
+      tools: ["Premiere Pro", "Photoshop", "Google Flow"],
+      image: "https://i.ytimg.com/vi/SfWGY9rAX_g/hqdefault.jpg",
+      media: [
+        { type: "youtube", id: "SfWGY9rAX_g", caption: "본 콘텐츠는 AI를 활용해 제작하였습니다." },
+        { type: "youtube", id: "uzQuflIzgxg", caption: "본 콘텐츠는 AI를 활용해 제작하였습니다." },
+        { type: "youtube", id: "K-RjSWfO4fw", caption: "본 콘텐츠는 AI를 활용해 제작하였습니다." },
+      ],
+    },
+    {
+      categories: ["콘텐츠 기획", "콘텐츠 제작"],
       title: "바이탈코어 상세페이지 제작 (2026)",
       desc: "건강기능식품 브랜드 \"바이탈코어\"의 \n제품 상세페이지 및 홈페이지 배너를 기획·제작하였습니다.",
       tools: ["Figma", "Photoshop", "Gemini", "ChatGPT"],
