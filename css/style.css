@@ -1218,50 +1218,39 @@ body.modal-open{
   *{ animation-duration:.01ms !important; animation-iteration-count:1 !important; transition-duration:.01ms !important; }
 }
 
-/* Previous / next project buttons inside the detail modal */
-.pmodal-projnav{
-  position:sticky;
-  bottom:-36px;
-  display:flex;
-  gap:10px;
-  margin:28px -32px -36px;
-  padding:14px 32px 18px;
-  background:linear-gradient(to bottom, rgba(255,255,255,0), var(--white) 28%);
-}
-.pmodal-projbtn{
-  flex:1 1 0;
-  min-width:0;
-  display:flex;
-  flex-direction:column;
-  align-items:flex-start;
-  gap:3px;
-  padding:10px 14px;
-  border:1px solid var(--gray-200);
-  border-radius:12px;
-  background:var(--white);
-  color:var(--navy-900);
-  text-align:left;
+/* Previous / next project arrows, outside the detail modal card */
+.pmodal-proj-arrow{
+  position:absolute;
+  top:50%;
+  transform:translateY(-50%);
+  z-index:2;
+  width:48px;
+  height:48px;
+  border-radius:50%;
+  border:1px solid rgba(255,255,255,.35);
+  background:rgba(5,13,31,.6);
+  color:var(--white);
+  font-size:26px;
+  line-height:1;
+  padding:0 0 3px;
   cursor:pointer;
-  transition:border-color .25s var(--ease), background .25s var(--ease);
+  align-items:center;
+  justify-content:center;
+  transition:background .25s var(--ease), transform .25s var(--ease);
 }
-.pmodal-projbtn:hover{
-  border-color:var(--navy-400);
-  background:var(--off-white);
-}
-.pmodal-projbtn-next{ align-items:flex-end; text-align:right; }
-.pmodal-projbtn-label{
-  font-size:12px;
-  font-weight:700;
-  color:var(--navy-500);
-}
-.pmodal-projbtn-title{
-  max-width:100%;
-  font-size:12.5px;
-  color:var(--gray-500);
-  white-space:nowrap;
-  overflow:hidden;
-  text-overflow:ellipsis;
-}
-@media (max-width: 768px){
-  .pmodal-projnav{ bottom:-36px; margin:24px -20px -28px; padding:12px 20px 16px; }
+.pmodal-proj-arrow:hover{ background:var(--navy-900); }
+.pmodal-proj-prev{ left:max(10px, calc(50% - 480px - 68px)); }
+.pmodal-proj-next{ right:max(10px, calc(50% - 480px - 68px)); }
+@media (max-width: 1100px){
+  /* Not enough room beside the card: sit just below it, left and right of center */
+  .pmodal-proj-arrow{
+    top:auto;
+    bottom:calc((100vh - min(85vh, 600px)) / 2 - 56px);
+    bottom:max(6px, calc((100dvh - min(85dvh, 600px)) / 2 - 54px));
+    transform:none;
+    width:42px;
+    height:42px;
+  }
+  .pmodal-proj-prev{ left:calc(50% - 52px); }
+  .pmodal-proj-next{ right:calc(50% - 52px); }
 }
