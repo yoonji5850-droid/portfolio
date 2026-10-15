@@ -423,13 +423,16 @@ function initPortfolioModal() {
       video.poster = m.poster ? assetUrl(m.poster) : "";
       video.muted = true;
       video.play().catch(() => {});
-    } else if (m.type === "figma") {
+    } else if (m.type === "figma" || m.type === "youtube") {
       img.style.display = "none";
       video.style.display = "none";
       video.removeAttribute("src");
       video.load();
       figmaFrame.style.display = "block";
-      figmaFrame.src = m.src;
+      figmaFrame.src =
+        m.type === "youtube"
+          ? `https://www.youtube.com/embed/${m.id}?rel=0&playsinline=1`
+          : m.src;
     } else {
       video.style.display = "none";
       video.removeAttribute("src");
@@ -442,7 +445,7 @@ function initPortfolioModal() {
     }
 
     img.classList.toggle("is-cover", !!m && m.fit === "cover");
-    thumbInner.classList.toggle("is-scroll", !!m && m.type !== "video" && m.type !== "figma" && m.scroll === true);
+    thumbInner.classList.toggle("is-scroll", !!m && m.type !== "video" && m.type !== "figma" && m.type !== "youtube" && m.scroll === true);
     thumbInner.scrollTop = 0;
 
     mediaCaption.textContent = m && m.caption ? m.caption : "";
@@ -506,6 +509,8 @@ function initPortfolioModal() {
                 }`
               : m.type === "figma"
               ? `<span class="pmodal-thumb-figma">Figma</span>`
+              : m.type === "youtube"
+              ? `<span class="pmodal-thumb-play">▶</span><img src="https://i.ytimg.com/vi/${escapeHtml(m.id)}/hqdefault.jpg" alt="" />`
               : `<img src="${escapeHtml(assetUrl(m.src))}" alt="" />`
           }
         </button>`
