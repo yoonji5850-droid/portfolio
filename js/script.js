@@ -60,7 +60,7 @@ const CONFIG = {
       media: [{ type: "youtube", id: "7mCcBHLVe9Q" }],
     },
     {
-      categories: ["콘텐츠 기획", "콘텐츠 제작"],
+      categories: ["콘텐츠 기획 & 제작"],
       title: "로얄캐슬 홍보 콘텐츠 (2026)",
       desc: "타깃 페르소나를 기반으로 부동산 홍보 릴스를 \n기획·제작했습니다.",
       tools: ["Figma", "Premiere Pro", "Claude"],
@@ -74,7 +74,7 @@ const CONFIG = {
       ],
     },
     {
-      categories: ["콘텐츠 기획", "콘텐츠 제작"],
+      categories: ["콘텐츠 기획 & 제작", "AI 활용"],
       title: "브이캔디 홍보 숏폼 제작 (2026)",
       desc: "바이탈코어의 브이캔디 제품 홍보를 위한 \n바이럴 숏폼 콘텐츠를 직접 기획하고 제작했습니다.",
       tools: ["Premiere Pro", "Photoshop", "Google Flow"],
@@ -87,7 +87,7 @@ const CONFIG = {
       ],
     },
     {
-      categories: ["콘텐츠 기획", "콘텐츠 제작"],
+      categories: ["콘텐츠 기획 & 제작", "AI 활용"],
       title: "바이탈코어 상세페이지 제작 (2026)",
       desc: "건강기능식품 브랜드 \"바이탈코어\"의 \n제품 상세페이지 및 홈페이지 배너를 기획·제작하였습니다.",
       tools: ["Figma", "Photoshop", "Gemini", "ChatGPT"],
@@ -112,7 +112,7 @@ const CONFIG = {
       ],
     },
       {
-      categories: ["콘텐츠 기획", "콘텐츠 제작", "SNS 운영"],
+      categories: ["콘텐츠 기획 & 제작", "SNS 운영"],
       title: "학과 인스타그램 운영 (2026)",
       desc: "명지대학교 \"미디어앤아트테크놀로지학과\"를 \n알리기 위한 공감형 콘텐츠를 기획·제작하고, \n공식 인스타그램 계정을 관리하였습니다.",
       tools: ["Figma", "Premiere Pro"],
@@ -128,7 +128,7 @@ const CONFIG = {
       ],
     },
     {
-      categories: ["콘텐츠 기획", "콘텐츠 제작"],
+      categories: ["콘텐츠 기획 & 제작"],
       title: "반려동물 서비스 기획 (2025)",
       desc: "사용자 리서치를 기반으로 반려동물 보호자의 니즈를 분석하고, 서비스 기획부터 프로토타입 제작까지 진행하였습니다.",
       tools: ["Figma"],
@@ -138,7 +138,7 @@ const CONFIG = {
       ],
     },
     {
-      categories: ["콘텐츠 기획", "콘텐츠 제작"],
+      categories: ["콘텐츠 기획 & 제작"],
       title: " 가상 브랜드 콘텐츠 제작 (2025)",
       desc: "가상의 사료 브랜드 \"Green Pet\"의 콘텐츠 썸네일을 제작하였습니다.",
       tools: ["Photoshop", "Figma"],
