@@ -91,8 +91,8 @@ const CONFIG = {
     },
     {
       categories: ["콘텐츠 기획", "콘텐츠 제작"],
-      title: "건강기능식품 브랜딩 (2026)",
-      desc: "브랜드 콘셉트를 반영하여 콘텐츠를 기획·제작하였습니다.",
+      title: "바이탈코어 상세페이지 제작 (2026)",
+      desc: "건강기능식품 브랜드 \"바이탈코어\"의 /n제품 상세페이지 및 홈페이지 배너를 기획·제작하였습니다.",
       tools: ["Figma", "Photoshop", "Gemini", "ChatGPT"],
       image: "./images/본문 10.png",
       thumbFit: "contain",
@@ -127,7 +127,7 @@ const CONFIG = {
     },
     {
       categories: ["콘텐츠 기획", "콘텐츠 제작"],
-      title: " 사료 브랜드 콘텐츠 (2025)",
+      title: " 가상 브랜드 콘텐츠 제작 (2025)",
       desc: "가상의 사료 브랜드 \"Green Pet\"의 콘텐츠 썸네일을 제작하였습니다.",
       tools: ["Photoshop", "Figma"],
       image: "./images/사료 유튜브.png",
