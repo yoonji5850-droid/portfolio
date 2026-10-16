@@ -542,7 +542,7 @@ function initPortfolioModal() {
       figmaFrame.style.display = "block";
       figmaFrame.src =
         m.type === "youtube"
-          ? `https://www.youtube.com/embed/${m.id}?rel=0&playsinline=1&autoplay=1${m.start ? `&start=${m.start}` : ""}`
+          ? `https://www.youtube.com/embed/${m.id}?rel=0&playsinline=1&autoplay=1&controls=0&iv_load_policy=3${m.start ? `&start=${m.start}` : ""}`
           : m.src;
     } else {
       video.style.display = "none";
