@@ -158,9 +158,9 @@ const CONFIG = {
       ],
     },
       {
-      categories: ["콘텐츠 기획 & 제작"],
+      categories: ["콘텐츠 기획 & 제작", "AI 활용"],
       title: "로얄캐슬 홍보 콘텐츠 (2026)",
-      desc: "타깃 페르소나를 기반으로 부동산 홍보 릴스를 \n기획·제작했습니다.",
+      desc: "타깃 페르소나를 기반으로 부동산 홍보 숏폼을 \n기획·제작했습니다.",
       tools: ["Figma", "Premiere Pro", "Claude"],
       image: "./images/work1_jpg",
       // "자세히 보기"를 눌렀을 때 여기 나열한 이미지/영상을 전부 넘겨볼 수 있습니다.
