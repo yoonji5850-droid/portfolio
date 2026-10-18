@@ -199,7 +199,7 @@ const CONFIG = {
       categories: ["콘텐츠 기획 & 제작", "SNS 운영"],
       title: "학과 인스타그램 (2026)",
       format: "기타",
-      desc: "학과 인스타그램을 운영하며 \n1개월 간 총 조회수 약 214만 회, 프로필 방문 약 4만 7천 회 달성하였습니다.
+      desc: "학과 인스타그램을 운영하며 \n1개월 간 총 조회수 약 214만 회, 프로필 방문 약 4만 7천 회 달성하였습니다.",
       tools: ["Figma", "Premiere Pro"],
       link: { label: "인스타그램에서 보기", url: "https://www.instagram.com/mju.mna/" },
       image: "./images/로고.png",
