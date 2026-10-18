@@ -1336,3 +1336,40 @@ body.modal-open{
 }
 .portfolio-filter-reset:hover{ background:var(--navy-500); color:var(--white); }
 .p-card.is-filtered-out{ display:none; }
+
+/* Sub-filter chips (숏폼 / 롱폼 / 기타) inside the project filter bar */
+.portfolio-filter{ display:block; }
+.portfolio-filter-main{
+  display:flex;
+  align-items:center;
+  justify-content:space-between;
+  gap:12px;
+}
+.portfolio-subfilter{
+  display:flex;
+  flex-wrap:wrap;
+  gap:8px;
+  margin-top:12px;
+  padding-top:12px;
+  border-top:1px solid var(--gray-200);
+}
+.portfolio-subfilter[hidden]{ display:none; }
+.sub-chip{
+  padding:7px 14px;
+  border:1px solid var(--gray-300);
+  border-radius:999px;
+  background:var(--white);
+  color:var(--navy-800);
+  font-size:13px;
+  font-weight:700;
+  cursor:pointer;
+  transition:background .25s var(--ease), color .25s var(--ease), border-color .25s var(--ease);
+}
+.sub-chip span{ margin-left:4px; font-weight:600; color:var(--gray-500); }
+.sub-chip:hover{ border-color:var(--navy-500); }
+.sub-chip.is-active{
+  background:var(--navy-800);
+  border-color:var(--navy-800);
+  color:var(--white);
+}
+.sub-chip.is-active span{ color:rgba(255,255,255,.75); }

@@ -44,6 +44,8 @@ const CONFIG = {
       tags: ["Premiere Pro", "After Effects", "Photoshop", "Illustrator", "Figma"],
       // 이 역량 카드를 누르면, 아래 분류 태그(categories)가 붙은 프로젝트만 보여줍니다.
       match: ["콘텐츠 기획 & 제작", "콘텐츠 기획", "콘텐츠 제작"],
+      // 이 역량을 누르면 나오는 세부 분류 버튼 (각 프로젝트의 format 값과 맞춰집니다)
+      subFilters: ["숏폼", "롱폼", "기타"],
     },
     {
       title: "AI 활용",
@@ -63,6 +65,7 @@ const CONFIG = {
     },
   ],
 
+  // format: 숏폼 / 롱폼 / 기타 (콘텐츠 기획 & 제작 세부 분류용)
   // categories: 카드 상단에 뜨는 작은 태그들 (여러 개 가능)
   // tools: 사용한 툴 태그 (선택, 없으면 표시 안 됨)
   // image: 이미지 경로 (없으면 자동으로 플레이스홀더가 표시됩니다)
@@ -70,6 +73,7 @@ const CONFIG = {
  {
       categories: ["콘텐츠 기획 & 제작"],
       title: "우리의 BGM 공연 (2026)",
+      format: "숏폼",
       desc: "MUMW 소속 가수 임정희, 김보경(NEON)의 \n합동 콘서트 '우리의 BGM' 공연 실황 숏폼을 제작하였습니다.",
       tools: ["Premiere Pro", "Photoshop", "ChatGPT"],
       image: "https://i.ytimg.com/vi/jd2kx8eiHtg/hqdefault.jpg",
@@ -83,6 +87,7 @@ const CONFIG = {
  {
       categories: ["콘텐츠 기획 & 제작"],
       title: "우리의 BGM 합주 (2026)",
+      format: "숏폼",
       desc: "MUMW 소속 가수 임정희, 김보경(NEON)의 \n합동 콘서트 '우리의 BGM' 합주 숏폼을 제작하였습니다.",
       tools: ["Premiere Pro", "Photoshop", "ChatGPT"],
       image: "https://i.ytimg.com/vi/ZxlE-b_aISw/hqdefault.jpg",
@@ -96,6 +101,7 @@ const CONFIG = {
     {
       categories: ["콘텐츠 기획 & 제작"],
       title: "우리의 BGM 홍보 (2026)",
+      format: "숏폼",
       desc: "MUMW 소속 가수 임정희, 김보경(NEON)의 \n합동 콘서트 '우리의 BGM' 홍보 콘텐츠를 제작하였습니다.",
       tools: ["Premiere Pro", "Photoshop", "ChatGPT"],
       image: "https://i.ytimg.com/vi/-r9rc8EhD5g/hqdefault.jpg",
@@ -109,6 +115,7 @@ const CONFIG = {
     {
       categories: ["콘텐츠 제작"],
       title: "여진(L∞na) 모루인형 콘텐츠 (2026)",
+      format: "롱폼",
       desc: "MUMW 소속 가수 여진(L∞na)의 \n여진이의 행운 가득 거북이 모루인형 만들기🍀🐢 \n영상 편집 및 썸네일 제작을 하였습니다.",
       tools: ["Premiere Pro", "Photoshop"],
       image: "https://i.ytimg.com/vi/7mCcBHLVe9Q/hqdefault.jpg",
@@ -117,6 +124,7 @@ const CONFIG = {
     {
       categories: ["콘텐츠 제작"],
       title: "여진(L∞na) MV Behind (2026)",
+      format: "롱폼",
       desc: "MUMW 소속 가수 여진(L∞na)의 \n'Red Hot Chili Summer' MV Behind \n영상 편집 및 썸네일 제작을 하였습니다.",
       tools: ["Premiere Pro", "Photoshop"],
       image: "https://i.ytimg.com/vi/GhnE6aFtwzU/hqdefault.jpg",
@@ -125,6 +133,7 @@ const CONFIG = {
     {
       categories: ["콘텐츠 제작"],
       title: "김보경(NEON) MV Behind (2026)",
+      format: "롱폼",
       desc: "MUMW 소속 가수 김보경(NEON)의 \n'별의 요람(Twilight)' MV Behind \n영상 편집 및 썸네일 제작을 하였습니다.",
       tools: ["Premiere Pro", "Photoshop"],
       image: "https://i.ytimg.com/vi/A08rukYNTh8/hqdefault.jpg",
@@ -133,6 +142,7 @@ const CONFIG = {
     {
       categories: ["콘텐츠 기획 & 제작", "AI 활용"],
       title: "브이캔디 홍보 숏폼 (2026)",
+      format: "숏폼",
       desc: "바이탈코어의 브이캔디 제품 홍보를 위한 \n바이럴 숏폼 콘텐츠를 직접 기획하고 제작했습니다.",
       tools: ["Premiere Pro", "Photoshop", "Google Flow"],
       image: "https://i.ytimg.com/vi/SfWGY9rAX_g/hqdefault.jpg",
@@ -146,6 +156,7 @@ const CONFIG = {
     {
       categories: ["콘텐츠 기획 & 제작", "AI 활용"],
       title: "바이탈코어 상세페이지 (2026)",
+      format: "기타",
       desc: "건강기능식품 브랜드 \"바이탈코어\"의 \n제품 상세페이지 및 홈페이지 배너를 기획·제작하였습니다.",
       tools: ["Figma", "Photoshop", "Gemini", "ChatGPT"],
       image: "./images/본문 10.png",
@@ -160,6 +171,7 @@ const CONFIG = {
       {
       categories: ["콘텐츠 기획 & 제작", "AI 활용"],
       title: "로얄캐슬 홍보 콘텐츠 (2026)",
+      format: "숏폼",
       desc: "타깃 페르소나를 기반으로 부동산 홍보 숏폼을 \n기획·제작했습니다.",
       tools: ["Figma", "Premiere Pro", "Claude"],
       image: "./images/work1_jpg",
@@ -174,6 +186,7 @@ const CONFIG = {
     {
       categories: ["콘텐츠 제작"],
       title: "Color Grading (2026)",
+      format: "롱폼",
       desc: "장면의 분위기에 맞춰 색감, 노출, 대비를 조정하여 영상의 분위기를 개선하였습니다.",
       tools: ["DaVinci Resolve", "Premiere Pro"],
       image: "./images/썸넬.png",
@@ -185,6 +198,7 @@ const CONFIG = {
       {
       categories: ["콘텐츠 기획 & 제작", "SNS 운영"],
       title: "학과 인스타그램 (2026)",
+      format: "기타",
       desc: "미디어앤아트테크놀로지학과를 알리기 위한 \n공감형 콘텐츠를 기획·제작하고, \n공식 인스타그램 계정을 관리하였습니다.",
       tools: ["Figma", "Premiere Pro"],
       link: { label: "인스타그램에서 보기", url: "https://www.instagram.com/mju.mna/" },
@@ -201,6 +215,7 @@ const CONFIG = {
     {
       categories: ["콘텐츠 기획 & 제작"],
       title: "반려동물 서비스 (2025)",
+      format: "기타",
       desc: "사용자 리서치를 기반으로 반려동물 보호자의 니즈를 분석하고, 서비스 기획부터 프로토타입 제작까지 진행하였습니다.",
       tools: ["Figma"],
       image: "./images/하루.png",
@@ -211,6 +226,7 @@ const CONFIG = {
     {
       categories: ["콘텐츠 기획 & 제작"],
       title: " 가상 브랜드 콘텐츠 (2025)",
+      format: "기타",
       desc: "가상의 사료 브랜드 \"Green Pet\"의 콘텐츠 썸네일을 제작하였습니다.",
       tools: ["Photoshop", "Figma"],
       image: "./images/사료 유튜브.png",
@@ -255,22 +271,43 @@ function initSkillFilter() {
   const bar = document.getElementById("portfolioFilter");
   const label = document.getElementById("portfolioFilterLabel");
   const resetBtn = document.getElementById("portfolioFilterReset");
+  const subBar = document.getElementById("portfolioSubFilter");
 
-  function apply(skillIndex) {
-    const skill = skillIndex === null ? null : CONFIG.skills[skillIndex];
+  let activeSkill = null; // index in CONFIG.skills, or null
+  let activeSub = null; // e.g. "숏폼", or null for 전체
+
+  function apply() {
+    const skill = activeSkill === null ? null : CONFIG.skills[activeSkill];
+    const inSkill = (item) => !skill || matchesSkill(item, skill);
+    const inSub = (item) => !activeSub || item.format === activeSub;
+
     let shown = 0;
     projectCards.forEach((card) => {
       const item = CONFIG.portfolio[Number(card.dataset.index)];
-      const ok = !skill || matchesSkill(item, skill);
+      const ok = inSkill(item) && inSub(item);
       card.classList.toggle("is-filtered-out", !ok);
       if (ok) {
         card.classList.add("in-view");
         shown++;
       }
     });
-    skillCards.forEach((c) => c.classList.toggle("is-active", skillIndex !== null && Number(c.dataset.skill) === skillIndex));
+    skillCards.forEach((c) => c.classList.toggle("is-active", activeSkill !== null && Number(c.dataset.skill) === activeSkill));
     bar.hidden = !skill;
-    if (skill) label.innerHTML = `<strong>${escapeHtml(skill.title)}</strong> 관련 프로젝트 ${shown}개`;
+    if (!skill) return;
+
+    label.innerHTML = `<strong>${escapeHtml(skill.title)}${activeSub ? ` › ${escapeHtml(activeSub)}` : ""}</strong> 관련 프로젝트 ${shown}개`;
+
+    const subs = skill.subFilters || [];
+    subBar.hidden = subs.length === 0;
+    if (subs.length) {
+      const countOf = (s) => CONFIG.portfolio.filter((p) => matchesSkill(p, skill) && (!s || p.format === s)).length;
+      subBar.innerHTML = [null, ...subs]
+        .map(
+          (s) =>
+            `<button type="button" class="sub-chip${s === activeSub ? " is-active" : ""}" data-sub="${s === null ? "" : escapeHtml(s)}">${s === null ? "전체" : escapeHtml(s)} <span>${countOf(s)}</span></button>`
+        )
+        .join("");
+    }
   }
 
   function scrollToPortfolio() {
@@ -282,7 +319,9 @@ function initSkillFilter() {
 
   skillCards.forEach((card) => {
     const select = () => {
-      apply(Number(card.dataset.skill));
+      activeSkill = Number(card.dataset.skill);
+      activeSub = null;
+      apply();
       scrollToPortfolio();
     };
     card.addEventListener("click", select);
@@ -293,7 +332,19 @@ function initSkillFilter() {
       }
     });
   });
-  resetBtn.addEventListener("click", () => apply(null));
+
+  subBar.addEventListener("click", (e) => {
+    const chip = e.target.closest(".sub-chip");
+    if (!chip) return;
+    activeSub = chip.dataset.sub || null;
+    apply();
+  });
+
+  resetBtn.addEventListener("click", () => {
+    activeSkill = null;
+    activeSub = null;
+    apply();
+  });
 }
 
 /* ---------- Icons ---------- */
