@@ -1291,3 +1291,48 @@ body.modal-open{
   text-align:center;
   line-height:1.25;
 }
+
+/* Skill cards act as filters for the project list */
+.skill-card[data-skill]{ cursor:pointer; }
+.skill-card[data-skill]:focus-visible{ outline:2px solid var(--navy-500); outline-offset:3px; }
+.skill-card.is-active{
+  border-color:var(--navy-500);
+  box-shadow:var(--shadow-md);
+}
+.skill-more{
+  margin-top:20px;
+  font-size:13px;
+  font-weight:700;
+  color:var(--navy-500);
+}
+.skill-card:hover .skill-more{ text-decoration:underline; }
+
+.portfolio-filter{
+  display:flex;
+  align-items:center;
+  justify-content:space-between;
+  gap:12px;
+  margin-bottom:24px;
+  padding:14px 18px;
+  background:var(--white);
+  border:1px solid var(--gray-200);
+  border-radius:12px;
+  font-size:14.5px;
+  color:var(--gray-500);
+}
+.portfolio-filter[hidden]{ display:none; }
+.portfolio-filter strong{ color:var(--navy-900); }
+.portfolio-filter-reset{
+  flex:0 0 auto;
+  padding:7px 16px;
+  border:1px solid var(--navy-500);
+  border-radius:999px;
+  background:var(--white);
+  color:var(--navy-500);
+  font-size:13px;
+  font-weight:700;
+  cursor:pointer;
+  transition:background .25s var(--ease), color .25s var(--ease);
+}
+.portfolio-filter-reset:hover{ background:var(--navy-500); color:var(--white); }
+.p-card.is-filtered-out{ display:none; }

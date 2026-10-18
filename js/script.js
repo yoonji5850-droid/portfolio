@@ -42,6 +42,8 @@ const CONFIG = {
       icon: "pen",
       skillItems: ["아이디어 발상 및 기획안 작성", "숏폼·롱폼 영상 편집", "카드뉴스·상세페이지 제작"],
       tags: ["Premiere Pro", "After Effects", "Photoshop", "Illustrator", "Figma"],
+      // 이 역량 카드를 누르면, 아래 분류 태그(categories)가 붙은 프로젝트만 보여줍니다.
+      match: ["콘텐츠 기획 & 제작", "콘텐츠 기획", "콘텐츠 제작"],
     },
     {
       title: "AI 활용",
@@ -49,6 +51,7 @@ const CONFIG = {
       icon: "sparkle",
       skillItems: ["생성형 AI 기반 자료 및 이미지 제작", "AI 활용 기획·제작 보조", "반복 업무 효율화"],
       tags: ["Claude", "ChatGPT", "Google Flow", "Adobe Firefly"],
+      match: ["AI 활용"],
     },
     {
       title: "SNS 운영 & 콘텐츠 마케팅",
@@ -56,6 +59,7 @@ const CONFIG = {
       icon: "share",
       skillItems: ["타깃 분석 및 트렌드 리서치", "SNS 채널 운영 및 콘텐츠 발행", "성과 데이터 분석"],
       tags: ["Instagram Insights", "GA4", "Meta Ads Manager", "Google Trends"],
+      match: ["SNS 운영", "콘텐츠 마케팅"],
     },
   ],
 
@@ -236,7 +240,61 @@ document.addEventListener("DOMContentLoaded", () => {
   initFab();
   initContactForm();
   initPortfolioModal();
+  initSkillFilter();
 });
+
+/* ---------- Skill -> project filter ---------- */
+function matchesSkill(project, skill) {
+  const keys = skill.match || [];
+  return (project.categories || []).some((c) => keys.includes(String(c).trim()));
+}
+
+function initSkillFilter() {
+  const skillCards = document.querySelectorAll(".skill-card[data-skill]");
+  const projectCards = document.querySelectorAll(".p-card");
+  const bar = document.getElementById("portfolioFilter");
+  const label = document.getElementById("portfolioFilterLabel");
+  const resetBtn = document.getElementById("portfolioFilterReset");
+
+  function apply(skillIndex) {
+    const skill = skillIndex === null ? null : CONFIG.skills[skillIndex];
+    let shown = 0;
+    projectCards.forEach((card) => {
+      const item = CONFIG.portfolio[Number(card.dataset.index)];
+      const ok = !skill || matchesSkill(item, skill);
+      card.classList.toggle("is-filtered-out", !ok);
+      if (ok) {
+        card.classList.add("in-view");
+        shown++;
+      }
+    });
+    skillCards.forEach((c) => c.classList.toggle("is-active", skillIndex !== null && Number(c.dataset.skill) === skillIndex));
+    bar.hidden = !skill;
+    if (skill) label.innerHTML = `<strong>${escapeHtml(skill.title)}</strong> 관련 프로젝트 ${shown}개`;
+  }
+
+  function scrollToPortfolio() {
+    const target = document.getElementById("portfolio");
+    const header = document.querySelector(".header");
+    const top = target.getBoundingClientRect().top + window.scrollY - (header ? header.offsetHeight - 4 : 0);
+    window.scrollTo({ top, behavior: "smooth" });
+  }
+
+  skillCards.forEach((card) => {
+    const select = () => {
+      apply(Number(card.dataset.skill));
+      scrollToPortfolio();
+    };
+    card.addEventListener("click", select);
+    card.addEventListener("keydown", (e) => {
+      if (e.key === "Enter" || e.key === " ") {
+        e.preventDefault();
+        select();
+      }
+    });
+  });
+  resetBtn.addEventListener("click", () => apply(null));
+}
 
 /* ---------- Icons ---------- */
 const ICONS = {
@@ -307,8 +365,8 @@ function renderContent() {
 
   $("skillsGrid").innerHTML = CONFIG.skills
     .map(
-      (s) => `
-      <div class="skill-card reveal">
+      (s, i) => `
+      <div class="skill-card reveal" data-skill="${i}" tabindex="0" role="button" aria-label="${escapeHtml(s.title)} 관련 프로젝트 보기">
         <div class="skill-icon">${ICONS[s.icon] || ICONS.target}</div>
         <h3 class="skill-title">${escapeHtml(s.title)}</h3>
         <p class="skill-desc">${escapeHtml(s.desc)}</p>
@@ -321,6 +379,7 @@ function renderContent() {
         <div class="skill-tags">
           ${(s.tags || []).map((t) => `<span class="skill-tag">${escapeHtml(t)}</span>`).join("")}
         </div>
+        <div class="skill-more">관련 프로젝트 ${CONFIG.portfolio.filter((p) => matchesSkill(p, s)).length}개 보기 →</div>
       </div>`
     )
     .join("");
@@ -662,8 +721,7 @@ function initPortfolioModal() {
         : "";
 
     // Side arrows to move to the previous / next project (wrap around)
-    const total = CONFIG.portfolio.length;
-    const showProjArrows = total > 1 ? "flex" : "none";
+    const showProjArrows = visibleProjectIndices().length > 1 ? "flex" : "none";
     projPrevBtn.style.display = showProjArrows;
     projNextBtn.style.display = showProjArrows;
     modalBody.scrollTop = 0;
@@ -673,10 +731,17 @@ function initPortfolioModal() {
     document.body.classList.add("modal-open");
   }
 
+  // Project indices currently shown in the grid (respects the skill filter)
+  function visibleProjectIndices() {
+    return [...document.querySelectorAll(".p-card:not(.is-filtered-out)")].map((c) => Number(c.dataset.index));
+  }
+
   function goProject(delta) {
-    const total = CONFIG.portfolio.length;
+    let list = visibleProjectIndices();
+    if (!list.includes(projectIndex)) list = CONFIG.portfolio.map((_, i) => i);
+    const pos = list.indexOf(projectIndex);
     video.pause();
-    openModal(CONFIG.portfolio[(projectIndex + delta + total) % total]);
+    openModal(CONFIG.portfolio[list[(pos + delta + list.length) % list.length]]);
   }
 
   function closeModal() {
