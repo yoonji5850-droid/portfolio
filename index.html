@@ -4,7 +4,7 @@
 <meta charset="UTF-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1.0" />
 <meta name="theme-color" content="#F7F7F2" />
-<title>Marketing Portfolio</title>
+<title>Lee Yunji — Portfolio</title>
 <meta name="description" content="마케팅 콘텐츠 포트폴리오" />
 <link rel="preconnect" href="https://cdn.jsdelivr.net" />
 <link rel="stylesheet" href="./css/style.css" />
@@ -14,13 +14,12 @@
   <!-- ================= Header ================= -->
   <header class="header" id="header">
     <div class="header-inner">
-      <a href="#hero" class="logo" id="logoText">PORTFOLIO</a>
+      <a href="#hero" class="logo" id="logoText">YUNJI</a>
 
       <nav class="nav" id="nav">
         <a href="#about" class="nav-link">ABOUT</a>
-        <a href="#skills" class="nav-link">SKILLS</a>
-        <a href="#portfolio" class="nav-link">PROJECT</a>
-        <a href="#contact" class="nav-link btn-contact-nav">CONTACT</a>
+        <a href="#portfolio" class="nav-link">WORK</a>
+        <a href="#contact" class="nav-link">CONTACT</a>
       </nav>
 
       <button class="menu-toggle" id="menuToggle" aria-label="메뉴 열기">
@@ -29,26 +28,30 @@
     </div>
   </header>
 
-  <!-- ================= Hero ================= -->
+  <!-- ================= 1. Hero (이름 · 브랜드 문장) ================= -->
   <section class="hero" id="hero">
-    <div class="hero-bg"></div>
-    <div class="hero-content reveal">
-      <p class="hero-eyebrow" id="heroEyebrow">MARKETING CONTENT PORTFOLIO</p>
-      <h1 class="hero-title" id="heroTitle"></h1>
-      <div class="hero-actions">
-        <a href="#portfolio" class="btn btn-outline">Project</a>
-        <a href="#contact" class="btn btn-primary">Contact</a>
+    <div class="hero-wrap">
+      <div class="hero-top reveal">
+        <p class="hero-eyebrow" id="heroEyebrow"></p>
+        <h1 class="hero-name">
+          <span class="hero-name-solid" id="heroNameFirst"></span>
+          <span class="hero-name-outline" id="heroNameLast"></span>
+        </h1>
+      </div>
+      <div class="hero-bottom">
+        <p class="hero-tagline reveal" id="heroTagline"></p>
+        <a href="#about" class="hero-scroll">Scroll to explore <span aria-hidden="true">↓</span></a>
       </div>
     </div>
-    <a href="#about" class="scroll-down" aria-label="아래로 스크롤">
-      <span class="scroll-down-mouse"><span class="scroll-down-dot"></span></span>
-    </a>
   </section>
 
-  <!-- ================= About ================= -->
+  <!-- ================= 2. About (소개) ================= -->
   <section class="section about" id="about">
     <div class="container">
-      <p class="section-eyebrow reveal">ABOUT</p>
+      <div class="sec-head reveal">
+        <p class="sec-label">About / 소개</p>
+        <h2 class="sec-title">About me.</h2>
+      </div>
 
       <div class="about-grid">
         <div class="about-photo reveal">
@@ -70,17 +73,17 @@
           </div>
 
           <div class="resume-block">
-            <h3 class="resume-block-title">🎓 학력</h3>
+            <h3 class="resume-block-title">학력 <span>Education</span></h3>
             <ul class="resume-list" id="eduList"></ul>
           </div>
 
           <div class="resume-block">
-            <h3 class="resume-block-title">🗣️ 자격증</h3>
+            <h3 class="resume-block-title">자격증 <span>Certificates</span></h3>
             <ul class="resume-list" id="certList"></ul>
           </div>
 
           <div class="resume-block">
-            <h3 class="resume-block-title">🛠️ 사용 툴</h3>
+            <h3 class="resume-block-title">사용 툴 <span>Tools</span></h3>
             <ul class="about-tools-list" id="aboutTools"></ul>
           </div>
         </div>
@@ -88,20 +91,22 @@
     </div>
   </section>
 
-  <!-- ================= Skills ================= -->
-  <section class="section skills" id="skills">
+  <!-- ================= 3. Works (작업물) ================= -->
+  <section class="section works" id="portfolio">
     <div class="container">
-      <p class="section-eyebrow reveal">SKILLS</p>
-      <h2 class="section-title reveal">핵심 역량</h2>
-      <div class="skills-grid" id="skillsGrid"></div>
-    </div>
-  </section>
+      <div class="works-head reveal">
+        <div>
+          <p class="sec-label" id="worksCounter">Selected works</p>
+          <h2 class="sec-title">Things I make.</h2>
+        </div>
+        <p class="works-intro">기획부터 제작, 운영까지.<br />아이디어를 결과물로 잇는 작업을 소개합니다.</p>
+      </div>
 
-  <!-- ================= Portfolio ================= -->
-  <section class="section portfolio" id="portfolio">
-    <div class="container">
-      <p class="section-eyebrow reveal">Project</p>
-      <h2 class="section-title reveal">포트폴리오</h2>
+      <div class="cat-grid" id="catGrid"></div>
+
+      <div class="works-listhead" id="projectsAnchor">
+        <span class="works-listlabel" id="worksListLabel">All projects</span>
+      </div>
 
       <div class="portfolio-filter" id="portfolioFilter" hidden>
         <div class="portfolio-filter-main">
@@ -115,13 +120,13 @@
     </div>
   </section>
 
-  <!-- ================= Contact ================= -->
+  <!-- ================= 4. Contact (연락) ================= -->
   <section class="section contact" id="contact">
-    <div class="contact-bg"></div>
     <div class="container">
-      <h2 class="section-title light reveal" id="contactTitle"></h2>
+      <p class="contact-kicker reveal">Have a project in mind?</p>
+      <h2 class="contact-title reveal" id="contactTitle"></h2>
       <p class="contact-desc reveal" id="contactDesc"></p>
-      
+
       <div class="contact-wrap reveal">
         <form class="contact-form" id="contactForm">
           <input type="hidden" name="_subject" value="포트폴리오 문의가 도착했습니다" />
@@ -146,7 +151,7 @@
   <footer class="footer">
     <div class="container footer-inner">
       <p id="footerText"></p>
-      <a href="#hero" class="footer-top">TOP ↑</a>
+      <a href="#hero" class="footer-top">Top ↑</a>
     </div>
   </footer>
 
