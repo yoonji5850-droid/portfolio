@@ -202,7 +202,7 @@ button{ font-family:inherit; }
 .r-group li::before{ content:"· "; }
 
 /* ---------- Experience ---------- */
-.experience{ background:var(--bg-alt); }
+.experience{ background:var(--bg); }
 .experience .sec-title{ font-size:clamp(40px, 6vw, 88px); }
 .exp-list{ border-top:1px solid var(--ink); gap:0; }
 .exp-list > li{

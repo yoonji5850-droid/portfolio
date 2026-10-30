@@ -26,11 +26,13 @@ const CONFIG = {
     experience: [
       {
         "date": "2026.08 ~ 현재",
-        "title": "MUMW 엔터테인먼트"
+        "title": "MUMW 엔터테인먼트",
+      "note": "마케팅팀"
       },
       {
         "date": "2026.02 ~ 2026.07",
-        "title": "바이탈코어"
+        "title": "바이탈코어",
+      "note": "마케팅팀"
       },
       {
         "date": "2025 · 2026",
@@ -110,11 +112,13 @@ const CONFIG = {
       },
       {
         "date": "2024.07 ~ 2024.10",
-        "title": "콘텐츠엑스"
+        "title": "콘텐츠엑스",
+      "note": "프리랜서"
       },
       {
         "date": "2024.03 ~ 2024.07",
-        "title": "알비더블유"
+        "title": "RBW 엔터테인먼트",
+      "note": "바이럴 마케팅"
       }
     ],
     certificates: [
@@ -560,9 +564,8 @@ function renderContent() {
   $("expList").innerHTML = exps
     .map((x, i) => {
       const groups = x.groups || [];
-      const total = groups.reduce((n, g) => n + g.items.length, 0);
-      const toggle = groups.length && !x.inline
-        ? `<button type="button" class="r-toggle" aria-expanded="false" aria-controls="expPanel${i}" aria-label="${escapeHtml(x.title)} 상세 보기"><span>${total}</span>${CHEV}</button>`
+            const toggle = groups.length && !x.inline
+        ? `<button type="button" class="r-toggle" aria-expanded="false" aria-controls="expPanel${i}" aria-label="${escapeHtml(x.title)} 상세 보기"><span>자세히 보기</span>${CHEV}</button>`
         : "";
       const panel = groups.length
         ? `<div class="r-groups" id="expPanel${i}"${x.inline ? "" : " hidden"}>${groups
