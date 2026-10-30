@@ -334,10 +334,10 @@ function initSkillFilter() {
     subBar.hidden = subs.length === 0;
     if (subs.length) {
       const countOf = (s) => CONFIG.portfolio.filter((p) => matchesSkill(p, skill) && (!s || p.format === s)).length;
-      subBar.innerHTML = [null, ...subs]
+      subBar.innerHTML = subs
         .map(
           (s) =>
-            `<button type="button" class="sub-chip${s === activeSub ? " is-active" : ""}" data-sub="${s === null ? "" : escapeHtml(s)}">${s === null ? "전체" : escapeHtml(s)} <span>${countOf(s)}</span></button>`
+            `<button type="button" class="sub-chip${s === activeSub ? " is-active" : ""}" data-sub="${escapeHtml(s)}">${escapeHtml(s)} <span>${countOf(s)}</span></button>`
         )
         .join("");
     }
@@ -369,7 +369,7 @@ function initSkillFilter() {
   subBar.addEventListener("click", (e) => {
     const chip = e.target.closest(".sub-chip");
     if (!chip) return;
-    activeSub = chip.dataset.sub || null;
+    activeSub = chip.dataset.sub === activeSub ? null : chip.dataset.sub; // 선택된 버튼을 다시 누르면 해제
     apply();
   });
 
