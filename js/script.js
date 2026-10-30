@@ -742,7 +742,7 @@ function initSmoothScroll() {
       if (!target) return;
 
       e.preventDefault();
-      const offset = header.offsetHeight - 4;
+      const offset = header.offsetHeight + (id === "#projectsAnchor" ? 20 : -4);
       const top = target.getBoundingClientRect().top + window.scrollY - offset;
       window.scrollTo({ top, behavior: "smooth" });
     });
