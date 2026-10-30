@@ -156,7 +156,7 @@ const CONFIG = {
       // 이 카드를 누르면, 아래 분류 태그(categories)가 붙은 프로젝트만 보여줍니다.
       match: ["콘텐츠 기획 & 제작", "콘텐츠 기획", "콘텐츠 제작"],
       // 이 카드를 누르면 나오는 세부 분류 버튼 (각 프로젝트의 format 값과 맞춰집니다)
-      subFilters: ["롱폼", "숏폼", "기타"], // 이 순서대로 버튼과 프로젝트가 나열됩니다
+      subFilters: ["영상", "숏폼", "이미지"], // 이 순서대로 버튼과 프로젝트가 나열됩니다
     },
     {
       title: "AI 활용",
@@ -184,7 +184,7 @@ const CONFIG = {
     },
   ],
 
-  // format: 숏폼 / 롱폼 / 기타 (콘텐츠 기획 & 제작 세부 분류용)
+  // format: 영상 / 숏폼 / 이미지 (콘텐츠 기획 & 제작 세부 분류용)
   // categories: 카드 상단에 뜨는 작은 태그들 (여러 개 가능)
   // tools: 사용한 툴 태그 (선택, 없으면 표시 안 됨)
   // image: 이미지 경로 (없으면 자동으로 플레이스홀더가 표시됩니다)
@@ -234,7 +234,7 @@ const CONFIG = {
     {
       categories: ["콘텐츠 제작"],
       title: "여진(L∞na) 모루인형 콘텐츠 (2026)",
-      format: "롱폼",
+      format: "영상",
       desc: "MUMW 소속 가수 여진(L∞na)의 \n여진이의 행운 가득 거북이 모루인형 만들기🍀🐢 \n영상 편집 및 썸네일 제작을 하였습니다.",
       tools: ["Premiere Pro", "Photoshop"],
       image: "https://i.ytimg.com/vi/7mCcBHLVe9Q/hqdefault.jpg",
@@ -243,7 +243,7 @@ const CONFIG = {
     {
       categories: ["콘텐츠 제작"],
       title: "여진(L∞na) MV Behind (2026)",
-      format: "롱폼",
+      format: "영상",
       desc: "MUMW 소속 가수 여진(L∞na)의 \n'Red Hot Chili Summer' MV Behind \n영상 편집 및 썸네일 제작을 하였습니다.",
       tools: ["Premiere Pro", "Photoshop"],
       image: "https://i.ytimg.com/vi/GhnE6aFtwzU/hqdefault.jpg",
@@ -252,7 +252,7 @@ const CONFIG = {
     {
       categories: ["콘텐츠 제작"],
       title: "김보경(NEON) MV Behind (2026)",
-      format: "롱폼",
+      format: "영상",
       desc: "MUMW 소속 가수 김보경(NEON)의 \n'별의 요람(Twilight)' MV Behind \n영상 편집 및 썸네일 제작을 하였습니다.",
       tools: ["Premiere Pro", "Photoshop"],
       image: "https://i.ytimg.com/vi/A08rukYNTh8/hqdefault.jpg",
@@ -275,7 +275,7 @@ const CONFIG = {
     {
       categories: ["콘텐츠 기획 & 제작", "AI 활용"],
       title: "바이탈코어 상세페이지 (2026)",
-      format: "기타",
+      format: "이미지",
       desc: "건강기능식품 브랜드 \"바이탈코어\"의 \n제품 상세페이지 및 홈페이지 배너를 기획·제작하였습니다.",
       tools: ["Figma", "Photoshop", "Gemini", "ChatGPT"],
       image: "./images/본문 10.png",
@@ -305,7 +305,7 @@ const CONFIG = {
     {
       categories: ["콘텐츠 제작"],
       title: "Color Grading (2026)",
-      format: "롱폼",
+      format: "영상",
       desc: "장면의 분위기에 맞춰 색감, 노출, 대비를 조정하여 영상의 분위기를 개선하였습니다.",
       tools: ["DaVinci Resolve", "Premiere Pro"],
       image: "./images/썸넬.png",
@@ -317,7 +317,7 @@ const CONFIG = {
       {
       categories: ["콘텐츠 기획 & 제작", "SNS 운영"],
       title: "학과 인스타그램 (2026)",
-      format: "기타",
+      format: "이미지",
       desc: "학과 인스타그램을 운영하며 \n1개월 간 총 조회수 약 214만 회, 프로필 방문 약 4만 7천 회 달성하였습니다.",
       tools: ["Figma", "Premiere Pro"],
       link: { label: "인스타그램에서 보기", url: "https://www.instagram.com/mju.mna/" },
@@ -334,7 +334,7 @@ const CONFIG = {
     {
       categories: ["콘텐츠 기획 & 제작"],
       title: "반려동물 서비스 (2025)",
-      format: "기타",
+      format: "이미지",
       desc: "사용자 리서치를 기반으로 반려동물 보호자의 니즈를 분석하고, 서비스 기획부터 프로토타입 제작까지 진행하였습니다.",
       tools: ["Figma"],
       image: "./images/하루.png",
@@ -345,7 +345,7 @@ const CONFIG = {
     {
       categories: ["콘텐츠 기획 & 제작"],
       title: " 가상 브랜드 콘텐츠 (2025)",
-      format: "기타",
+      format: "이미지",
       desc: "가상의 사료 브랜드 \"Green Pet\"의 콘텐츠 썸네일을 제작하였습니다.",
       tools: ["Photoshop", "Figma"],
       image: "./images/사료 유튜브.png",
