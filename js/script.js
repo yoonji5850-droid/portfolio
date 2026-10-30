@@ -19,9 +19,101 @@ const CONFIG = {
       { date: "2023.03 ~ 2024.08", school: "명지전문대학교", detail: "뮤직콘텐츠기획과 음악전문학사" },
     ],
     // 이력 (행사 알바, 활동, 인턴 등) — 최근 것이 위로 오게 적어주세요. 비워두면 이력란이 보이지 않습니다.
-    // 예시: { date: "2026.05", title: "OO 행사 스태프", org: "주최/회사명", desc: "맡은 일 한두 줄", note: "아르바이트" },
+    // 예시: { date: "2026.05", title: "회사/단체명", org: "소속(선택)", desc: "한두 줄 설명(선택)", note: "구분(선택)" },
+    // groups: 펼쳐서 보는 상세 목록(선택) → [{ name: "분류명(비워도 됨)", items: ["항목1", "항목2"] }]
     // org, desc, note 는 비워둬도 됩니다.
-    experience: [],
+    experience: [
+      {
+        "date": "2026.08 ~ 현재",
+        "title": "MUMW 엔터테인먼트"
+      },
+      {
+        "date": "2026.02 ~ 2026.07",
+        "title": "바이탈코어"
+      },
+      {
+        "date": "2025 · 2026",
+        "title": "비케이리더스",
+        "note": "행사 단기 근무",
+        "groups": [
+          {
+            "name": "",
+            "items": [
+              "2025 아산 삼성디스플레이 2 캠퍼스 어린이날 행사",
+              "2026 아산 삼성디스플레이 2 캠퍼스 어린이날 행사"
+            ]
+          }
+        ]
+      },
+      {
+        "date": "2025.11",
+        "title": "스위트스팟",
+        "note": "행사 단기 근무",
+        "groups": [
+          {
+            "name": "",
+            "items": [
+              "2025.11 용한소녀 팝업스토어"
+            ]
+          }
+        ]
+      },
+      {
+        "date": "2023.11 ~ 2025.03",
+        "title": "코팬글로벌",
+        "groups": [
+          {
+            "name": "팝업스토어",
+            "items": [
+              "스테이씨 [TEENFRESH] 팝업스토어",
+              "[이세돌팝업봤?]",
+              "[엄마친구아들] 팝업스토어",
+              "[AUTUMN CCREW] 팝업스토어",
+              "[레드벨벳 X 노티드] 팝업스토어",
+              "[하이브 2025 시즌그리팅] 팝업스토어",
+              "호시X우지 [BEAM] 팝업스토어"
+            ]
+          },
+          {
+            "name": "럭키드로우",
+            "items": [
+              "ZEROBASEONE [MELTING POINT] 럭키드로우",
+              "IVE [I`VE MINE] 럭키드로우",
+              "(여자)아이들 2nd Full Album [2] 럭키드로우",
+              "KISS OF LIFE [MIDAS TOUCH] 럭키드로우",
+              "TWS [SUMMER BEAT!] 럭키드로우",
+              "NCT WISH [Songbird] 럭키드로우",
+              "&TEAM [Aoarashi] 럭키드로우",
+              "ZEROBASEONE [CINEMA PARADISE] 럭키드로우",
+              "SEVENTEEN [SPILL THE FEELS] 럭키드로우",
+              "더보이즈 [도화선] 럭키드로우",
+              "부석순 [TELEPARTY] 럭키드로우",
+              "ZEROBASEONE [BLUE PARADISE]"
+            ]
+          },
+          {
+            "name": "MD 부스",
+            "items": [
+              "2023 TWICE FANMEETING",
+              "2024 ZEROBASEONE THE FIRST TOUR",
+              "2024 JAY B CONCERT TAPE",
+              "Best of Fujii Kaze 2024 ASIA TOUR in SEOUL",
+              "2024 백현 크리스마스 팬미팅",
+              "G-DRAGON 2025 월드투어 [위버맨쉬]",
+              "2025 STAYC TOUR ‘STAY TUNED’"
+            ]
+          }
+        ]
+      },
+      {
+        "date": "2024.07 ~ 2024.10",
+        "title": "콘텐츠엑스"
+      },
+      {
+        "date": "2024.03 ~ 2024.07",
+        "title": "알비더블유"
+      }
+    ],
     certificates: [
       { date: "2025.09", name: "멀티미디어콘텐츠제작전문가", note: "" },
       { date: "2023.07", name: "자동차운전면허", note: "2종보통" },
@@ -460,17 +552,41 @@ function renderContent() {
 
   const exps = CONFIG.resume.experience || [];
   $("expBlock").hidden = exps.length === 0;
+  const CHEV =
+    '<svg viewBox="0 0 24 24" width="16" height="16" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M6 9l6 6 6-6"/></svg>';
   $("expList").innerHTML = exps
-    .map(
-      (x) => `
-      <li class="has-desc">
+    .map((x, i) => {
+      const groups = x.groups || [];
+      const total = groups.reduce((n, g) => n + g.items.length, 0);
+      const toggle = groups.length
+        ? `<button type="button" class="r-toggle" aria-expanded="false" aria-controls="expPanel${i}" aria-label="${escapeHtml(x.title)} 상세 보기"><span>${total}</span>${CHEV}</button>`
+        : "";
+      const panel = groups.length
+        ? `<div class="r-groups" id="expPanel${i}" hidden>${groups
+            .map(
+              (g) => `<div class="r-group">${g.name ? `<h4>${escapeHtml(g.name)} <span>${g.items.length}</span></h4>` : ""}<ul>${g.items
+                .map((it) => `<li>${escapeHtml(it)}</li>`)
+                .join("")}</ul></div>`
+            )
+            .join("")}</div>`
+        : "";
+      return `
+      <li class="has-desc${groups.length ? " has-groups" : ""}">
         <span class="r-date">${escapeHtml(x.date || "")}</span>
         <span class="r-main"><strong>${escapeHtml(x.title || "")}</strong>${x.org ? ` | <span>${escapeHtml(x.org)}</span>` : ""}</span>
-        <span class="r-note">${escapeHtml(x.note || "")}</span>
+        <span class="r-note">${escapeHtml(x.note || "")}${toggle}</span>
         ${x.desc ? `<span class="r-desc">${escapeHtml(x.desc)}</span>` : ""}
-      </li>`
-    )
+        ${panel}
+      </li>`;
+    })
     .join("");
+  $("expList").addEventListener("click", (e) => {
+    const btn = e.target.closest(".r-toggle");
+    if (!btn) return;
+    const open = btn.getAttribute("aria-expanded") === "true";
+    btn.setAttribute("aria-expanded", String(!open));
+    document.getElementById(btn.getAttribute("aria-controls")).hidden = open;
+  });
 
   $("aboutTools").innerHTML = (CONFIG.aboutTools || [])
     .map(

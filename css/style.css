@@ -182,6 +182,23 @@ button{ font-family:inherit; }
 .resume-list .r-note{ color:var(--muted); text-align:right; white-space:nowrap; }
 .resume-list .r-desc{ grid-column:2 / -1; font-size:13.5px; line-height:1.65; color:var(--muted); margin-top:-4px; }
 .resume-block[hidden]{ display:none; }
+.resume-list .r-note{ display:flex; align-items:center; justify-content:flex-end; gap:12px; }
+.r-toggle{
+  display:inline-flex; align-items:center; gap:4px; padding:4px 8px 4px 12px; border:1px solid var(--line-strong); border-radius:999px;
+  background:transparent; color:var(--ink); font-size:12px; font-weight:700; cursor:pointer;
+  transition:background .25s var(--ease), border-color .25s var(--ease);
+}
+.r-toggle:hover{ background:var(--accent); border-color:var(--ink); }
+.r-toggle svg{ transition:transform .3s var(--ease); }
+.r-toggle[aria-expanded="true"]{ background:var(--accent); border-color:var(--ink); }
+.r-toggle[aria-expanded="true"] svg{ transform:rotate(180deg); }
+.r-groups{ grid-column:2 / -1; display:flex; flex-direction:column; gap:18px; padding:6px 0 6px; }
+.r-groups[hidden]{ display:none; }
+.r-group h4{ margin:0 0 8px; font-size:12px; font-weight:800; letter-spacing:.08em; color:var(--ink); }
+.r-group h4 span{ margin-left:4px; color:var(--muted); font-weight:600; }
+.r-group ul{ display:grid; grid-template-columns:repeat(2, 1fr); gap:4px 24px; }
+.r-group li{ display:block !important; border:0 !important; padding:0 !important; font-size:13px; line-height:1.6; color:var(--muted); }
+.r-group li::before{ content:"· "; }
 
 /* ---------- Works ---------- */
 .works{ background:var(--ink); color:var(--bg); }
@@ -787,6 +804,9 @@ body.modal-open{
   .resume-list li{ grid-template-columns:1fr; gap:2px; }
   .resume-list .r-note{ text-align:left; }
   .resume-list .r-desc{ grid-column:1; margin-top:0; }
+  .r-groups{ grid-column:1; }
+  .r-group ul{ grid-template-columns:1fr; }
+  .resume-list .r-note{ justify-content:flex-start; }
   .hero-bottom{ flex-direction:column; align-items:flex-start; }
   .fab-contact{ right:16px; bottom:16px; padding:13px 20px; font-size:13px; }
   .pmodal-body{ padding:24px 20px 28px; }
