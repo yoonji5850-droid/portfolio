@@ -190,7 +190,7 @@ const CONFIG = {
   // image: 이미지 경로 (없으면 자동으로 플레이스홀더가 표시됩니다)
   portfolio: [
  {
-      categories: ["콘텐츠 기획 & 제작"],
+      categories: ["콘텐츠 마케팅"],
       title: "우리의 BGM 공연 (2026)",
       format: "숏폼",
       desc: "MUMW 소속 가수 임정희, 김보경(NEON)의 \n합동 콘서트 '우리의 BGM' 공연 실황 숏폼을 제작하였습니다.",
@@ -204,7 +204,7 @@ const CONFIG = {
       ],
     },
  {
-      categories: ["콘텐츠 기획 & 제작"],
+      categories: ["콘텐츠 마케팅"],
       title: "우리의 BGM 합주 (2026)",
       format: "숏폼",
       desc: "MUMW 소속 가수 임정희, 김보경(NEON)의 \n합동 콘서트 '우리의 BGM' 합주 숏폼을 제작하였습니다.",
@@ -218,10 +218,10 @@ const CONFIG = {
       ],
     },
     {
-      categories: ["콘텐츠 기획 & 제작"],
+      categories: ["콘텐츠 마케팅", "AI 활용"],
       title: "우리의 BGM 홍보 (2026)",
       format: "숏폼",
-      desc: "MUMW 소속 가수 임정희, 김보경(NEON)의 \n합동 콘서트 '우리의 BGM' 홍보 콘텐츠를 제작하였습니다.",
+      desc: "MUMW 소속 가수 임정희, 김보경(NEON)의 \n합동 콘서트 '우리의 BGM' 홍보 콘텐츠를 제작하였습니다. \n픽셀아트 이미지는 AI를 활용해 제작하였습니다.",
       tools: ["Premiere Pro", "Photoshop", "ChatGPT"],
       image: "https://i.ytimg.com/vi/-r9rc8EhD5g/hqdefault.jpg",
       media: [
@@ -259,7 +259,7 @@ const CONFIG = {
       media: [{ type: "youtube", id: "A08rukYNTh8" }],
     },
     {
-      categories: ["콘텐츠 기획 & 제작", "AI 활용"],
+      categories: ["콘텐츠 마케팅", "AI 활용"],
       title: "브이캔디 홍보 숏폼 (2026)",
       format: "숏폼",
       desc: "바이탈코어의 브이캔디 제품 홍보를 위한 \n바이럴 숏폼 콘텐츠를 직접 기획하고 제작했습니다.",
@@ -288,7 +288,7 @@ const CONFIG = {
       ],
     },
       {
-      categories: ["콘텐츠 기획 & 제작", "AI 활용"],
+      categories: ["콘텐츠 마케팅"],
       title: "로얄캐슬 홍보 콘텐츠 (2026)",
       format: "숏폼",
       desc: "타깃 페르소나를 기반으로 부동산 홍보 숏폼을 \n기획·제작했습니다.",
@@ -433,7 +433,7 @@ function initSkillFilter() {
 
     label.innerHTML = `<strong>${escapeHtml(skill.title)}${activeSub ? ` › ${escapeHtml(activeSub)}` : ""}</strong> 관련 프로젝트 ${shown}개`;
 
-    const subs = skill.subFilters || [];
+    const subs = (skill.subFilters || []).filter((x) => CONFIG.portfolio.some((p) => matchesSkill(p, skill) && p.format === x)); // 프로젝트가 없는 세부 분류 버튼은 숨김
     subBar.hidden = subs.length === 0;
     if (subs.length) {
       const countOf = (s) => CONFIG.portfolio.filter((p) => matchesSkill(p, skill) && (!s || p.format === s)).length;
