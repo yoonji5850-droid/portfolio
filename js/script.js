@@ -53,7 +53,7 @@ const CONFIG = {
       // 이 카드를 누르면, 아래 분류 태그(categories)가 붙은 프로젝트만 보여줍니다.
       match: ["콘텐츠 기획 & 제작", "콘텐츠 기획", "콘텐츠 제작"],
       // 이 카드를 누르면 나오는 세부 분류 버튼 (각 프로젝트의 format 값과 맞춰집니다)
-      subFilters: ["숏폼", "롱폼", "기타"],
+      subFilters: ["롱폼", "숏폼", "기타"], // 이 순서대로 버튼과 프로젝트가 나열됩니다
     },
     {
       title: "AI 활용",
@@ -297,6 +297,21 @@ function initSkillFilter() {
     const skill = activeSkill === null ? null : CONFIG.skills[activeSkill];
     const inSkill = (item) => !skill || matchesSkill(item, skill);
     const inSub = (item) => !activeSub || item.format === activeSub;
+
+    // 세부 분류가 있는 카테고리는 subFilters 순서(롱폼 → 숏폼 → 기타)로, 아니면 원래 순서로 정렬
+    const subs0 = (skill && skill.subFilters) || [];
+    const rank = (item) => {
+      if (!subs0.length) return 0;
+      const r = subs0.indexOf(item.format);
+      return r === -1 ? subs0.length : r;
+    };
+    const grid = document.getElementById("portfolioGrid");
+    [...projectCards]
+      .sort((a, b) => {
+        const ia = Number(a.dataset.index), ib = Number(b.dataset.index);
+        return rank(CONFIG.portfolio[ia]) - rank(CONFIG.portfolio[ib]) || ia - ib;
+      })
+      .forEach((card) => grid.appendChild(card));
 
     let shown = 0;
     projectCards.forEach((card) => {
