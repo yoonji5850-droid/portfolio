@@ -18,6 +18,10 @@ const CONFIG = {
       { date: "2025.03 ~ 재학중", school: "명지대학교(인문)", detail: "미디어앤아트테크놀로지학과" },
       { date: "2023.03 ~ 2024.08", school: "명지전문대학교", detail: "뮤직콘텐츠기획과 음악전문학사" },
     ],
+    // 이력 (행사 알바, 활동, 인턴 등) — 최근 것이 위로 오게 적어주세요. 비워두면 이력란이 보이지 않습니다.
+    // 예시: { date: "2026.05", title: "OO 행사 스태프", org: "주최/회사명", desc: "맡은 일 한두 줄", note: "아르바이트" },
+    // org, desc, note 는 비워둬도 됩니다.
+    experience: [],
     certificates: [
       { date: "2025.09", name: "멀티미디어콘텐츠제작전문가", note: "" },
       { date: "2023.07", name: "자동차운전면허", note: "2종보통" },
@@ -450,6 +454,20 @@ function renderContent() {
         <span class="r-date">${escapeHtml(c.date)}</span>
         <span class="r-main"><strong>${escapeHtml(c.name)}</strong></span>
         <span class="r-note">${escapeHtml(c.note)}</span>
+      </li>`
+    )
+    .join("");
+
+  const exps = CONFIG.resume.experience || [];
+  $("expBlock").hidden = exps.length === 0;
+  $("expList").innerHTML = exps
+    .map(
+      (x) => `
+      <li class="has-desc">
+        <span class="r-date">${escapeHtml(x.date || "")}</span>
+        <span class="r-main"><strong>${escapeHtml(x.title || "")}</strong>${x.org ? ` | <span>${escapeHtml(x.org)}</span>` : ""}</span>
+        <span class="r-note">${escapeHtml(x.note || "")}</span>
+        ${x.desc ? `<span class="r-desc">${escapeHtml(x.desc)}</span>` : ""}
       </li>`
     )
     .join("");
