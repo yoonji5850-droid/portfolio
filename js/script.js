@@ -20,6 +20,7 @@ const CONFIG = {
     ],
     // 이력 (행사 알바, 활동, 인턴 등) — 최근 것이 위로 오게 적어주세요. 비워두면 이력란이 보이지 않습니다.
     // 예시: { date: "2026.05", title: "회사/단체명", org: "소속(선택)", desc: "한두 줄 설명(선택)", note: "구분(선택)" },
+    // inline: true 면 화살표 없이 항상 펼쳐서 보여줍니다
     // groups: 펼쳐서 보는 상세 목록(선택) → [{ name: "분류명(비워도 됨)", items: ["항목1", "항목2"] }]
     // org, desc, note 는 비워둬도 됩니다.
     experience: [
@@ -34,6 +35,7 @@ const CONFIG = {
       {
         "date": "2025 · 2026",
         "title": "비케이리더스",
+      "inline": true,
         "note": "행사 단기 근무",
         "groups": [
           {
@@ -48,6 +50,7 @@ const CONFIG = {
       {
         "date": "2025.11",
         "title": "스위트스팟",
+      "inline": true,
         "note": "행사 단기 근무",
         "groups": [
           {
@@ -551,18 +554,18 @@ function renderContent() {
     .join("");
 
   const exps = CONFIG.resume.experience || [];
-  $("expBlock").hidden = exps.length === 0;
+  document.getElementById("experience").hidden = exps.length === 0;
   const CHEV =
     '<svg viewBox="0 0 24 24" width="16" height="16" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M6 9l6 6 6-6"/></svg>';
   $("expList").innerHTML = exps
     .map((x, i) => {
       const groups = x.groups || [];
       const total = groups.reduce((n, g) => n + g.items.length, 0);
-      const toggle = groups.length
+      const toggle = groups.length && !x.inline
         ? `<button type="button" class="r-toggle" aria-expanded="false" aria-controls="expPanel${i}" aria-label="${escapeHtml(x.title)} 상세 보기"><span>${total}</span>${CHEV}</button>`
         : "";
       const panel = groups.length
-        ? `<div class="r-groups" id="expPanel${i}" hidden>${groups
+        ? `<div class="r-groups" id="expPanel${i}"${x.inline ? "" : " hidden"}>${groups
             .map(
               (g) => `<div class="r-group">${g.name ? `<h4>${escapeHtml(g.name)} <span>${g.items.length}</span></h4>` : ""}<ul>${g.items
                 .map((it) => `<li>${escapeHtml(it)}</li>`)
