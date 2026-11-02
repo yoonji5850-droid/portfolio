@@ -667,7 +667,7 @@ function renderContent() {
   });
 
   $("contactTitle").textContent = CONFIG.contact.title;
-  $("contactDesc").innerHTML = `<span class="contact-email-label">E-mail</span>${escapeHtml(CONFIG.contact.email)}`;
+  $("contactDesc").textContent = `E-mail : ${CONFIG.contact.email}`;
   $("formNote").textContent = "";
 
   $("footerText").textContent = CONFIG.footerText;
