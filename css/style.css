@@ -213,6 +213,14 @@ button{ font-family:inherit; }
 .exp-list > li .r-main strong{ font-size:clamp(18px,2vw,24px); font-weight:800; letter-spacing:-.02em; }
 .exp-list .r-groups{ grid-column:2 / -1; padding:10px 0 0; }
 
+.r-company{
+  all:unset; cursor:pointer; box-sizing:border-box; font:inherit; letter-spacing:inherit; color:inherit;
+  border-bottom:2px solid var(--accent); transition:background .25s var(--ease);
+}
+.r-company span{ display:inline-block; margin-left:6px; vertical-align:middle; }
+.r-company svg{ width:.7em; height:.7em; display:block; }
+.r-company:hover, .r-company:focus-visible{ background:var(--accent); }
+
 /* ---------- Works ---------- */
 .works{ background:var(--ink); color:var(--bg); }
 .works .sec-label{ color:rgba(247,247,242,.55); }

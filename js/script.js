@@ -184,6 +184,7 @@ const CONFIG = {
     },
   ],
 
+  // company: 이력의 회사 이름(제목)과 똑같이 적으면, 이력에서 그 회사를 눌렀을 때 이 프로젝트가 나옵니다 (선택)
   // format: 영상 / 숏폼 / 이미지 (콘텐츠 기획 & 제작 세부 분류용)
   // categories: 카드 상단에 뜨는 작은 태그들 (여러 개 가능)
   // tools: 사용한 툴 태그 (선택, 없으면 표시 안 됨)
@@ -192,6 +193,7 @@ const CONFIG = {
  {
       categories: ["콘텐츠 마케팅"],
       title: "우리의 BGM 공연 (2026)",
+      company: "MUMW 엔터테인먼트",
       format: "숏폼",
       desc: "MUMW 소속 가수 임정희, 김보경(NEON)의 \n합동 콘서트 '우리의 BGM' 공연 실황 숏폼을 제작하였습니다.",
       tools: ["Premiere Pro", "Photoshop", "ChatGPT"],
@@ -206,6 +208,7 @@ const CONFIG = {
  {
       categories: ["콘텐츠 마케팅"],
       title: "우리의 BGM 합주 (2026)",
+      company: "MUMW 엔터테인먼트",
       format: "숏폼",
       desc: "MUMW 소속 가수 임정희, 김보경(NEON)의 \n합동 콘서트 '우리의 BGM' 합주 숏폼을 제작하였습니다.",
       tools: ["Premiere Pro", "Photoshop", "ChatGPT"],
@@ -220,6 +223,7 @@ const CONFIG = {
     {
       categories: ["콘텐츠 마케팅", "AI 활용"],
       title: "우리의 BGM 홍보 (2026)",
+      company: "MUMW 엔터테인먼트",
       format: "숏폼",
       desc: "MUMW 소속 가수 임정희, 김보경(NEON)의 \n합동 콘서트 '우리의 BGM' 홍보 콘텐츠를 제작하였습니다. \n픽셀아트 이미지는 AI를 활용해 제작하였습니다.",
       tools: ["Premiere Pro", "Photoshop", "ChatGPT"],
@@ -234,6 +238,7 @@ const CONFIG = {
     {
       categories: ["콘텐츠 제작"],
       title: "여진(L∞na) 모루인형 콘텐츠 (2026)",
+      company: "MUMW 엔터테인먼트",
       format: "영상",
       desc: "MUMW 소속 가수 여진(L∞na)의 \n여진이의 행운 가득 거북이 모루인형 만들기🍀🐢 \n영상 편집 및 썸네일 제작을 하였습니다.",
       tools: ["Premiere Pro", "Photoshop"],
@@ -243,6 +248,7 @@ const CONFIG = {
     {
       categories: ["콘텐츠 제작"],
       title: "여진(L∞na) MV Behind (2026)",
+      company: "MUMW 엔터테인먼트",
       format: "영상",
       desc: "MUMW 소속 가수 여진(L∞na)의 \n'Red Hot Chili Summer' MV Behind \n영상 편집 및 썸네일 제작을 하였습니다.",
       tools: ["Premiere Pro", "Photoshop"],
@@ -252,6 +258,7 @@ const CONFIG = {
     {
       categories: ["콘텐츠 제작"],
       title: "김보경(NEON) MV Behind (2026)",
+      company: "MUMW 엔터테인먼트",
       format: "영상",
       desc: "MUMW 소속 가수 김보경(NEON)의 \n'별의 요람(Twilight)' MV Behind \n영상 편집 및 썸네일 제작을 하였습니다.",
       tools: ["Premiere Pro", "Photoshop"],
@@ -275,6 +282,7 @@ const CONFIG = {
     {
       categories: ["콘텐츠 기획 & 제작", "AI 활용"],
       title: "바이탈코어 상세페이지 (2026)",
+      company: "바이탈코어",
       format: "이미지",
       desc: "건강기능식품 브랜드 \"바이탈코어\"의 \n제품 상세페이지 및 홈페이지 배너를 기획·제작하였습니다.",
       tools: ["Figma", "Photoshop", "Gemini", "ChatGPT"],
@@ -290,6 +298,7 @@ const CONFIG = {
       {
       categories: ["콘텐츠 마케팅"],
       title: "로얄캐슬 홍보 콘텐츠 (2026)",
+      company: "바이탈코어",
       format: "숏폼",
       desc: "타깃 페르소나를 기반으로 부동산 홍보 숏폼을 \n기획·제작했습니다.",
       tools: ["Figma", "Premiere Pro", "Claude"],
@@ -395,10 +404,11 @@ function initSkillFilter() {
 
   let activeSkill = null; // index in CONFIG.skills, or null
   let activeSub = null; // e.g. "숏폼", or null for 전체
+  let activeCompany = null; // 이력에서 선택한 회사 이름, 또는 null
 
   function apply() {
     const skill = activeSkill === null ? null : CONFIG.skills[activeSkill];
-    const inSkill = (item) => !skill || matchesSkill(item, skill);
+    const inSkill = (item) => (!skill || matchesSkill(item, skill)) && (!activeCompany || item.company === activeCompany);
     const inSub = (item) => !activeSub || item.format === activeSub;
 
     // 세부 분류가 있는 카테고리는 subFilters 순서(롱폼 → 숏폼 → 기타)로, 아니면 원래 순서로 정렬
@@ -428,8 +438,12 @@ function initSkillFilter() {
     });
     skillCards.forEach((c) => c.classList.toggle("is-active", activeSkill !== null && Number(c.dataset.skill) === activeSkill));
     listLabel.textContent = `${skill ? "Projects" : "All projects"} / ${String(shown).padStart(2, "0")}`;
-    bar.hidden = !skill;
-    if (!skill) return;
+    bar.hidden = !skill && !activeCompany;
+    if (!skill) {
+      subBar.hidden = true;
+      if (activeCompany) label.innerHTML = `<strong>${escapeHtml(activeCompany)}</strong> 작업물 ${shown}개`;
+      return;
+    }
 
     label.innerHTML = `<strong>${escapeHtml(skill.title)}${activeSub ? ` › ${escapeHtml(activeSub)}` : ""}</strong> 관련 프로젝트 ${shown}개`;
 
@@ -457,6 +471,7 @@ function initSkillFilter() {
     const select = () => {
       activeSkill = Number(card.dataset.skill);
       activeSub = null;
+      activeCompany = null;
       apply();
       scrollToPortfolio();
     };
@@ -476,7 +491,16 @@ function initSkillFilter() {
     apply();
   });
 
+  window.filterByCompany = (name) => {
+    activeCompany = name;
+    activeSkill = null;
+    activeSub = null;
+    apply();
+    scrollToPortfolio();
+  };
+
   resetBtn.addEventListener("click", () => {
+    activeCompany = null;
     activeSkill = null;
     activeSub = null;
     apply();
@@ -557,6 +581,7 @@ function renderContent() {
     )
     .join("");
 
+  const hasWorks = (name) => CONFIG.portfolio.some((p) => p.company === name);
   const exps = CONFIG.resume.experience || [];
   document.getElementById("experience").hidden = exps.length === 0;
   const CHEV =
@@ -579,7 +604,7 @@ function renderContent() {
       return `
       <li class="has-desc${groups.length ? " has-groups" : ""}">
         <span class="r-date">${escapeHtml(x.date || "")}</span>
-        <span class="r-main"><strong>${escapeHtml(x.title || "")}</strong>${x.org ? ` | <span>${escapeHtml(x.org)}</span>` : ""}</span>
+        <span class="r-main"><strong>${hasWorks(x.title) ? `<button type="button" class="r-company" data-company="${escapeHtml(x.title)}">${escapeHtml(x.title)}<span aria-hidden="true">${ARROW_UP_RIGHT}</span></button>` : escapeHtml(x.title || "")}</strong>${x.org ? ` | <span>${escapeHtml(x.org)}</span>` : ""}</span>
         <span class="r-note">${escapeHtml(x.note || "")}${toggle}</span>
         ${x.desc ? `<span class="r-desc">${escapeHtml(x.desc)}</span>` : ""}
         ${panel}
@@ -587,6 +612,11 @@ function renderContent() {
     })
     .join("");
   $("expList").addEventListener("click", (e) => {
+    const co = e.target.closest(".r-company");
+    if (co) {
+      window.filterByCompany && window.filterByCompany(co.dataset.company);
+      return;
+    }
     const btn = e.target.closest(".r-toggle");
     if (!btn) return;
     const open = btn.getAttribute("aria-expanded") === "true";
