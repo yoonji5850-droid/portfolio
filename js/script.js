@@ -149,7 +149,7 @@ const CONFIG = {
       skillItems: ["아이디어 발상 및 기획안 작성", "숏폼·롱폼 영상 편집", "카드뉴스·상세페이지 제작"],
       tags: ["Premiere Pro", "After Effects", "Photoshop", "Illustrator", "Figma"],
       kicker: "CONTENT",
-      headline: ["PLAN.", "CREATE.", "DELIVER."],
+      headline: ["콘텐츠 기획", "& 제작"],
       caption: "PLANNING & PRODUCTION",
       tone: "lime",
       deco: "circles",
@@ -164,7 +164,7 @@ const CONFIG = {
       skillItems: ["생성형 AI 기반 자료 및 이미지 제작", "AI 활용 기획·제작 보조", "반복 업무 효율화"],
       tags: ["Claude", "ChatGPT", "Google Flow", "Adobe Firefly"],
       kicker: "AI",
-      headline: ["PROMPT.", "REFINE.", "CREATE."],
+      headline: ["AI 활용"],
       caption: "GENERATIVE AI",
       tone: "salmon",
       deco: "strokes",
@@ -176,7 +176,7 @@ const CONFIG = {
       skillItems: ["타깃 분석 및 트렌드 리서치", "SNS 채널 운영 및 콘텐츠 발행", "성과 데이터 분석"],
       tags: ["Instagram Insights", "GA4", "Meta Ads Manager", "Google Trends"],
       kicker: "MARKETING",
-      headline: ["TARGET.", "TREND.", "GROW."],
+      headline: ["SNS 운영 &", "콘텐츠 마케팅"],
       caption: "SNS & CONTENT MARKETING",
       tone: "peri",
       deco: "sheets",
@@ -563,12 +563,13 @@ function renderContent() {
   const hasWorks = (name) => CONFIG.portfolio.some((p) => p.company === name);
   // 이력 아래에 학력도 같은 형식으로 이어서 보여줍니다
   const edus = (CONFIG.resume.education || []).map((e) => ({ date: e.date, title: e.school, note: e.detail }));
-  const exps = [...(CONFIG.resume.experience || []), ...edus];
+  const exps = [...(CONFIG.resume.experience || []), ...(edus.length ? [{ heading: "Education / 학력" }] : []), ...edus];
   document.getElementById("experience").hidden = exps.length === 0;
   const CHEV =
     '<svg viewBox="0 0 24 24" width="16" height="16" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M6 9l6 6 6-6"/></svg>';
   $("expList").innerHTML = exps
     .map((x, i) => {
+      if (x.heading) return `<li class="r-heading"><span>${escapeHtml(x.heading)}</span></li>`;
       const groups = x.groups || [];
             const toggle = groups.length && !x.inline
         ? `<button type="button" class="r-toggle" aria-expanded="false" aria-controls="expPanel${i}" aria-label="${escapeHtml(x.title)} 상세 보기"><span>자세히 보기</span>${CHEV}</button>`

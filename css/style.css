@@ -226,6 +226,11 @@ button{ font-family:inherit; }
 .r-company svg{ width:.7em; height:.7em; display:block; }
 .r-company:hover, .r-company:focus-visible{ background:var(--accent); }
 
+.exp-list > li.r-heading{
+  display:block; padding:36px 0 10px; border-bottom:1px solid var(--ink);
+}
+.r-heading span{ font-size:12px; font-weight:700; font-style:italic; letter-spacing:.16em; text-transform:uppercase; color:var(--muted); }
+
 /* ---------- Works ---------- */
 .works{ background:var(--ink); color:var(--bg); }
 .works .sec-label{ color:rgba(247,247,242,.55); }
@@ -252,7 +257,7 @@ button{ font-family:inherit; }
 }
 .cat-headline{
   position:relative; z-index:1; margin:0;
-  font-size:clamp(34px, 4.2vw, 64px); font-weight:900; font-style:italic; letter-spacing:-.045em; line-height:.92;
+  font-size:clamp(30px, 3.4vw, 52px); font-weight:800; letter-spacing:-.05em; line-height:1.15;
 }
 .cat-card:hover .cat-tile, .cat-card:focus-visible .cat-tile{ transform:translateY(-6px); }
 .cat-card.is-active .cat-tile{ box-shadow:0 0 0 3px var(--bg), 0 0 0 6px var(--accent); }
