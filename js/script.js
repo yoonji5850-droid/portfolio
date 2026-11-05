@@ -316,7 +316,7 @@ const CONFIG = {
       categories: ["콘텐츠 제작"],
       title: "Color Grading (2026)",
       format: "영상",
-      desc: "장면의 분위기에 맞춰 색감, 노출, 대비를 조정하여 영상의 분위기를 개선하였습니다.",
+      desc: "장면의 분위기에 맞춰 색감, 노출, 대비를 조정하여 \n영상의 분위기를 개선하였습니다.",
       tools: ["DaVinci Resolve", "Premiere Pro"],
       image: "./images/썸넬.png",
       media: [
@@ -345,7 +345,7 @@ const CONFIG = {
       categories: ["콘텐츠 기획 & 제작"],
       title: "반려동물 서비스 (2025)",
       format: "이미지",
-      desc: "사용자 리서치를 기반으로 반려동물 보호자의 니즈를 분석하고, 서비스 기획부터 프로토타입 제작까지 진행하였습니다.",
+      desc: "사용자 리서치를 기반으로 반려동물 보호자의 니즈를 분석하고, \n서비스 기획부터 프로토타입 제작까지 진행하였습니다.",
       tools: ["Figma"],
       image: "./images/하루.png",
       media: [
