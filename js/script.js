@@ -389,6 +389,13 @@ document.addEventListener("DOMContentLoaded", () => {
 });
 
 /* ---------- Skill -> project filter ---------- */
+// 마지막 줄의 마지막 단어에만 연두색 형광펜을 입힙니다
+function highlightLastWord(line) {
+  const k = line.lastIndexOf(" ");
+  const head = k === -1 ? "" : escapeHtml(line.slice(0, k + 1));
+  return `${head}<mark class="hero-hl">${escapeHtml(k === -1 ? line : line.slice(k + 1))}</mark>`;
+}
+
 function matchesSkill(project, skill) {
   const keys = skill.match || [];
   return (project.categories || []).some((c) => keys.includes(String(c).trim()));
@@ -551,7 +558,7 @@ function renderContent() {
   $("heroNameLast").textContent = CONFIG.hero.nameLast;
   $("heroTagline").innerHTML = CONFIG.hero.tagline
     .map((line, i, arr) =>
-      i === arr.length - 1 ? `<mark class="hero-hl">${escapeHtml(line)}</mark>` : escapeHtml(line)
+      i === arr.length - 1 ? highlightLastWord(line) : escapeHtml(line)
     )
     .join("<br>");
 
