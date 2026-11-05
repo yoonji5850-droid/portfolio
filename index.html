@@ -26,7 +26,6 @@
       <a href="#hero" class="logo" id="logoText">YUNJI</a>
 
       <nav class="nav" id="nav">
-        <a href="#about" class="nav-link">ABOUT</a>
         <a href="#experience" class="nav-link">EXPERIENCE</a>
         <a href="#projectsAnchor" class="nav-link">PROJECTS</a>
         <a href="#contact" class="nav-link">CONTACT</a>
@@ -46,7 +45,7 @@
         <h1 class="hero-tagline" id="heroTagline"></h1>
       </div>
       <div class="hero-bottom">
-        <a href="#about" class="hero-scroll">Scroll to explore <span aria-hidden="true">↓</span></a>
+        <a href="#experience" class="hero-scroll">Scroll to explore <span aria-hidden="true">↓</span></a>
         <p class="hero-name">
           <span class="hero-name-solid" id="heroNameFirst"></span>
           <span class="hero-name-outline" id="heroNameLast"></span>
@@ -55,57 +54,11 @@
     </div>
   </section>
 
-  <!-- ================= 2. About (소개) ================= -->
-  <section class="section about" id="about">
-    <div class="container">
-      <div class="sec-head reveal">
-        <p class="sec-label">About / 소개</p>
-        <h2 class="sec-title">About me.</h2>
-      </div>
-
-      <div class="about-grid">
-        <div class="about-photo reveal">
-          <div class="about-photo-box" id="aboutPhotoBox">
-            <img
-              class="about-photo-img"
-              id="aboutPhoto"
-              src="./images/profile.jpg"
-              alt="이윤지 프로필 사진"
-              onload="this.parentElement.classList.add('photo-loaded')"
-              onerror="this.style.display='none'"
-            />
-          </div>
-        </div>
-        <div class="about-text reveal">
-          <div class="resume-heading">
-            <span class="resume-name" id="resumeName"></span>
-            <ul class="resume-meta" id="resumeMeta"></ul>
-          </div>
-
-          <div class="resume-block">
-            <h3 class="resume-block-title">학력 <span>Education</span></h3>
-            <ul class="resume-list" id="eduList"></ul>
-          </div>
-
-          <div class="resume-block">
-            <h3 class="resume-block-title">자격증 <span>Certificates</span></h3>
-            <ul class="resume-list" id="certList"></ul>
-          </div>
-
-          <div class="resume-block">
-            <h3 class="resume-block-title">사용 툴 <span>Tools</span></h3>
-            <ul class="about-tools-list" id="aboutTools"></ul>
-          </div>
-        </div>
-      </div>
-    </div>
-  </section>
-
   <!-- ================= Experience (이력) ================= -->
   <section class="section experience" id="experience">
     <div class="container">
       <div class="sec-head reveal">
-        <p class="sec-label">Experience / 이력</p>
+        <p class="sec-label">Experience & Education / 이력 · 학력</p>
         <h2 class="sec-title">Experience</h2>
       </div>
       <ul class="resume-list exp-list reveal" id="expList"></ul>
@@ -138,6 +91,11 @@
       </div>
 
       <div class="portfolio-grid" id="portfolioGrid"></div>
+
+      <div class="works-tools">
+        <p class="works-listlabel">Tools / 사용 툴</p>
+        <ul class="about-tools-list" id="aboutTools"></ul>
+      </div>
     </div>
   </section>
 

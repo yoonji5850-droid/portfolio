@@ -560,35 +560,10 @@ function renderContent() {
     )
     .join("<br>");
 
-  $("resumeName").textContent = CONFIG.resume.name;
-  $("resumeMeta").innerHTML = `
-    <li>생년월일 ${escapeHtml(CONFIG.resume.birth)}</li>
-    <li>이메일 ${escapeHtml(CONFIG.contact.email)}</li>
-  `;
-
-  $("eduList").innerHTML = CONFIG.resume.education
-    .map(
-      (e) => `
-      <li>
-        <span class="r-date">${escapeHtml(e.date)}</span>
-        <span class="r-main"><strong>${escapeHtml(e.school)}</strong> | <span>${escapeHtml(e.detail)}</span></span>
-      </li>`
-    )
-    .join("");
-
-  $("certList").innerHTML = CONFIG.resume.certificates
-    .map(
-      (c) => `
-      <li>
-        <span class="r-date">${escapeHtml(c.date)}</span>
-        <span class="r-main"><strong>${escapeHtml(c.name)}</strong></span>
-        <span class="r-note">${escapeHtml(c.note)}</span>
-      </li>`
-    )
-    .join("");
-
   const hasWorks = (name) => CONFIG.portfolio.some((p) => p.company === name);
-  const exps = CONFIG.resume.experience || [];
+  // 이력 아래에 학력도 같은 형식으로 이어서 보여줍니다
+  const edus = (CONFIG.resume.education || []).map((e) => ({ date: e.date, title: e.school, note: e.detail }));
+  const exps = [...(CONFIG.resume.experience || []), ...edus];
   document.getElementById("experience").hidden = exps.length === 0;
   const CHEV =
     '<svg viewBox="0 0 24 24" width="16" height="16" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M6 9l6 6 6-6"/></svg>';
