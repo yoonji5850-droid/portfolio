@@ -389,11 +389,9 @@ document.addEventListener("DOMContentLoaded", () => {
 });
 
 /* ---------- Skill -> project filter ---------- */
-// 마지막 줄의 마지막 단어에만 연두색 형광펜을 입힙니다
-function highlightLastWord(line) {
-  const k = line.lastIndexOf(" ");
-  const head = k === -1 ? "" : escapeHtml(line.slice(0, k + 1));
-  return `${head}<mark class="hero-hl">${escapeHtml(k === -1 ? line : line.slice(k + 1))}</mark>`;
+// 문구 속 "콘텐츠"는 이름(YUNJI.)처럼 배경색 채움 + 외곽선 글씨로 보여줍니다
+function outlineWord(escapedLine) {
+  return escapedLine.replace(/콘텐츠/g, '<span class="hero-outline">콘텐츠</span>');
 }
 
 function matchesSkill(project, skill) {
@@ -558,7 +556,7 @@ function renderContent() {
   $("heroNameLast").textContent = CONFIG.hero.nameLast;
   $("heroTagline").innerHTML = CONFIG.hero.tagline
     .map((line, i, arr) =>
-      i === arr.length - 1 ? highlightLastWord(line) : escapeHtml(line)
+      i === arr.length - 1 ? `<mark class="hero-hl">${outlineWord(escapeHtml(line))}</mark>` : outlineWord(escapeHtml(line))
     )
     .join("<br>");
 
