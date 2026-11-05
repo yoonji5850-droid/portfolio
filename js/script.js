@@ -381,6 +381,7 @@ document.addEventListener("DOMContentLoaded", () => {
   initHeaderScroll();
   initMobileMenu();
   initSmoothScroll();
+  initScrollSpy();
   initReveal();
   initFab();
   initContactForm();
@@ -743,6 +744,48 @@ function initMobileMenu() {
 }
 
 /* ---------- Smooth scroll with fixed-header offset ---------- */
+/* ---------- Scroll spy: 지금 보고 있는 섹션의 메뉴를 활성화 ---------- */
+function initScrollSpy() {
+  const links = [...document.querySelectorAll(".nav-link[data-section]")];
+  const items = links
+    .map((a) => ({ a, sec: document.getElementById(a.dataset.section) }))
+    .filter((x) => x.sec);
+  const header = document.getElementById("header");
+  let ticking = false;
+
+  function update() {
+    ticking = false;
+    const line = (header ? header.offsetHeight : 0) + window.innerHeight * 0.25; // 화면 위쪽 1/4 지점 기준
+    let current = null;
+    items.forEach((x) => {
+      if (x.sec.getBoundingClientRect().top <= line) current = x;
+    });
+    // 페이지 맨 아래에 닿으면 마지막 섹션(연락)을 활성화
+    if (window.innerHeight + window.scrollY >= document.documentElement.scrollHeight - 4 && items.length) {
+      current = items[items.length - 1];
+    }
+    items.forEach((x) => {
+      const on = x === current;
+      x.a.classList.toggle("is-active", on);
+      if (on) x.a.setAttribute("aria-current", "true");
+      else x.a.removeAttribute("aria-current");
+    });
+  }
+
+  window.addEventListener(
+    "scroll",
+    () => {
+      if (!ticking) {
+        ticking = true;
+        requestAnimationFrame(update);
+      }
+    },
+    { passive: true }
+  );
+  window.addEventListener("resize", update);
+  update();
+}
+
 function initSmoothScroll() {
   const header = document.getElementById("header");
 
