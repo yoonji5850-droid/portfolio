@@ -144,12 +144,12 @@ const CONFIG = {
   // kicker/headline/caption: 카드 안의 영문 문구, tone: 카드 색(lime | salmon | peri), deco: 장식 그림(circles | strokes | sheets)
   skills: [
     {
-      title: "콘텐츠 기획 & 제작",
+      title: "콘텐츠 기획 & 콘텐츠 제작",
       desc: "아이디어를 구체화하고, 영상과 디자인을 활용해 기획을 결과물로 구현합니다.",
       skillItems: ["아이디어 발상 및 기획안 작성", "숏폼·롱폼 영상 편집", "카드뉴스·상세페이지 제작"],
       tags: ["Premiere Pro", "After Effects", "Photoshop", "Illustrator", "Figma"],
       kicker: "CONTENT",
-      headline: ["콘텐츠 기획", "& 제작"],
+      headline: ["콘텐츠 기획 &", "콘텐츠 제작"],
       caption: "PLANNING & PRODUCTION",
       tone: "lime",
       deco: "circles",
@@ -159,12 +159,12 @@ const CONFIG = {
       subFilters: ["영상", "숏폼", "이미지"], // 이 순서대로 버튼과 프로젝트가 나열됩니다
     },
     {
-      title: "AI 활용",
+      title: "생성형 AI 활용",
       desc: "생성형 AI를 활용해 아이디어 구상부터 시각 자료 제작까지 다양한 업무를 효율적으로 수행합니다.",
       skillItems: ["생성형 AI 기반 자료 및 이미지 제작", "AI 활용 기획·제작 보조", "반복 업무 효율화"],
       tags: ["Claude", "ChatGPT", "Google Flow", "Adobe Firefly"],
       kicker: "AI",
-      headline: ["AI 활용"],
+      headline: ["생성형", "AI 활용"],
       caption: "GENERATIVE AI",
       tone: "salmon",
       deco: "strokes",
