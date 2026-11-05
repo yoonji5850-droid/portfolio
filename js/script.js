@@ -144,43 +144,29 @@ const CONFIG = {
   // kicker/headline/caption: 카드 안의 영문 문구, tone: 카드 색(lime | salmon | peri), deco: 장식 그림(circles | strokes | sheets)
   skills: [
     {
-      title: "콘텐츠 기획 & 콘텐츠 제작",
-      desc: "아이디어를 구체화하고, 영상과 디자인을 활용해 기획을 결과물로 구현합니다.",
-      skillItems: ["아이디어 발상 및 기획안 작성", "숏폼·롱폼 영상 편집", "카드뉴스·상세페이지 제작"],
-      tags: ["Premiere Pro", "After Effects", "Photoshop", "Illustrator", "Figma"],
-      kicker: "CONTENT",
-      headline: ["콘텐츠 기획 &", "콘텐츠 제작"],
-      caption: "PLANNING & PRODUCTION",
+      title: "유튜브 콘텐츠 기획 및 영상 편집", // 카드 아래 제목 / 필터 문구
+      kicker: "", // 번호(01) 옆에 붙는 작은 문구 (비워두면 번호만 표시)
+      headline: ["VIDEO", "EDITING"], // 카드 안의 큰 글씨 ("(" 로 시작하는 줄은 작게 표시됩니다)
       tone: "lime",
       deco: "circles",
-      // 이 카드를 누르면, 아래 분류 태그(categories)가 붙은 프로젝트만 보여줍니다.
-      match: ["콘텐츠 기획 & 제작", "콘텐츠 기획", "콘텐츠 제작"],
-      // 이 카드를 누르면 나오는 세부 분류 버튼 (각 프로젝트의 format 값과 맞춰집니다)
-      subFilters: ["영상", "숏폼", "이미지"], // 이 순서대로 버튼과 프로젝트가 나열됩니다
+      // 이 카드를 누르면 보여줄 프로젝트: 프로젝트의 format 값이 아래에 있으면 나옵니다.
+      matchFormat: ["영상"],
     },
     {
-      title: "생성형 AI 활용",
-      desc: "생성형 AI를 활용해 아이디어 구상부터 시각 자료 제작까지 다양한 업무를 효율적으로 수행합니다.",
-      skillItems: ["생성형 AI 기반 자료 및 이미지 제작", "AI 활용 기획·제작 보조", "반복 업무 효율화"],
-      tags: ["Claude", "ChatGPT", "Google Flow", "Adobe Firefly"],
-      kicker: "AI",
-      headline: ["생성형", "AI 활용"],
-      caption: "GENERATIVE AI",
+      title: "숏폼 기획 및 바이럴 콘텐츠 제작",
+      kicker: "",
+      headline: ["CONTENT", "MARKETING", "(SHORT-FORM)"],
       tone: "salmon",
       deco: "strokes",
-      match: ["AI 활용"],
+      matchFormat: ["숏폼"],
     },
     {
-      title: "SNS 운영 & 콘텐츠 마케팅",
-      desc: "타깃과 시장 트렌드를 분석하고, 목적에 맞는 마케팅 콘텐츠를 제작합니다.",
-      skillItems: ["타깃 분석 및 트렌드 리서치", "SNS 채널 운영 및 콘텐츠 발행", "성과 데이터 분석"],
-      tags: ["Instagram Insights", "GA4", "Meta Ads Manager", "Google Trends"],
-      kicker: "MARKETING",
-      headline: ["SNS 운영 &", "콘텐츠 마케팅"],
-      caption: "SNS & CONTENT MARKETING",
+      title: "상세페이지 제작 및 브랜딩",
+      kicker: "",
+      headline: ["BRANDING"],
       tone: "peri",
       deco: "sheets",
-      match: ["SNS 운영", "콘텐츠 마케팅"],
+      matchFormat: ["이미지"],
     },
   ],
 
@@ -397,7 +383,9 @@ function outlineWord(escapedLine) {
 
 function matchesSkill(project, skill) {
   const keys = skill.match || [];
-  return (project.categories || []).some((c) => keys.includes(String(c).trim()));
+  const byTag = (project.categories || []).some((c) => keys.includes(String(c).trim()));
+  const byFormat = (skill.matchFormat || []).includes(project.format);
+  return byTag || byFormat;
 }
 
 function initSkillFilter() {
@@ -628,14 +616,14 @@ function renderContent() {
       <div class="cat-card reveal" data-skill="${i}" tabindex="0" role="button" aria-label="${escapeHtml(s.title)} 관련 프로젝트 보기">
         <div class="cat-tile tone-${escapeHtml(s.tone || "lime")}">
           ${CAT_DECOS[s.deco] || ""}
-          <span class="cat-kicker">${pad2(i + 1)} / ${escapeHtml(s.kicker || "")}</span>
-          <p class="cat-headline">${(s.headline || []).map((l) => escapeHtml(l)).join("<br>")}</p>
+          <span class="cat-kicker">${pad2(i + 1)}${s.kicker ? ` / ${escapeHtml(s.kicker)}` : ""}</span>
+          <p class="cat-headline">${(s.headline || []).map((l) => (l.startsWith("(") ? `<small>${escapeHtml(l)}</small>` : escapeHtml(l))).join("<br>")}</p>
           <span class="cat-caption">${escapeHtml(s.caption || "")}</span>
         </div>
         <div class="cat-meta">
           <div>
             <h3 class="cat-title">${escapeHtml(s.title)}</h3>
-            <p class="cat-sub">${(s.skillItems || []).map((it) => escapeHtml(it)).join(" · ")}</p>
+            ${(s.skillItems || []).length ? `<p class="cat-sub">${s.skillItems.map((it) => escapeHtml(it)).join(" · ")}</p>` : ""}
           </div>
           <span class="cat-arrow" aria-hidden="true">${ARROW_UP_RIGHT}</span>
         </div>
