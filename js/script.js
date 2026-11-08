@@ -180,7 +180,7 @@ const CONFIG = {
   // image: 이미지 경로 (없으면 자동으로 플레이스홀더가 표시됩니다)
   portfolio: [
     {
-      categories: ["콘텐츠 제작"],
+      categories: ["영상 편집"],
       title: "여진(L∞na) 모루인형 콘텐츠 (2026)",
       company: "MUMW 엔터테인먼트",
       format: "영상",
@@ -190,7 +190,7 @@ const CONFIG = {
       media: [{ type: "youtube", id: "7mCcBHLVe9Q" }],
     },
     {
-      categories: ["콘텐츠 제작"],
+      categories: ["영상 편집"],
       title: "여진(L∞na) MV Behind (2026)",
       company: "MUMW 엔터테인먼트",
       format: "영상",
@@ -200,7 +200,7 @@ const CONFIG = {
       media: [{ type: "youtube", id: "GhnE6aFtwzU" }],
     },
     {
-      categories: ["콘텐츠 제작"],
+      categories: ["영상 편집"],
       title: "김보경(NEON) MV Behind (2026)",
       company: "MUMW 엔터테인먼트",
       format: "영상",
@@ -270,7 +270,7 @@ const CONFIG = {
       ],
     },
     {
-      categories: ["콘텐츠 기획 & 제작", "AI 활용"],
+      categories: ["브랜딩", "AI 활용"],
       title: "바이탈코어 상세페이지 (2026)",
       company: "바이탈코어",
       format: "이미지",
@@ -302,7 +302,7 @@ const CONFIG = {
       ],
     },
     {
-      categories: ["콘텐츠 제작"],
+      categories: ["영상 편집"],
       title: "Color Grading (2026)",
       format: "영상",
       desc: "장면의 분위기에 맞춰 색감, 노출, 대비를 조정하여 \n영상의 분위기를 개선하였습니다.",
@@ -314,7 +314,7 @@ const CONFIG = {
       ],
     },
       {
-      categories: ["콘텐츠 기획 & 제작", "SNS 운영"],
+      categories: ["브랜딩"],
       title: "학과 인스타그램 (2026)",
       format: "이미지",
       desc: "학과 인스타그램을 운영하며 \n1개월 간 총 조회수 약 214만 회, 프로필 방문 약 4만 7천 회 달성하였습니다.",
@@ -331,7 +331,7 @@ const CONFIG = {
       ],
     },
     {
-      categories: ["콘텐츠 기획 & 제작"],
+      categories: ["브랜딩"],
       title: "반려동물 서비스 (2025)",
       format: "이미지",
       desc: "사용자 리서치를 기반으로 반려동물 보호자의 니즈를 분석하고, \n서비스 기획부터 프로토타입 제작까지 진행하였습니다.",
@@ -342,7 +342,7 @@ const CONFIG = {
       ],
     },
     {
-      categories: ["콘텐츠 기획 & 제작"],
+      categories: ["브랜딩"],
       title: " 가상 브랜드 콘텐츠 (2025)",
       format: "이미지",
       desc: "가상의 사료 브랜드 \"Green Pet\"의 콘텐츠 썸네일을 제작하였습니다.",
