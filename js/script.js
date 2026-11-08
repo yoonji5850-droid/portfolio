@@ -144,7 +144,8 @@ const CONFIG = {
   // kicker/headline/caption: 카드 안의 영문 문구, tone: 카드 색(lime | salmon | peri), deco: 장식 그림(circles | strokes | sheets)
   skills: [
     {
-      title: "유튜브 콘텐츠 기획 및 영상 편집", // 카드 아래 제목 / 필터 문구
+      title: "영상 편집", // 카드 아래 굵은 제목 / 필터 문구
+      sub: "유튜브 콘텐츠 기획 및 영상 편집", // 카드 아래 작은 글씨
       kicker: "", // 번호(01) 옆에 붙는 작은 문구 (비워두면 번호만 표시)
       headline: ["VIDEO", "EDITING"], // 카드 안의 큰 글씨 ("(" 로 시작하는 줄은 작게 표시됩니다)
       tone: "lime",
@@ -153,7 +154,8 @@ const CONFIG = {
       matchFormat: ["영상"],
     },
     {
-      title: "숏폼 기획 및 바이럴 콘텐츠 제작",
+      title: "콘텐츠 마케팅",
+      sub: "숏폼 기획 및 바이럴 콘텐츠 제작",
       kicker: "",
       headline: ["CONTENT", "MARKETING", "(SHORT-FORM)"],
       tone: "salmon",
@@ -161,7 +163,8 @@ const CONFIG = {
       matchFormat: ["숏폼"],
     },
     {
-      title: "상세페이지 제작 및 브랜딩",
+      title: "브랜딩",
+      sub: "상세페이지 및 카드뉴스 제작",
       kicker: "",
       headline: ["BRANDING"],
       tone: "peri",
@@ -623,7 +626,7 @@ function renderContent() {
         <div class="cat-meta">
           <div>
             <h3 class="cat-title">${escapeHtml(s.title)}</h3>
-            ${(s.skillItems || []).length ? `<p class="cat-sub">${s.skillItems.map((it) => escapeHtml(it)).join(" · ")}</p>` : ""}
+            ${s.sub ? `<p class="cat-sub">${escapeHtml(s.sub)}</p>` : ""}
           </div>
           <span class="cat-arrow" aria-hidden="true">${ARROW_UP_RIGHT}</span>
         </div>
