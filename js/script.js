@@ -618,7 +618,6 @@ function renderContent() {
       (s, i) => `
       <div class="cat-card reveal" data-skill="${i}" tabindex="0" role="button" aria-label="${escapeHtml(s.title)} 관련 프로젝트 보기">
         <div class="cat-tile tone-${escapeHtml(s.tone || "lime")}">
-          ${CAT_DECOS[s.deco] || ""}
           <span class="cat-kicker">${pad2(i + 1)}${s.kicker ? ` / ${escapeHtml(s.kicker)}` : ""}</span>
           <p class="cat-headline">${(s.headline || []).map((l) => (l.startsWith("(") ? `<small>${escapeHtml(l)}</small>` : escapeHtml(l))).join("<br>")}</p>
           <span class="cat-caption">${escapeHtml(s.caption || "")}</span>
