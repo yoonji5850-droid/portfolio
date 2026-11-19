@@ -82,6 +82,7 @@ const CONFIG = {
           {
             "name": "럭키드로우",
             "items": [
+              "IVE [EMPATHY] 럭키드로우",
               "ZEROBASEONE [MELTING POINT] 럭키드로우",
               "IVE [I`VE MINE] 럭키드로우",
               "(여자)아이들 2nd Full Album [2] 럭키드로우",
@@ -93,8 +94,7 @@ const CONFIG = {
               "SEVENTEEN [SPILL THE FEELS] 럭키드로우",
               "더보이즈 [도화선] 럭키드로우",
               "부석순 [TELEPARTY] 럭키드로우",
-              "ZEROBASEONE [BLUE PARADISE]",
-              "IVE [EMPATHY] 럭키드로우"
+              "ZEROBASEONE [BLUE PARADISE]"
             ]
           },
           {
