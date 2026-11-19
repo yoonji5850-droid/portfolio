@@ -93,7 +93,8 @@ const CONFIG = {
               "SEVENTEEN [SPILL THE FEELS] 럭키드로우",
               "더보이즈 [도화선] 럭키드로우",
               "부석순 [TELEPARTY] 럭키드로우",
-              "ZEROBASEONE [BLUE PARADISE]"
+              "ZEROBASEONE [BLUE PARADISE]",
+              "IVE [EMPATHY] 럭키드로우"
             ]
           },
           {
