@@ -182,10 +182,11 @@ const CONFIG = {
   portfolio: [
     {
       categories: ["콘텐츠 마케팅"],
-      title: "유튜브 숏폼 채널 <얌냠> 운영",
+      title: "유튜브 숏폼 채널 <얌냠> 운영 (2026)",
       format: "숏폼",
-      desc: "유튜브 숏폼 채널 <얌냠>을 운영했습니다.",
-      tools: [],
+      desc: "K-팝·보컬 큐레이션 쇼츠 계정 \"얌냠\"을 운영하였습니다. \n평균 조회수: 약 3.5천회",
+      tools: ["Premiere Pro"],
+      link: { label: "유튜브 채널 보기", url: "https://www.youtube.com/@neeeeonyam/shorts" },
       image: "./images/얌냠 0.png",
       media: [
         { type: "image", src: "./images/얌냠 0.png" },
