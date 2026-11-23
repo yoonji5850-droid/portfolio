@@ -182,6 +182,18 @@ const CONFIG = {
   portfolio: [
     {
       categories: ["콘텐츠 마케팅"],
+      title: "인도네시아 타깃 아티스트 마케팅 (2026)",
+      format: "숏폼",
+      desc: "인도네시아 10~20대 타깃의 아티스트 홍보를 위해 \nInstagram Reels 콘텐츠 6개를 기획·제작하고 Meta 광고를 운영하였습니다. \n누적 조회수: 약 200만 회 / 랜딩페이지 광고 클릭: 약 7만 회",
+      tools: ["Premiere Pro", "Meta Ads Manager"],
+      // 영상이 준비되면 아래 두 줄을 채워주세요. (image: 카드 썸네일 / media: 영상 목록)
+      // 예) image: "https://i.ytimg.com/vi/영상ID/hqdefault.jpg",
+      //     media: [{ type: "youtube", id: "영상ID" }],
+      image: "",
+      media: [],
+    },
+    {
+      categories: ["콘텐츠 마케팅"],
       title: "유튜브 숏폼 채널 <얌냠> 운영 (2026)",
       format: "숏폼",
       desc: "K-팝·보컬 큐레이션 쇼츠 계정 \"얌냠\"을 운영하였습니다. \n평균 조회수: 약 3.5천회",
