@@ -187,8 +187,8 @@ const CONFIG = {
       format: "영상",
       desc: "MUMW 소속 가수 여진(L∞na)의 \n여진이의 행운 가득 거북이 모루인형 만들기🍀🐢 \n영상 편집 및 썸네일 제작을 하였습니다.",
       tools: ["Premiere Pro", "Photoshop"],
-      image: "https://i.ytimg.com/vi/7mCcBHLVe9Q/hqdefault.jpg",
-      media: [{ type: "youtube", id: "7mCcBHLVe9Q" }],
+      image: "https://i.ytimg.com/vi/VSkgXsXookY/hqdefault.jpg",
+      media: [{ type: "youtube", id: "VSkgXsXookY" }],
     },
     {
       categories: ["영상 편집"],
@@ -197,8 +197,8 @@ const CONFIG = {
       format: "영상",
       desc: "MUMW 소속 가수 여진(L∞na)의 \n'Red Hot Chili Summer' MV Behind \n영상 편집 및 썸네일 제작을 하였습니다.",
       tools: ["Premiere Pro", "Photoshop"],
-      image: "https://i.ytimg.com/vi/GhnE6aFtwzU/hqdefault.jpg",
-      media: [{ type: "youtube", id: "GhnE6aFtwzU" }],
+      image: "https://i.ytimg.com/vi/hg-MM7hkUf8/hqdefault.jpg",
+      media: [{ type: "youtube", id: "hg-MM7hkUf8" }],
     },
     {
       categories: ["영상 편집"],
