@@ -181,6 +181,19 @@ const CONFIG = {
   // image: 이미지 경로 (없으면 자동으로 플레이스홀더가 표시됩니다)
   portfolio: [
     {
+      categories: ["콘텐츠 마케팅"],
+      title: "유튜브 숏폼 채널 <얌냠> 운영",
+      format: "숏폼",
+      desc: "유튜브 숏폼 채널 <얌냠>을 운영했습니다.",
+      tools: [],
+      image: "./images/얌냠 0.png",
+      media: [
+        { type: "image", src: "./images/얌냠 0.png" },
+        { type: "image", src: "./images/얌냠 1.png" },
+        { type: "image", src: "./images/얌냠 2.png" },
+      ],
+    },
+    {
       categories: ["영상 편집"],
       title: "남규희 모의고사 콘텐츠 (2026)",
       company: "MUMW 엔터테인먼트",
