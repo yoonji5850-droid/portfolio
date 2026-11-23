@@ -185,7 +185,7 @@ const CONFIG = {
       title: "남규희 모의고사 콘텐츠 (2026)",
       company: "MUMW 엔터테인먼트",
       format: "영상",
-      desc: "MUMW 소속 배우 남규희의 \n자신감은 만점, 정답률은 과연? 💯 MUMW 모의고사 남규희 영역 📝 \n콘텐츠 기획, 촬영, 영상 편집, 썸네일 제작을 하였습니다.",
+      desc: "MUMW 소속 배우 남규희의 \n MUMW 모의고사 남규희 영역 📝 \n콘텐츠 기획, 촬영, 영상 편집, 썸네일 제작을 하였습니다.",
       tools: ["Premiere Pro", "Photoshop"],
       image: "https://i.ytimg.com/vi/1ouT1c4csq4/hqdefault.jpg",
       media: [{ type: "youtube", id: "1ouT1c4csq4" }],
