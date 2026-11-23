@@ -322,19 +322,7 @@ const CONFIG = {
         { type: "image", src: "./images/work1-3-1.jpg" },
       ],
     },
-    {
-      categories: ["영상 편집"],
-      title: "Color Grading (2026)",
-      format: "영상",
-      desc: "장면의 분위기에 맞춰 색감, 노출, 대비를 조정하여 \n영상의 분위기를 개선하였습니다.",
-      tools: ["DaVinci Resolve", "Premiere Pro"],
-      image: "./images/썸넬.png",
-      media: [
-        { type: "youtube", id: "nkpbxITAha4" },
-        { type: "youtube", id: "KyxhXg5Vgxk" },
-      ],
-    },
-      {
+   {
       categories: ["브랜딩"],
       title: "학과 인스타그램 (2026)",
       format: "이미지",
