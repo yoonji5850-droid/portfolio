@@ -202,6 +202,16 @@ const CONFIG = {
     },
     {
       categories: ["영상 편집"],
+      title: "여진(L∞na) Special Video Behind (2026)",
+      company: "MUMW 엔터테인먼트",
+      format: "영상",
+      desc: "MUMW 소속 가수 여진(L∞na)의 \n11/11 Special Video Behind \n촬영 및 영상 편집, 썸네일 제작을 하였습니다.",
+      tools: ["Premiere Pro", "Photoshop"],
+      image: "https://i.ytimg.com/vi/E0ZgJKAp0Mc/hqdefault.jpg",
+      media: [{ type: "youtube", id: "E0ZgJKAp0Mc" }],
+    },
+    {
+      categories: ["영상 편집"],
       title: "김보경(NEON) MV Behind (2026)",
       company: "MUMW 엔터테인먼트",
       format: "영상",
