@@ -207,8 +207,8 @@ const CONFIG = {
       format: "영상",
       desc: "MUMW 소속 가수 김보경(NEON)의 \n'별의 요람(Twilight)' MV Behind \n영상 편집 및 썸네일 제작을 하였습니다.",
       tools: ["Premiere Pro", "Photoshop"],
-      image: "https://i.ytimg.com/vi/A08rukYNTh8/hqdefault.jpg",
-      media: [{ type: "youtube", id: "A08rukYNTh8" }],
+      image: "https://i.ytimg.com/vi/WyiXmp5zJNA/hqdefault.jpg",
+      media: [{ type: "youtube", id: "WyiXmp5zJNA" }],
     },
       {
       categories: ["콘텐츠 마케팅"],
